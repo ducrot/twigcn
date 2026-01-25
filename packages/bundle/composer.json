@@ -1,0 +1,43 @@
+{
+    "name": "ducrot/twigcn-bundle",
+    "type": "symfony-bundle",
+    "description": "Beautiful, accessible UI components for Symfony & Twig. Inspired by shadcn/ui.",
+    "keywords": ["symfony", "twig", "components", "ui", "tailwind", "stimulus"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christian Ducrot",
+            "email": "christian@ducrot.de"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "symfony/config": "^7.0",
+        "symfony/dependency-injection": "^7.0",
+        "symfony/http-kernel": "^7.0",
+        "symfony/ux-twig-component": "^2.18",
+        "symfony/ux-icons": "^2.18"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^11.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Twigcn\\Bundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Twigcn\\Bundle\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.0-dev"
+        }
+    }
+}

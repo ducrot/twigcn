@@ -1,0 +1,14 @@
+<details
+    data-accordion-target="item"
+    class="py-4 {{ class }}"
+    {% if open %}open{% endif %}
+    {{ attributes }}
+>
+    <summary class="flex cursor-pointer list-none items-center justify-between font-medium">
+        {{ title }}
+        <twig:ux:icon name="lucide:chevron-down" class="size-4 shrink-0 transition-transform duration-200 [[open]>&]:rotate-180" />
+    </summary>
+    <div class="pt-4 text-sm text-muted-foreground">
+        {% block content %}{% endblock %}
+    </div>
+</details>

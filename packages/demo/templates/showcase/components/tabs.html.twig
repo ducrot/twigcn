@@ -1,0 +1,131 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Tabs - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Tabs</h1>
+        <p class="text-muted-foreground mt-2">
+            A set of layered sections of content—known as tab panels—that are displayed one at a time.
+        </p>
+    </header>
+
+    {# Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section class="max-w-md">
+            <twig:Twigcn:Tabs>
+                <twig:Twigcn:TabsList>
+                    <twig:Twigcn:TabsTrigger value="account" :active="true">Account</twig:Twigcn:TabsTrigger>
+                    <twig:Twigcn:TabsTrigger value="password">Password</twig:Twigcn:TabsTrigger>
+                </twig:Twigcn:TabsList>
+                <twig:Twigcn:TabsContent value="account" :active="true">
+                    <twig:Twigcn:Card>
+                        <header>
+                            <h2>Account</h2>
+                            <p>Make changes to your account here.</p>
+                        </header>
+                        <section class="flex flex-col gap-4">
+                            <twig:Twigcn:Field>
+                                <twig:Twigcn:Label for="name">Name</twig:Twigcn:Label>
+                                <twig:Twigcn:Input id="name" value="John Doe" />
+                            </twig:Twigcn:Field>
+                            <twig:Twigcn:Field>
+                                <twig:Twigcn:Label for="username">Username</twig:Twigcn:Label>
+                                <twig:Twigcn:Input id="username" value="@johndoe" />
+                            </twig:Twigcn:Field>
+                        </section>
+                        <footer>
+                            <twig:Twigcn:Button>Save changes</twig:Twigcn:Button>
+                        </footer>
+                    </twig:Twigcn:Card>
+                </twig:Twigcn:TabsContent>
+                <twig:Twigcn:TabsContent value="password">
+                    <twig:Twigcn:Card>
+                        <header>
+                            <h2>Password</h2>
+                            <p>Change your password here.</p>
+                        </header>
+                        <section class="flex flex-col gap-4">
+                            <twig:Twigcn:Field>
+                                <twig:Twigcn:Label for="current">Current password</twig:Twigcn:Label>
+                                <twig:Twigcn:Input id="current" type="password" />
+                            </twig:Twigcn:Field>
+                            <twig:Twigcn:Field>
+                                <twig:Twigcn:Label for="new">New password</twig:Twigcn:Label>
+                                <twig:Twigcn:Input id="new" type="password" />
+                            </twig:Twigcn:Field>
+                        </section>
+                        <footer>
+                            <twig:Twigcn:Button>Save password</twig:Twigcn:Button>
+                        </footer>
+                    </twig:Twigcn:Card>
+                </twig:Twigcn:TabsContent>
+            </twig:Twigcn:Tabs>
+        </section>
+    </section>
+
+    {# Persistent State #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Persistent State</h2>
+        </header>
+        <section class="max-w-md">
+            <p class="text-muted-foreground text-sm mb-4">
+                Use the <code class="bg-muted px-1 rounded">storageKey</code> prop to persist the active tab in localStorage. The selected tab will be remembered across page navigations and refreshes.
+            </p>
+            <twig:Twigcn:Tabs :storageKey="'tabs-demo-persistent'">
+                <twig:Twigcn:TabsList>
+                    <twig:Twigcn:TabsTrigger value="overview" :active="true">Overview</twig:Twigcn:TabsTrigger>
+                    <twig:Twigcn:TabsTrigger value="analytics">Analytics</twig:Twigcn:TabsTrigger>
+                    <twig:Twigcn:TabsTrigger value="reports">Reports</twig:Twigcn:TabsTrigger>
+                </twig:Twigcn:TabsList>
+                <twig:Twigcn:TabsContent value="overview" :active="true">
+                    <div class="p-4 border rounded-lg mt-2">
+                        <p class="text-sm text-muted-foreground">Overview content. Navigate away and come back - this tab will remain selected.</p>
+                    </div>
+                </twig:Twigcn:TabsContent>
+                <twig:Twigcn:TabsContent value="analytics">
+                    <div class="p-4 border rounded-lg mt-2">
+                        <p class="text-sm text-muted-foreground">Analytics content.</p>
+                    </div>
+                </twig:Twigcn:TabsContent>
+                <twig:Twigcn:TabsContent value="reports">
+                    <div class="p-4 border rounded-lg mt-2">
+                        <p class="text-sm text-muted-foreground">Reports content.</p>
+                    </div>
+                </twig:Twigcn:TabsContent>
+            </twig:Twigcn:Tabs>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Tabs&gt;
+    &lt;twig:TabsList&gt;
+        &lt;twig:TabsTrigger value="tab1" :active="true"&gt;Tab 1&lt;/twig:TabsTrigger&gt;
+        &lt;twig:TabsTrigger value="tab2"&gt;Tab 2&lt;/twig:TabsTrigger&gt;
+    &lt;/twig:TabsList&gt;
+    &lt;twig:TabsContent value="tab1" :active="true"&gt;
+        Content for tab 1
+    &lt;/twig:TabsContent&gt;
+    &lt;twig:TabsContent value="tab2"&gt;
+        Content for tab 2
+    &lt;/twig:TabsContent&gt;
+&lt;/twig:Tabs&gt;
+
+{# With persistent state #}
+&lt;twig:Tabs :storageKey="'my-unique-key'"&gt;
+    ...
+&lt;/twig:Tabs&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

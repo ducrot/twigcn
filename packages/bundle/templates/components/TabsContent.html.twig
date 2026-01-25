@@ -1,0 +1,10 @@
+<div
+    role="tabpanel"
+    data-tabs-target="content"
+    data-tabs-value="{{ value }}"
+    {% if not active %}hidden{% endif %}
+    class="{{ class }}"
+    {{ attributes }}
+>
+    {% block content %}{% endblock %}
+</div>

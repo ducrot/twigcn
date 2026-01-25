@@ -1,0 +1,5 @@
+twig_component:
+    defaults:
+        App\Twig\Components\:
+            template_directory: components/
+            name_prefix: ''

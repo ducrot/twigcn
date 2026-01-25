@@ -1,0 +1,10 @@
+{% set groupId = 'group-' ~ random() %}
+<div
+    role="group"
+    aria-labelledby="{{ groupId }}"
+    {% if class %}class="{{ class }}"{% endif %}
+    {{ attributes }}
+>
+    <div role="heading" id="{{ groupId }}">{{ label }}</div>
+    {% block content %}{% endblock %}
+</div>

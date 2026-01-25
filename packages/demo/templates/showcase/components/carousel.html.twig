@@ -1,0 +1,148 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Carousel - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Carousel</h1>
+        <p class="text-muted-foreground mt-2">
+            A very simple slider component. If you need a full-featured carousel with animations and swipe support,
+            consider using a library like
+            <a href="https://www.embla-carousel.com/" target="_blank" rel="noopener noreferrer" class="font-medium underline underline-offset-4 hover:text-foreground">Embla</a>.
+        </p>
+    </header>
+
+    {# Basic Example #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Basic Carousel</h2>
+        </header>
+        <section class="flex justify-center">
+            <div class="max-w-xs">
+                <twig:Twigcn:Carousel>
+                    <twig:Twigcn:CarouselContent>
+                        {% for i in 1..5 %}
+                        <twig:Twigcn:CarouselItem>
+                            <div class="p-1">
+                                <twig:Twigcn:Card class="border">
+                                    <div class="flex aspect-square items-center justify-center p-6">
+                                        <span class="text-4xl font-semibold">{{ i }}</span>
+                                    </div>
+                                </twig:Twigcn:Card>
+                            </div>
+                        </twig:Twigcn:CarouselItem>
+                        {% endfor %}
+                    </twig:Twigcn:CarouselContent>
+                    <twig:Twigcn:CarouselPrevious />
+                    <twig:Twigcn:CarouselNext />
+                </twig:Twigcn:Carousel>
+            </div>
+        </section>
+    </section>
+
+    {# Multiple Items #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Multiple Items</h2>
+        </header>
+        <section class="flex justify-center">
+            <div class="w-full max-w-sm">
+                <twig:Twigcn:Carousel>
+                    <twig:Twigcn:CarouselContent class="-ml-2 md:-ml-4">
+                        {% for i in 1..6 %}
+                        <twig:Twigcn:CarouselItem class="pl-2 md:pl-4 basis-1/3">
+                            <div class="p-1">
+                                <twig:Twigcn:Card class="border">
+                                    <div class="flex aspect-square items-center justify-center p-6">
+                                        <span class="text-2xl font-semibold">{{ i }}</span>
+                                    </div>
+                                </twig:Twigcn:Card>
+                            </div>
+                        </twig:Twigcn:CarouselItem>
+                        {% endfor %}
+                    </twig:Twigcn:CarouselContent>
+                    <twig:Twigcn:CarouselPrevious />
+                    <twig:Twigcn:CarouselNext />
+                </twig:Twigcn:Carousel>
+            </div>
+        </section>
+    </section>
+
+    {# With Images #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Images</h2>
+        </header>
+        <section class="flex justify-center">
+            <div class="max-w-md">
+                <twig:Twigcn:Carousel>
+                    <twig:Twigcn:CarouselContent>
+                        {% for i in 1..4 %}
+                        <twig:Twigcn:CarouselItem>
+                            <div class="p-1">
+                                <div class="overflow-hidden rounded-lg">
+                                    <img
+                                        src="https://picsum.photos/400/300?random={{ i }}"
+                                        alt="Image {{ i }}"
+                                        class="w-full h-auto object-cover"
+                                    />
+                                </div>
+                            </div>
+                        </twig:Twigcn:CarouselItem>
+                        {% endfor %}
+                    </twig:Twigcn:CarouselContent>
+                    <twig:Twigcn:CarouselPrevious />
+                    <twig:Twigcn:CarouselNext />
+                </twig:Twigcn:Carousel>
+            </div>
+        </section>
+    </section>
+
+    {# Vertical #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Vertical Orientation</h2>
+        </header>
+        <section class="flex justify-center">
+            <div class="max-w-xs">
+                <twig:Twigcn:Carousel orientation="vertical" class="w-full max-w-xs">
+                    <twig:Twigcn:CarouselContent class="-mt-1 h-[200px]">
+                        {% for i in 1..5 %}
+                        <twig:Twigcn:CarouselItem class="pt-1 basis-1/2">
+                            <div class="p-1">
+                                <twig:Twigcn:Card class="border">
+                                    <div class="flex items-center justify-center p-6">
+                                        <span class="text-3xl font-semibold">{{ i }}</span>
+                                    </div>
+                                </twig:Twigcn:Card>
+                            </div>
+                        </twig:Twigcn:CarouselItem>
+                        {% endfor %}
+                    </twig:Twigcn:CarouselContent>
+                    <twig:Twigcn:CarouselPrevious />
+                    <twig:Twigcn:CarouselNext />
+                </twig:Twigcn:Carousel>
+            </div>
+        </section>
+    </section>
+
+    {# Usage Example #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Carousel&gt;
+    &lt;twig:CarouselContent&gt;
+        &lt;twig:CarouselItem&gt;...&lt;/twig:CarouselItem&gt;
+        &lt;twig:CarouselItem&gt;...&lt;/twig:CarouselItem&gt;
+        &lt;twig:CarouselItem&gt;...&lt;/twig:CarouselItem&gt;
+    &lt;/twig:CarouselContent&gt;
+    &lt;twig:CarouselPrevious /&gt;
+    &lt;twig:CarouselNext /&gt;
+&lt;/twig:Carousel&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

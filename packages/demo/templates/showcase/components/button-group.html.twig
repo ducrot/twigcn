@@ -1,0 +1,140 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Button Group - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Button Group</h1>
+        <p class="text-muted-foreground mt-2">
+            Groups related buttons together with shared borders.
+        </p>
+    </header>
+
+    {# Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section>
+            <twig:Twigcn:ButtonGroup>
+                <twig:Twigcn:Button variant="outline">Left</twig:Twigcn:Button>
+                <twig:Twigcn:Button variant="outline">Center</twig:Twigcn:Button>
+                <twig:Twigcn:Button variant="outline">Right</twig:Twigcn:Button>
+            </twig:Twigcn:ButtonGroup>
+        </section>
+    </section>
+
+    {# Variants #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Variants</h2>
+        </header>
+        <section class="flex flex-col gap-4">
+            <twig:Twigcn:ButtonGroup>
+                <twig:Twigcn:Button>Primary</twig:Twigcn:Button>
+                <twig:Twigcn:Button>Group</twig:Twigcn:Button>
+                <twig:Twigcn:Button>Buttons</twig:Twigcn:Button>
+            </twig:Twigcn:ButtonGroup>
+            <twig:Twigcn:ButtonGroup>
+                <twig:Twigcn:Button variant="secondary">Secondary</twig:Twigcn:Button>
+                <twig:Twigcn:Button variant="secondary">Group</twig:Twigcn:Button>
+                <twig:Twigcn:Button variant="secondary">Buttons</twig:Twigcn:Button>
+            </twig:Twigcn:ButtonGroup>
+            <twig:Twigcn:ButtonGroup>
+                <twig:Twigcn:Button variant="outline">Outline</twig:Twigcn:Button>
+                <twig:Twigcn:Button variant="outline">Group</twig:Twigcn:Button>
+                <twig:Twigcn:Button variant="outline">Buttons</twig:Twigcn:Button>
+            </twig:Twigcn:ButtonGroup>
+        </section>
+    </section>
+
+    {# With Icons #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Icons</h2>
+        </header>
+        <section>
+            <twig:Twigcn:ButtonGroup>
+                <twig:Twigcn:Button variant="outline" :iconOnly="true">
+                    <twig:ux:icon name="lucide:bold" />
+                </twig:Twigcn:Button>
+                <twig:Twigcn:Button variant="outline" :iconOnly="true">
+                    <twig:ux:icon name="lucide:italic" />
+                </twig:Twigcn:Button>
+                <twig:Twigcn:Button variant="outline" :iconOnly="true">
+                    <twig:ux:icon name="lucide:underline" />
+                </twig:Twigcn:Button>
+                <twig:Twigcn:Button variant="outline" :iconOnly="true">
+                    <twig:ux:icon name="lucide:strikethrough" />
+                </twig:Twigcn:Button>
+            </twig:Twigcn:ButtonGroup>
+        </section>
+    </section>
+
+    {# Vertical #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Vertical</h2>
+        </header>
+        <section>
+            <twig:Twigcn:ButtonGroup orientation="vertical">
+                <twig:Twigcn:Button variant="outline">Top</twig:Twigcn:Button>
+                <twig:Twigcn:Button variant="outline">Middle</twig:Twigcn:Button>
+                <twig:Twigcn:Button variant="outline">Bottom</twig:Twigcn:Button>
+            </twig:Twigcn:ButtonGroup>
+        </section>
+    </section>
+
+    {# Toolbar Example #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Toolbar Example</h2>
+        </header>
+        <section class="flex flex-wrap gap-2">
+            <twig:Twigcn:ButtonGroup>
+                <twig:Twigcn:Button variant="outline" :iconOnly="true">
+                    <twig:ux:icon name="lucide:align-left" />
+                </twig:Twigcn:Button>
+                <twig:Twigcn:Button variant="outline" :iconOnly="true">
+                    <twig:ux:icon name="lucide:align-center" />
+                </twig:Twigcn:Button>
+                <twig:Twigcn:Button variant="outline" :iconOnly="true">
+                    <twig:ux:icon name="lucide:align-right" />
+                </twig:Twigcn:Button>
+                <twig:Twigcn:Button variant="outline" :iconOnly="true">
+                    <twig:ux:icon name="lucide:align-justify" />
+                </twig:Twigcn:Button>
+            </twig:Twigcn:ButtonGroup>
+            <twig:Twigcn:ButtonGroup>
+                <twig:Twigcn:Button variant="outline" :iconOnly="true">
+                    <twig:ux:icon name="lucide:list" />
+                </twig:Twigcn:Button>
+                <twig:Twigcn:Button variant="outline" :iconOnly="true">
+                    <twig:ux:icon name="lucide:list-ordered" />
+                </twig:Twigcn:Button>
+            </twig:Twigcn:ButtonGroup>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:ButtonGroup&gt;
+    &lt;twig:Button variant="outline"&gt;Left&lt;/twig:Button&gt;
+    &lt;twig:Button variant="outline"&gt;Center&lt;/twig:Button&gt;
+    &lt;twig:Button variant="outline"&gt;Right&lt;/twig:Button&gt;
+&lt;/twig:ButtonGroup&gt;
+
+{# Vertical orientation #}
+&lt;twig:ButtonGroup orientation="vertical"&gt;
+    &lt;twig:Button variant="outline"&gt;Top&lt;/twig:Button&gt;
+    &lt;twig:Button variant="outline"&gt;Bottom&lt;/twig:Button&gt;
+&lt;/twig:ButtonGroup&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

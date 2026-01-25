@@ -1,0 +1,136 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Alert - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Alert</h1>
+        <p class="text-muted-foreground mt-2">
+            Displays a callout for user attention.
+        </p>
+    </header>
+
+    {# Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section class="max-w-xl">
+            <twig:Twigcn:Alert>
+                <twig:ux:icon name="lucide:terminal" />
+                <h5 data-title>Heads up!</h5>
+                <section>
+                    <p>You can add components to your app using the CLI.</p>
+                </section>
+            </twig:Twigcn:Alert>
+        </section>
+    </section>
+
+    {# Destructive #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Destructive</h2>
+        </header>
+        <section class="max-w-xl">
+            <twig:Twigcn:Alert variant="destructive">
+                <twig:ux:icon name="lucide:circle-alert" />
+                <h5 data-title>Error</h5>
+                <section>
+                    <p>Your session has expired. Please log in again.</p>
+                </section>
+            </twig:Twigcn:Alert>
+        </section>
+    </section>
+
+    {# Without Icon #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Without Icon</h2>
+        </header>
+        <section class="max-w-xl">
+            <twig:Twigcn:Alert>
+                <h5 data-title>Note</h5>
+                <section>
+                    <p>This is an alert without an icon. You can use it for simple messages.</p>
+                </section>
+            </twig:Twigcn:Alert>
+        </section>
+    </section>
+
+    {# With List #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With List</h2>
+        </header>
+        <section class="max-w-xl">
+            <twig:Twigcn:Alert variant="destructive">
+                <twig:ux:icon name="lucide:circle-x" />
+                <h5 data-title>There were errors with your submission</h5>
+                <section>
+                    <ul>
+                        <li>Email address is required</li>
+                        <li>Password must be at least 8 characters</li>
+                        <li>Please accept the terms of service</li>
+                    </ul>
+                </section>
+            </twig:Twigcn:Alert>
+        </section>
+    </section>
+
+    {# Info Variants #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Info Variants</h2>
+        </header>
+        <section class="flex flex-col gap-4 max-w-xl">
+            <twig:Twigcn:Alert>
+                <twig:ux:icon name="lucide:info" />
+                <h5 data-title>Information</h5>
+                <section>
+                    <p>This is an informational message.</p>
+                </section>
+            </twig:Twigcn:Alert>
+            <twig:Twigcn:Alert>
+                <twig:ux:icon name="lucide:circle-check" />
+                <h5 data-title>Success</h5>
+                <section>
+                    <p>Your changes have been saved successfully.</p>
+                </section>
+            </twig:Twigcn:Alert>
+            <twig:Twigcn:Alert>
+                <twig:ux:icon name="lucide:triangle-alert" />
+                <h5 data-title>Warning</h5>
+                <section>
+                    <p>This action cannot be undone.</p>
+                </section>
+            </twig:Twigcn:Alert>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Alert&gt;
+    &lt;twig:ux:icon name="lucide:terminal" /&gt;
+    &lt;h5 data-title&gt;Heads up!&lt;/h5&gt;
+    &lt;section&gt;
+        &lt;p&gt;You can add components to your app using the CLI.&lt;/p&gt;
+    &lt;/section&gt;
+&lt;/twig:Alert&gt;
+
+{# Destructive variant #}
+&lt;twig:Alert variant="destructive"&gt;
+    &lt;twig:ux:icon name="lucide:circle-alert" /&gt;
+    &lt;h5 data-title&gt;Error&lt;/h5&gt;
+    &lt;section&gt;
+        &lt;p&gt;Something went wrong.&lt;/p&gt;
+    &lt;/section&gt;
+&lt;/twig:Alert&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

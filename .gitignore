@@ -1,0 +1,36 @@
+# Dependencies
+/node_modules/
+/packages/*/node_modules/
+
+# Build outputs
+/packages/ui/dist/
+!/packages/ui/dist/controllers.json
+/packages/demo/public/build/
+/packages/demo/var/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# DDEV
+.ddev/.gitignore
+.ddev/.ddev-docker-compose-*
+.ddev/.homeadditions
+.ddev/db_snapshots/
+
+# Environment
+.env.local
+.env.*.local
+
+# PHP
+/packages/demo/vendor/
+/packages/bundle/vendor/
+
+# Logs
+*.log

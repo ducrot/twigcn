@@ -1,0 +1,90 @@
+/* TwigcnBundle Component Styles */
+
+/* Drawer */
+@layer components {
+    .drawer {
+        @apply fixed inset-0 z-50 m-0 p-0 border-none bg-transparent max-w-dvw max-h-dvh w-dvw h-dvh;
+
+        &::backdrop {
+            @apply bg-black/50;
+        }
+        .drawer-content {
+            @apply fixed flex flex-col bg-background shadow-lg transition-transform duration-200 ease-out;
+        }
+        &[data-side="right"] .drawer-content {
+            @apply top-0 right-0 bottom-0 w-96 max-w-dvw translate-x-full;
+        }
+        &[data-side="left"] .drawer-content {
+            @apply top-0 left-0 bottom-0 w-96 max-w-dvw -translate-x-full;
+        }
+        &[data-side="top"] .drawer-content {
+            @apply top-0 left-0 right-0 h-auto max-h-[80vh] -translate-y-full;
+        }
+        &[data-side="bottom"] .drawer-content {
+            @apply bottom-0 left-0 right-0 h-auto max-h-[80vh] translate-y-full;
+        }
+        &.open .drawer-content {
+            @apply translate-x-0 translate-y-0;
+        }
+    }
+    .drawer-header {
+        @apply flex flex-col gap-1 py-4 px-6 border-b border-border;
+    }
+    .drawer-footer {
+        @apply flex justify-end gap-2 py-4 px-6 border-t border-border mt-auto;
+    }
+    .drawer-close {
+        @apply absolute top-4 right-4 flex items-center justify-center size-6 rounded-sm opacity-70 transition-opacity duration-150 ease-out hover:opacity-100;
+    }
+}
+
+/* Carousel */
+@layer components {
+    .carousel {
+        @apply relative w-full px-10;
+
+        &.carousel-vertical {
+            @apply px-0 py-10;
+        }
+    }
+    .carousel-viewport {
+        @apply overflow-hidden;
+    }
+    .carousel-content {
+        @apply flex gap-4 scroll-smooth overflow-x-auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+            @apply hidden;
+        }
+        &[data-orientation="vertical"] {
+            @apply flex-col overflow-x-hidden overflow-y-auto;
+        }
+    }
+    .carousel-item {
+        @apply flex-none min-w-0;
+    }
+    .carousel-previous,
+    .carousel-next {
+        @apply absolute flex items-center justify-center size-8 rounded-full border border-border bg-background top-1/2 -translate-y-1/2 z-10 cursor-pointer transition-colors duration-150 ease-out hover:bg-accent disabled:opacity-50 disabled:cursor-not-allowed;
+    }
+    .carousel-previous {
+        @apply left-0;
+    }
+    .carousel-next {
+        @apply right-0;
+    }
+    .carousel-vertical {
+        .carousel-previous,
+        .carousel-next {
+            @apply left-1/2 right-auto top-auto -translate-x-1/2 translate-y-0;
+        }
+        .carousel-previous {
+            @apply top-0;
+        }
+        .carousel-next {
+            @apply bottom-0;
+        }
+    }
+}

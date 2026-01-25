@@ -1,0 +1,14 @@
+<select
+    class="{{ this.selectClasses }}"
+    {% if name %}name="{{ name }}"{% endif %}
+    {% if id %}id="{{ id }}"{% endif %}
+    {% if disabled %}disabled{% endif %}
+    {% if invalid %}aria-invalid="true"{% endif %}
+    {% if required %}required{% endif %}
+    {{ attributes }}
+>
+    {% if placeholder %}
+        <option value="" disabled {% if not value %}selected{% endif %}>{{ placeholder }}</option>
+    {% endif %}
+    {% block content %}{% endblock %}
+</select>

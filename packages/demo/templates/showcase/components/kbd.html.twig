@@ -1,0 +1,134 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Kbd - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Kbd</h1>
+        <p class="text-muted-foreground mt-2">
+            Displays a keyboard key or shortcut.
+        </p>
+    </header>
+
+    {# Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section class="flex items-center gap-2">
+            <twig:Twigcn:Kbd>⌘</twig:Twigcn:Kbd>
+            <twig:Twigcn:Kbd>K</twig:Twigcn:Kbd>
+        </section>
+    </section>
+
+    {# Single Keys #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Single Keys</h2>
+        </header>
+        <section class="flex flex-wrap items-center gap-4">
+            <twig:Twigcn:Kbd>Enter</twig:Twigcn:Kbd>
+            <twig:Twigcn:Kbd>Tab</twig:Twigcn:Kbd>
+            <twig:Twigcn:Kbd>Esc</twig:Twigcn:Kbd>
+            <twig:Twigcn:Kbd>Space</twig:Twigcn:Kbd>
+            <twig:Twigcn:Kbd>Shift</twig:Twigcn:Kbd>
+            <twig:Twigcn:Kbd>Ctrl</twig:Twigcn:Kbd>
+            <twig:Twigcn:Kbd>Alt</twig:Twigcn:Kbd>
+        </section>
+    </section>
+
+    {# Keyboard Shortcuts #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Keyboard Shortcuts</h2>
+        </header>
+        <section class="flex flex-col gap-4">
+            <div class="flex items-center justify-between max-w-sm">
+                <span class="text-sm">Copy</span>
+                <div class="flex items-center gap-1">
+                    <twig:Twigcn:Kbd>⌘</twig:Twigcn:Kbd>
+                    <twig:Twigcn:Kbd>C</twig:Twigcn:Kbd>
+                </div>
+            </div>
+            <div class="flex items-center justify-between max-w-sm">
+                <span class="text-sm">Paste</span>
+                <div class="flex items-center gap-1">
+                    <twig:Twigcn:Kbd>⌘</twig:Twigcn:Kbd>
+                    <twig:Twigcn:Kbd>V</twig:Twigcn:Kbd>
+                </div>
+            </div>
+            <div class="flex items-center justify-between max-w-sm">
+                <span class="text-sm">Undo</span>
+                <div class="flex items-center gap-1">
+                    <twig:Twigcn:Kbd>⌘</twig:Twigcn:Kbd>
+                    <twig:Twigcn:Kbd>Z</twig:Twigcn:Kbd>
+                </div>
+            </div>
+            <div class="flex items-center justify-between max-w-sm">
+                <span class="text-sm">Save</span>
+                <div class="flex items-center gap-1">
+                    <twig:Twigcn:Kbd>⌘</twig:Twigcn:Kbd>
+                    <twig:Twigcn:Kbd>S</twig:Twigcn:Kbd>
+                </div>
+            </div>
+            <div class="flex items-center justify-between max-w-sm">
+                <span class="text-sm">Search</span>
+                <div class="flex items-center gap-1">
+                    <twig:Twigcn:Kbd>⌘</twig:Twigcn:Kbd>
+                    <twig:Twigcn:Kbd>K</twig:Twigcn:Kbd>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    {# With Icons #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Icons</h2>
+        </header>
+        <section class="flex flex-wrap items-center gap-4">
+            <twig:Twigcn:Kbd>
+                <twig:ux:icon name="lucide:arrow-up" />
+            </twig:Twigcn:Kbd>
+            <twig:Twigcn:Kbd>
+                <twig:ux:icon name="lucide:arrow-down" />
+            </twig:Twigcn:Kbd>
+            <twig:Twigcn:Kbd>
+                <twig:ux:icon name="lucide:arrow-left" />
+            </twig:Twigcn:Kbd>
+            <twig:Twigcn:Kbd>
+                <twig:ux:icon name="lucide:arrow-right" />
+            </twig:Twigcn:Kbd>
+        </section>
+    </section>
+
+    {# In Context #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">In Context</h2>
+        </header>
+        <section class="max-w-md">
+            <p class="text-sm text-muted-foreground">
+                Press <twig:Twigcn:Kbd>⌘</twig:Twigcn:Kbd> <twig:Twigcn:Kbd>K</twig:Twigcn:Kbd> to open the command menu.
+            </p>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Kbd&gt;⌘&lt;/twig:Kbd&gt;
+&lt;twig:Kbd&gt;K&lt;/twig:Kbd&gt;
+
+{# With icon #}
+&lt;twig:Kbd&gt;
+    &lt;twig:ux:icon name="lucide:arrow-up" /&gt;
+&lt;/twig:Kbd&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

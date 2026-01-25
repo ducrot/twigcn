@@ -1,0 +1,83 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}ThemeSwitcher - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">ThemeSwitcher</h1>
+        <p class="text-muted-foreground mt-2">A toggle component for switching between light and dark themes.</p>
+    </header>
+
+    {# Icon Button #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Icon Button</h2>
+            <p class="text-muted-foreground text-sm">Simple icon button that toggles between light and dark mode.</p>
+        </header>
+        <section class="flex items-center gap-4">
+            <twig:Twigcn:ThemeSwitcher />
+        </section>
+    </section>
+
+    {# Dropdown Variant #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Dropdown Variant</h2>
+            <p class="text-muted-foreground text-sm">Dropdown menu with options for Light, Dark, and System preferences.</p>
+        </header>
+        <section class="flex items-center gap-4">
+            <twig:Twigcn:ThemeSwitcher variant="dropdown" />
+        </section>
+    </section>
+
+    {# Custom Styling #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Custom Styling</h2>
+        </header>
+        <section class="flex items-center gap-4">
+            <twig:Twigcn:ThemeSwitcher class="h-8 w-8" />
+            <twig:Twigcn:ThemeSwitcher class="h-10 w-10" />
+            <twig:Twigcn:ThemeSwitcher class="h-12 w-12" />
+        </section>
+    </section>
+
+    {# In Navbar Example #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">In Navbar Example</h2>
+        </header>
+        <section>
+            <div class="border rounded-lg p-4">
+                <nav class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <span class="font-bold">Logo</span>
+                        <a href="#" class="text-sm text-muted-foreground hover:text-foreground">Home</a>
+                        <a href="#" class="text-sm text-muted-foreground hover:text-foreground">About</a>
+                        <a href="#" class="text-sm text-muted-foreground hover:text-foreground">Contact</a>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <twig:Twigcn:ThemeSwitcher variant="dropdown" />
+                        <twig:Twigcn:Button size="sm">Sign In</twig:Twigcn:Button>
+                    </div>
+                </nav>
+            </div>
+        </section>
+    </section>
+
+    {# Usage Example #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>{# Simple toggle button #}
+&lt;twig:ThemeSwitcher /&gt;
+
+{# Dropdown with Light/Dark/System options #}
+&lt;twig:ThemeSwitcher variant="dropdown" /&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

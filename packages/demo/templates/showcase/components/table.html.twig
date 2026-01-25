@@ -1,0 +1,150 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Table - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Table</h1>
+        <p class="text-muted-foreground mt-2">
+            A responsive table component for displaying data.
+        </p>
+    </header>
+
+    {# Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section>
+            <twig:Twigcn:Table>
+                <thead>
+                    <tr>
+                        <th>Invoice</th>
+                        <th>Status</th>
+                        <th>Method</th>
+                        <th class="text-right">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="font-medium">INV001</td>
+                        <td><twig:Twigcn:Badge variant="outline">Paid</twig:Twigcn:Badge></td>
+                        <td>Credit Card</td>
+                        <td class="text-right">$250.00</td>
+                    </tr>
+                    <tr>
+                        <td class="font-medium">INV002</td>
+                        <td><twig:Twigcn:Badge variant="secondary">Pending</twig:Twigcn:Badge></td>
+                        <td>PayPal</td>
+                        <td class="text-right">$150.00</td>
+                    </tr>
+                    <tr>
+                        <td class="font-medium">INV003</td>
+                        <td><twig:Twigcn:Badge variant="destructive">Unpaid</twig:Twigcn:Badge></td>
+                        <td>Bank Transfer</td>
+                        <td class="text-right">$350.00</td>
+                    </tr>
+                    <tr>
+                        <td class="font-medium">INV004</td>
+                        <td><twig:Twigcn:Badge variant="outline">Paid</twig:Twigcn:Badge></td>
+                        <td>Credit Card</td>
+                        <td class="text-right">$450.00</td>
+                    </tr>
+                    <tr>
+                        <td class="font-medium">INV005</td>
+                        <td><twig:Twigcn:Badge variant="outline">Paid</twig:Twigcn:Badge></td>
+                        <td>PayPal</td>
+                        <td class="text-right">$550.00</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">Total</td>
+                        <td class="text-right font-medium">$1,750.00</td>
+                    </tr>
+                </tfoot>
+            </twig:Twigcn:Table>
+        </section>
+    </section>
+
+    {# With Actions #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Actions</h2>
+        </header>
+        <section>
+            <twig:Twigcn:Table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th class="text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="font-medium">John Doe</td>
+                        <td>john@example.com</td>
+                        <td>Admin</td>
+                        <td class="text-right">
+                            <twig:Twigcn:ButtonGroup>
+                                <twig:Twigcn:Button variant="ghost" size="sm" :iconOnly="true">
+                                    <twig:ux:icon name="lucide:pencil" />
+                                </twig:Twigcn:Button>
+                                <twig:Twigcn:Button variant="ghost" size="sm" :iconOnly="true">
+                                    <twig:ux:icon name="lucide:trash" />
+                                </twig:Twigcn:Button>
+                            </twig:Twigcn:ButtonGroup>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="font-medium">Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td>Editor</td>
+                        <td class="text-right">
+                            <twig:Twigcn:ButtonGroup>
+                                <twig:Twigcn:Button variant="ghost" size="sm" :iconOnly="true">
+                                    <twig:ux:icon name="lucide:pencil" />
+                                </twig:Twigcn:Button>
+                                <twig:Twigcn:Button variant="ghost" size="sm" :iconOnly="true">
+                                    <twig:ux:icon name="lucide:trash" />
+                                </twig:Twigcn:Button>
+                            </twig:Twigcn:ButtonGroup>
+                        </td>
+                    </tr>
+                </tbody>
+            </twig:Twigcn:Table>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Column 1&lt;/th&gt;
+            &lt;th&gt;Column 2&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Value 1&lt;/td&gt;
+            &lt;td&gt;Value 2&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;td colspan="2"&gt;Footer&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+&lt;/twig:Table&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

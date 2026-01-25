@@ -1,0 +1,8 @@
+<div class="drawer-content {{ class }}" {{ attributes }}>
+    {% block content %}{% endblock %}
+    <form method="dialog" class="drawer-close">
+        <button type="submit" aria-label="Close">
+            <twig:ux:icon name="lucide:x" class="size-4" />
+        </button>
+    </form>
+</div>

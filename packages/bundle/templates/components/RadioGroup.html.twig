@@ -1,0 +1,10 @@
+<fieldset
+    role="radiogroup"
+    class="{{ this.groupClasses }}"
+    {{ attributes }}
+>
+    {% if legend %}
+        <legend class="text-sm font-medium leading-none mb-2">{{ legend }}</legend>
+    {% endif %}
+    {% block content %}{% endblock %}
+</fieldset>

@@ -1,0 +1,16 @@
+<dialog
+    class="{{ this.dialogClasses }}"
+    {% if id %}id="{{ id }}"{% endif %}
+    data-controller="dialog"
+    data-dialog-close-on-backdrop-value="{{ closeOnBackdrop ? 'true' : 'false' }}"
+    {{ attributes }}
+>
+    <div>
+        {% block content %}{% endblock %}
+        <form method="dialog">
+            <button type="submit" aria-label="Close">
+                <twig:ux:icon name="lucide:x" class="size-4" />
+            </button>
+        </form>
+    </div>
+</dialog>

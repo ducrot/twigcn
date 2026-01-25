@@ -1,0 +1,112 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Checkbox - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Checkbox</h1>
+        <p class="text-muted-foreground mt-2">
+            A control that allows the user to toggle between checked and not checked.
+        </p>
+    </header>
+
+    {# Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section class="flex items-center gap-4">
+            <twig:Twigcn:Checkbox id="terms" />
+            <twig:Twigcn:Label for="terms">Accept terms and conditions</twig:Twigcn:Label>
+        </section>
+    </section>
+
+    {# States #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">States</h2>
+        </header>
+        <section class="flex flex-col gap-4">
+            <div class="flex items-center gap-4">
+                <twig:Twigcn:Checkbox id="default" />
+                <twig:Twigcn:Label for="default">Default</twig:Twigcn:Label>
+            </div>
+            <div class="flex items-center gap-4">
+                <twig:Twigcn:Checkbox id="checked" :checked="true" />
+                <twig:Twigcn:Label for="checked">Checked</twig:Twigcn:Label>
+            </div>
+            <div class="flex items-center gap-4">
+                <twig:Twigcn:Checkbox id="disabled" :disabled="true" />
+                <twig:Twigcn:Label for="disabled">Disabled</twig:Twigcn:Label>
+            </div>
+            <div class="flex items-center gap-4">
+                <twig:Twigcn:Checkbox id="disabled-checked" :disabled="true" :checked="true" />
+                <twig:Twigcn:Label for="disabled-checked">Disabled & Checked</twig:Twigcn:Label>
+            </div>
+            <div class="flex items-center gap-4">
+                <twig:Twigcn:Checkbox id="invalid" :invalid="true" />
+                <twig:Twigcn:Label for="invalid">Invalid</twig:Twigcn:Label>
+            </div>
+        </section>
+    </section>
+
+    {# With Description #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Description</h2>
+        </header>
+        <section class="flex items-start gap-4">
+            <twig:Twigcn:Checkbox id="notifications" class="mt-1" />
+            <div class="grid gap-1.5">
+                <twig:Twigcn:Label for="notifications">Enable notifications</twig:Twigcn:Label>
+                <p class="text-muted-foreground text-sm">
+                    Receive emails about new features and updates.
+                </p>
+            </div>
+        </section>
+    </section>
+
+    {# Form Example #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Form Example</h2>
+        </header>
+        <section class="flex flex-col gap-4 max-w-md">
+            <div class="flex items-center gap-4">
+                <twig:Twigcn:Checkbox id="marketing" name="preferences[]" value="marketing" />
+                <twig:Twigcn:Label for="marketing">Marketing emails</twig:Twigcn:Label>
+            </div>
+            <div class="flex items-center gap-4">
+                <twig:Twigcn:Checkbox id="security" name="preferences[]" value="security" :checked="true" />
+                <twig:Twigcn:Label for="security">Security updates</twig:Twigcn:Label>
+            </div>
+            <div class="flex items-center gap-4">
+                <twig:Twigcn:Checkbox id="newsletter" name="preferences[]" value="newsletter" />
+                <twig:Twigcn:Label for="newsletter">Weekly newsletter</twig:Twigcn:Label>
+            </div>
+            <twig:Twigcn:Button type="submit" class="w-fit">Save preferences</twig:Twigcn:Button>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Checkbox id="terms" /&gt;
+&lt;twig:Label for="terms"&gt;Accept terms&lt;/twig:Label&gt;
+
+{# With checked state #}
+&lt;twig:Checkbox id="enabled" :checked="true" /&gt;
+
+{# Disabled #}
+&lt;twig:Checkbox id="disabled" :disabled="true" /&gt;
+
+{# Invalid state #}
+&lt;twig:Checkbox id="invalid" :invalid="true" /&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,127 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Progress - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Progress</h1>
+        <p class="text-muted-foreground mt-2">
+            Displays an indicator showing the completion progress of a task.
+        </p>
+    </header>
+
+    {# Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section class="max-w-md">
+            <twig:Twigcn:Progress :value="33" />
+        </section>
+    </section>
+
+    {# Values #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Values</h2>
+        </header>
+        <section class="flex flex-col gap-4 max-w-md">
+            <div class="flex flex-col gap-2">
+                <div class="flex justify-between text-sm">
+                    <span>0%</span>
+                    <span class="text-muted-foreground">Empty</span>
+                </div>
+                <twig:Twigcn:Progress :value="0" />
+            </div>
+            <div class="flex flex-col gap-2">
+                <div class="flex justify-between text-sm">
+                    <span>25%</span>
+                    <span class="text-muted-foreground">Quarter</span>
+                </div>
+                <twig:Twigcn:Progress :value="25" />
+            </div>
+            <div class="flex flex-col gap-2">
+                <div class="flex justify-between text-sm">
+                    <span>50%</span>
+                    <span class="text-muted-foreground">Half</span>
+                </div>
+                <twig:Twigcn:Progress :value="50" />
+            </div>
+            <div class="flex flex-col gap-2">
+                <div class="flex justify-between text-sm">
+                    <span>75%</span>
+                    <span class="text-muted-foreground">Three quarters</span>
+                </div>
+                <twig:Twigcn:Progress :value="75" />
+            </div>
+            <div class="flex flex-col gap-2">
+                <div class="flex justify-between text-sm">
+                    <span>100%</span>
+                    <span class="text-muted-foreground">Complete</span>
+                </div>
+                <twig:Twigcn:Progress :value="100" />
+            </div>
+        </section>
+    </section>
+
+    {# Custom Max #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Custom Max Value</h2>
+        </header>
+        <section class="flex flex-col gap-4 max-w-md">
+            <div class="flex flex-col gap-2">
+                <div class="flex justify-between text-sm">
+                    <span>3 of 10 tasks</span>
+                </div>
+                <twig:Twigcn:Progress :value="3" :max="10" />
+            </div>
+            <div class="flex flex-col gap-2">
+                <div class="flex justify-between text-sm">
+                    <span>750 of 1000 MB</span>
+                </div>
+                <twig:Twigcn:Progress :value="750" :max="1000" />
+            </div>
+        </section>
+    </section>
+
+    {# In Card #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">In Card</h2>
+        </header>
+        <section class="max-w-sm">
+            <twig:Twigcn:Card>
+                <header>
+                    <h2>Storage</h2>
+                    <p>You've used 75% of your storage.</p>
+                </header>
+                <section>
+                    <twig:Twigcn:Progress :value="75" />
+                </section>
+                <footer>
+                    <p class="text-sm text-muted-foreground">7.5 GB of 10 GB used</p>
+                </footer>
+            </twig:Twigcn:Card>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>{# Basic usage #}
+&lt;twig:Progress :value="33" /&gt;
+
+{# With custom max #}
+&lt;twig:Progress :value="3" :max="10" /&gt;
+
+{# Full width #}
+&lt;twig:Progress :value="75" class="w-full" /&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

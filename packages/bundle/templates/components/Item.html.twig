@@ -1,0 +1,10 @@
+{% set item_content %}{% block content %}{% endblock %}{% endset %}
+{% if href and not disabled %}
+    <a href="{{ href }}" class="{{ this.itemClasses }}" {% if active %}aria-current="page"{% endif %} {{ attributes }}>
+        {{- item_content -}}
+    </a>
+{% else %}
+    <div class="{{ this.itemClasses }}" {{ attributes }}>
+        {{- item_content -}}
+    </div>
+{% endif %}

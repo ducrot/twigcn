@@ -1,0 +1,7 @@
+{% set trigger_content %}{% block content %}{% endblock %}{% endset %}
+<button
+    type="button"
+    {% if for %}onclick="(function(){var d=document.getElementById('{{ for }}');if(d){d.showModal();requestAnimationFrame(function(){d.classList.add('open')});document.body.style.overflow='hidden'}})()"{% endif %}
+    class="{{ class }}"
+    {{ attributes }}
+>{{ trigger_content|raw }}</button>

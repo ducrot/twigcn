@@ -1,0 +1,43 @@
+{% if variant == 'dropdown' %}
+<twig:Twigcn:DropdownMenu>
+    <twig:Twigcn:DropdownMenuTrigger>
+        <button
+            type="button"
+            data-controller="theme"
+            class="btn btn-outline btn-icon {{ class }}"
+            {{ attributes }}
+        >
+            <twig:ux:icon name="lucide:sun" class="w-5 h-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+            <twig:ux:icon name="lucide:moon" class="absolute w-5 h-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+            <span class="sr-only">Toggle theme</span>
+        </button>
+    </twig:Twigcn:DropdownMenuTrigger>
+    <twig:Twigcn:DropdownMenuContent align="end">
+        <twig:Twigcn:DropdownMenuItem data-action="click->theme#setLight">
+            <twig:ux:icon name="lucide:sun" class="w-4 h-4 mr-2" />
+            Light
+        </twig:Twigcn:DropdownMenuItem>
+        <twig:Twigcn:DropdownMenuItem data-action="click->theme#setDark">
+            <twig:ux:icon name="lucide:moon" class="w-4 h-4 mr-2" />
+            Dark
+        </twig:Twigcn:DropdownMenuItem>
+        <twig:Twigcn:DropdownMenuItem data-action="click->theme#setSystem">
+            <twig:ux:icon name="lucide:laptop" class="w-4 h-4 mr-2" />
+            System
+        </twig:Twigcn:DropdownMenuItem>
+    </twig:Twigcn:DropdownMenuContent>
+</twig:Twigcn:DropdownMenu>
+{% else %}
+<button
+    type="button"
+    data-controller="theme"
+    data-action="click->theme#toggle"
+    class="btn btn-ghost btn-icon {{ class }}"
+    aria-label="Toggle theme"
+    {{ attributes }}
+>
+    <twig:ux:icon name="lucide:sun" class="w-5 h-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+    <twig:ux:icon name="lucide:moon" class="absolute w-5 h-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+    <span class="sr-only">Toggle theme</span>
+</button>
+{% endif %}

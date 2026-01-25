@@ -1,0 +1,99 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Input Group - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Input Group</h1>
+        <p class="text-muted-foreground mt-2">
+            Groups an input with addons like icons, buttons, or text.
+        </p>
+    </header>
+
+    {# With Button #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Button</h2>
+        </header>
+        <section class="max-w-md">
+            <twig:Twigcn:InputGroup class="gap-2">
+                <twig:Twigcn:Input type="email" placeholder="Enter your email" class="flex-1" />
+                <twig:Twigcn:Button>Subscribe</twig:Twigcn:Button>
+            </twig:Twigcn:InputGroup>
+        </section>
+    </section>
+
+    {# With Icon Button #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Icon Button</h2>
+        </header>
+        <section class="max-w-md">
+            <twig:Twigcn:InputGroup class="gap-2">
+                <twig:Twigcn:Input type="search" placeholder="Search..." class="flex-1" />
+                <twig:Twigcn:Button :iconOnly="true" variant="outline">
+                    <twig:ux:icon name="lucide:search" />
+                </twig:Twigcn:Button>
+            </twig:Twigcn:InputGroup>
+        </section>
+    </section>
+
+    {# With Addon Text #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Addon Text</h2>
+        </header>
+        <section class="flex flex-col gap-4 max-w-md">
+            <twig:Twigcn:InputGroup>
+                <span class="flex items-center px-3 border border-r-0 rounded-l-md bg-muted text-muted-foreground text-sm">https://</span>
+                <twig:Twigcn:Input placeholder="example.com" class="rounded-l-none" />
+            </twig:Twigcn:InputGroup>
+            <twig:Twigcn:InputGroup>
+                <twig:Twigcn:Input placeholder="username" class="rounded-r-none" />
+                <span class="flex items-center px-3 border border-l-0 rounded-r-md bg-muted text-muted-foreground text-sm">@example.com</span>
+            </twig:Twigcn:InputGroup>
+        </section>
+    </section>
+
+    {# With Icon #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Icon Addon</h2>
+        </header>
+        <section class="flex flex-col gap-4 max-w-md">
+            <twig:Twigcn:InputGroup>
+                <span class="flex items-center justify-center w-10 border border-r-0 rounded-l-md bg-muted text-muted-foreground">
+                    <twig:ux:icon name="lucide:mail" class="size-4" />
+                </span>
+                <twig:Twigcn:Input type="email" placeholder="Email" class="rounded-l-none" />
+            </twig:Twigcn:InputGroup>
+            <twig:Twigcn:InputGroup>
+                <span class="flex items-center justify-center w-10 border border-r-0 rounded-l-md bg-muted text-muted-foreground">
+                    <twig:ux:icon name="lucide:lock" class="size-4" />
+                </span>
+                <twig:Twigcn:Input type="password" placeholder="Password" class="rounded-l-none" />
+            </twig:Twigcn:InputGroup>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:InputGroup class="gap-2"&gt;
+    &lt;twig:Input type="email" placeholder="Email" class="flex-1" /&gt;
+    &lt;twig:Button&gt;Subscribe&lt;/twig:Button&gt;
+&lt;/twig:InputGroup&gt;
+
+{# With addon text #}
+&lt;twig:InputGroup&gt;
+    &lt;span class="..."&gt;https://&lt;/span&gt;
+    &lt;twig:Input placeholder="example.com" class="rounded-l-none" /&gt;
+&lt;/twig:InputGroup&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

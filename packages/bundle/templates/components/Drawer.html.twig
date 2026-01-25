@@ -1,0 +1,10 @@
+<dialog
+    {% if id %}id="{{ id }}"{% endif %}
+    data-controller="drawer"
+    data-side="{{ side }}"
+    data-drawer-close-on-backdrop-value="{{ closeOnBackdrop ? 'true' : 'false' }}"
+    class="{{ this.drawerClasses }}"
+    {{ attributes }}
+>
+    {% block content %}{% endblock %}
+</dialog>

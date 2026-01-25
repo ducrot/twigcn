@@ -1,0 +1,122 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Alert Dialog - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Alert Dialog</h1>
+        <p class="text-muted-foreground mt-2">
+            A modal dialog that interrupts the user with important content and expects a response.
+        </p>
+    </header>
+
+    {# Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section>
+            <twig:Twigcn:Button variant="outline" onclick="document.getElementById('alert-1').showModal()">
+                Show Alert
+            </twig:Twigcn:Button>
+
+            <twig:Twigcn:Dialog id="alert-1">
+                <header>
+                    <h2>Are you sure?</h2>
+                    <p>This action cannot be undone.</p>
+                </header>
+                <footer>
+                    <twig:Twigcn:Button variant="outline" onclick="document.getElementById('alert-1').close()">Cancel</twig:Twigcn:Button>
+                    <twig:Twigcn:Button onclick="document.getElementById('alert-1').close()">Continue</twig:Twigcn:Button>
+                </footer>
+            </twig:Twigcn:Dialog>
+        </section>
+    </section>
+
+    {# Destructive #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Destructive Action</h2>
+        </header>
+        <section>
+            <twig:Twigcn:Button variant="destructive" onclick="document.getElementById('alert-2').showModal()">
+                <twig:ux:icon name="lucide:trash" />
+                Delete
+            </twig:Twigcn:Button>
+
+            <twig:Twigcn:Dialog id="alert-2">
+                <header>
+                    <h2>Delete Item</h2>
+                    <p>Are you sure you want to delete this item? This action cannot be undone.</p>
+                </header>
+                <footer>
+                    <twig:Twigcn:Button variant="outline" onclick="document.getElementById('alert-2').close()">Cancel</twig:Twigcn:Button>
+                    <twig:Twigcn:Button variant="destructive" onclick="document.getElementById('alert-2').close()">Delete</twig:Twigcn:Button>
+                </footer>
+            </twig:Twigcn:Dialog>
+        </section>
+    </section>
+
+    {# With Details #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Details</h2>
+        </header>
+        <section>
+            <twig:Twigcn:Button variant="outline" onclick="document.getElementById('alert-3').showModal()">
+                Unsaved Changes
+            </twig:Twigcn:Button>
+
+            <twig:Twigcn:Dialog id="alert-3">
+                <header>
+                    <h2>Unsaved Changes</h2>
+                    <p>You have unsaved changes. Do you want to save them before leaving?</p>
+                </header>
+                <section>
+                    <twig:Twigcn:Alert>
+                        <twig:ux:icon name="lucide:info" />
+                        <h5 data-title>Note</h5>
+                        <section>
+                            <p>Your changes will be lost if you don't save them.</p>
+                        </section>
+                    </twig:Twigcn:Alert>
+                </section>
+                <footer>
+                    <twig:Twigcn:Button variant="ghost" onclick="document.getElementById('alert-3').close()">Discard</twig:Twigcn:Button>
+                    <twig:Twigcn:Button variant="outline" onclick="document.getElementById('alert-3').close()">Cancel</twig:Twigcn:Button>
+                    <twig:Twigcn:Button onclick="document.getElementById('alert-3').close()">Save Changes</twig:Twigcn:Button>
+                </footer>
+            </twig:Twigcn:Dialog>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>{# Alert Dialog uses the Dialog component #}
+&lt;twig:Button onclick="document.getElementById('my-alert').showModal()"&gt;
+    Delete
+&lt;/twig:Button&gt;
+
+&lt;twig:Dialog id="my-alert"&gt;
+    &lt;header&gt;
+        &lt;h2&gt;Are you sure?&lt;/h2&gt;
+        &lt;p&gt;This action cannot be undone.&lt;/p&gt;
+    &lt;/header&gt;
+    &lt;footer&gt;
+        &lt;twig:Button variant="outline" onclick="...close()"&gt;
+            Cancel
+        &lt;/twig:Button&gt;
+        &lt;twig:Button variant="destructive" onclick="...close()"&gt;
+            Delete
+        &lt;/twig:Button&gt;
+    &lt;/footer&gt;
+&lt;/twig:Dialog&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

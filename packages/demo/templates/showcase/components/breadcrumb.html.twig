@@ -1,0 +1,120 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Breadcrumb - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Breadcrumb</h1>
+        <p class="text-muted-foreground mt-2">
+            Displays the path to the current resource using a hierarchy of links.
+        </p>
+    </header>
+
+    {# Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section>
+            <twig:Twigcn:Breadcrumb>
+                <twig:Twigcn:BreadcrumbItem href="#">Home</twig:Twigcn:BreadcrumbItem>
+                <twig:Twigcn:BreadcrumbSeparator />
+                <twig:Twigcn:BreadcrumbItem href="#">Components</twig:Twigcn:BreadcrumbItem>
+                <twig:Twigcn:BreadcrumbSeparator />
+                <twig:Twigcn:BreadcrumbItem :current="true">Breadcrumb</twig:Twigcn:BreadcrumbItem>
+            </twig:Twigcn:Breadcrumb>
+        </section>
+    </section>
+
+    {# With Icons #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Icons</h2>
+        </header>
+        <section>
+            <twig:Twigcn:Breadcrumb>
+                <twig:Twigcn:BreadcrumbItem href="#">
+                    <twig:ux:icon name="lucide:home" class="size-4" />
+                </twig:Twigcn:BreadcrumbItem>
+                <twig:Twigcn:BreadcrumbSeparator />
+                <twig:Twigcn:BreadcrumbItem href="#">
+                    <twig:ux:icon name="lucide:folder" class="size-4" />
+                    Documents
+                </twig:Twigcn:BreadcrumbItem>
+                <twig:Twigcn:BreadcrumbSeparator />
+                <twig:Twigcn:BreadcrumbItem :current="true">
+                    <twig:ux:icon name="lucide:file" class="size-4" />
+                    Report.pdf
+                </twig:Twigcn:BreadcrumbItem>
+            </twig:Twigcn:Breadcrumb>
+        </section>
+    </section>
+
+    {# Custom Separator #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Custom Separator</h2>
+        </header>
+        <section class="flex flex-col gap-4">
+            <twig:Twigcn:Breadcrumb>
+                <twig:Twigcn:BreadcrumbItem href="#">Home</twig:Twigcn:BreadcrumbItem>
+                <twig:Twigcn:BreadcrumbSeparator>
+                    <span class="text-muted-foreground">/</span>
+                </twig:Twigcn:BreadcrumbSeparator>
+                <twig:Twigcn:BreadcrumbItem href="#">Products</twig:Twigcn:BreadcrumbItem>
+                <twig:Twigcn:BreadcrumbSeparator>
+                    <span class="text-muted-foreground">/</span>
+                </twig:Twigcn:BreadcrumbSeparator>
+                <twig:Twigcn:BreadcrumbItem :current="true">Item</twig:Twigcn:BreadcrumbItem>
+            </twig:Twigcn:Breadcrumb>
+        </section>
+    </section>
+
+    {# Long Path #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Long Path</h2>
+        </header>
+        <section>
+            <twig:Twigcn:Breadcrumb>
+                <twig:Twigcn:BreadcrumbItem href="#">Home</twig:Twigcn:BreadcrumbItem>
+                <twig:Twigcn:BreadcrumbSeparator />
+                <twig:Twigcn:BreadcrumbItem href="#">Settings</twig:Twigcn:BreadcrumbItem>
+                <twig:Twigcn:BreadcrumbSeparator />
+                <twig:Twigcn:BreadcrumbItem href="#">Account</twig:Twigcn:BreadcrumbItem>
+                <twig:Twigcn:BreadcrumbSeparator />
+                <twig:Twigcn:BreadcrumbItem href="#">Security</twig:Twigcn:BreadcrumbItem>
+                <twig:Twigcn:BreadcrumbSeparator />
+                <twig:Twigcn:BreadcrumbItem :current="true">Two-Factor Authentication</twig:Twigcn:BreadcrumbItem>
+            </twig:Twigcn:Breadcrumb>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Breadcrumb&gt;
+    &lt;twig:BreadcrumbItem href="/"&gt;Home&lt;/twig:BreadcrumbItem&gt;
+    &lt;twig:BreadcrumbSeparator /&gt;
+    &lt;twig:BreadcrumbItem href="/components"&gt;Components&lt;/twig:BreadcrumbItem&gt;
+    &lt;twig:BreadcrumbSeparator /&gt;
+    &lt;twig:BreadcrumbItem :current="true"&gt;Breadcrumb&lt;/twig:BreadcrumbItem&gt;
+&lt;/twig:Breadcrumb&gt;
+
+{# With icons #}
+&lt;twig:BreadcrumbItem href="/"&gt;
+    &lt;twig:ux:icon name="lucide:home" class="size-4" /&gt;
+&lt;/twig:BreadcrumbItem&gt;
+
+{# Custom separator #}
+&lt;twig:BreadcrumbSeparator&gt;
+    &lt;span&gt;/&lt;/span&gt;
+&lt;/twig:BreadcrumbSeparator&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

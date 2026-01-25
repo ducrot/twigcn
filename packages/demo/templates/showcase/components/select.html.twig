@@ -1,0 +1,202 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Select - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Select</h1>
+        <p class="text-muted-foreground mt-2">
+            Displays a list of options for the user to pick from. Available as Native Select (browser default) or Custom Select (popover-based).
+        </p>
+    </header>
+
+    {# Native Select - Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Native Select</h2>
+            <p class="text-sm text-muted-foreground">Uses the browser's native dropdown. Simple and accessible.</p>
+        </header>
+        <section class="max-w-xs">
+            <twig:Twigcn:Select placeholder="Select a fruit">
+                <option value="apple">Apple</option>
+                <option value="banana">Banana</option>
+                <option value="orange">Orange</option>
+                <option value="grape">Grape</option>
+            </twig:Twigcn:Select>
+        </section>
+    </section>
+
+    {# Custom Select - Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Custom Select</h2>
+            <p class="text-sm text-muted-foreground">Popover-based with full styling control and keyboard navigation.</p>
+        </header>
+        <section class="max-w-xs">
+            <twig:Twigcn:CustomSelect placeholder="Select a fruit">
+                <twig:Twigcn:CustomSelectOption value="apple" label="Apple" />
+                <twig:Twigcn:CustomSelectOption value="banana" label="Banana" />
+                <twig:Twigcn:CustomSelectOption value="orange" label="Orange" />
+                <twig:Twigcn:CustomSelectOption value="grape" label="Grape" />
+            </twig:Twigcn:CustomSelect>
+        </section>
+    </section>
+
+    {# Custom Select with Search and Groups #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Custom Select with Search</h2>
+            <p class="text-sm text-muted-foreground">Searchable dropdown with grouped options. Type to filter.</p>
+        </header>
+        <section class="max-w-xs">
+            <twig:Twigcn:CustomSelect placeholder="Select a timezone" :searchable="true" searchPlaceholder="Search timezones..." listboxClass="max-h-64 overflow-y-auto">
+                <twig:Twigcn:CustomSelectGroup label="North America">
+                    <twig:Twigcn:CustomSelectOption value="est" label="Eastern Time (ET) — UTC-5" />
+                    <twig:Twigcn:CustomSelectOption value="cst" label="Central Time (CT) — UTC-6" />
+                    <twig:Twigcn:CustomSelectOption value="mst" label="Mountain Time (MT) — UTC-7" />
+                    <twig:Twigcn:CustomSelectOption value="pst" label="Pacific Time (PT) — UTC-8" />
+                    <twig:Twigcn:CustomSelectOption value="akst" label="Alaska Time (AKT) — UTC-9" />
+                    <twig:Twigcn:CustomSelectOption value="hst" label="Hawaii Time (HT) — UTC-10" />
+                </twig:Twigcn:CustomSelectGroup>
+                <twig:Twigcn:CustomSelectGroup label="Europe">
+                    <twig:Twigcn:CustomSelectOption value="gmt" label="Greenwich Mean Time (GMT) — UTC+0" />
+                    <twig:Twigcn:CustomSelectOption value="wet" label="Western European Time (WET) — UTC+0" />
+                    <twig:Twigcn:CustomSelectOption value="cet" label="Central European Time (CET) — UTC+1" />
+                    <twig:Twigcn:CustomSelectOption value="eet" label="Eastern European Time (EET) — UTC+2" />
+                    <twig:Twigcn:CustomSelectOption value="msk" label="Moscow Time (MSK) — UTC+3" />
+                </twig:Twigcn:CustomSelectGroup>
+                <twig:Twigcn:CustomSelectGroup label="Asia">
+                    <twig:Twigcn:CustomSelectOption value="ist" label="India Standard Time (IST) — UTC+5:30" />
+                    <twig:Twigcn:CustomSelectOption value="bdt" label="Bangladesh Time (BDT) — UTC+6" />
+                    <twig:Twigcn:CustomSelectOption value="ict" label="Indochina Time (ICT) — UTC+7" />
+                    <twig:Twigcn:CustomSelectOption value="cst-asia" label="China Standard Time (CST) — UTC+8" />
+                    <twig:Twigcn:CustomSelectOption value="jst" label="Japan Standard Time (JST) — UTC+9" />
+                    <twig:Twigcn:CustomSelectOption value="kst" label="Korea Standard Time (KST) — UTC+9" />
+                </twig:Twigcn:CustomSelectGroup>
+                <twig:Twigcn:CustomSelectGroup label="Pacific">
+                    <twig:Twigcn:CustomSelectOption value="awst" label="Australian Western Time (AWST) — UTC+8" />
+                    <twig:Twigcn:CustomSelectOption value="acst" label="Australian Central Time (ACST) — UTC+9:30" />
+                    <twig:Twigcn:CustomSelectOption value="aest" label="Australian Eastern Time (AEST) — UTC+10" />
+                    <twig:Twigcn:CustomSelectOption value="nzst" label="New Zealand Time (NZST) — UTC+12" />
+                    <twig:Twigcn:CustomSelectOption value="fjt" label="Fiji Time (FJT) — UTC+12" />
+                </twig:Twigcn:CustomSelectGroup>
+                <twig:Twigcn:CustomSelectGroup label="South America">
+                    <twig:Twigcn:CustomSelectOption value="art" label="Argentina Time (ART) — UTC-3" />
+                    <twig:Twigcn:CustomSelectOption value="brt" label="Brasília Time (BRT) — UTC-3" />
+                    <twig:Twigcn:CustomSelectOption value="clt" label="Chile Time (CLT) — UTC-4" />
+                    <twig:Twigcn:CustomSelectOption value="cot" label="Colombia Time (COT) — UTC-5" />
+                    <twig:Twigcn:CustomSelectOption value="pet" label="Peru Time (PET) — UTC-5" />
+                </twig:Twigcn:CustomSelectGroup>
+                <twig:Twigcn:CustomSelectGroup label="Africa">
+                    <twig:Twigcn:CustomSelectOption value="wat" label="West Africa Time (WAT) — UTC+1" />
+                    <twig:Twigcn:CustomSelectOption value="cat" label="Central Africa Time (CAT) — UTC+2" />
+                    <twig:Twigcn:CustomSelectOption value="eat" label="East Africa Time (EAT) — UTC+3" />
+                    <twig:Twigcn:CustomSelectOption value="sast" label="South Africa Time (SAST) — UTC+2" />
+                </twig:Twigcn:CustomSelectGroup>
+            </twig:Twigcn:CustomSelect>
+        </section>
+    </section>
+
+    {# Custom Select with Pre-selected Value #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Custom Select with Pre-selected Value</h2>
+        </header>
+        <section class="max-w-xs">
+            <twig:Twigcn:CustomSelect placeholder="Select a color" value="blue">
+                <twig:Twigcn:CustomSelectOption value="red" label="Red" />
+                <twig:Twigcn:CustomSelectOption value="blue" label="Blue" :selected="true" />
+                <twig:Twigcn:CustomSelectOption value="green" label="Green" />
+                <twig:Twigcn:CustomSelectOption value="yellow" label="Yellow" />
+            </twig:Twigcn:CustomSelect>
+        </section>
+    </section>
+
+    {# Native Select with Label #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Label (Native)</h2>
+        </header>
+        <section class="max-w-xs">
+            <twig:Twigcn:Field>
+                <twig:Twigcn:Label for="country">Country</twig:Twigcn:Label>
+                <twig:Twigcn:Select id="country" placeholder="Select a country">
+                    <option value="us">United States</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="de">Germany</option>
+                    <option value="fr">France</option>
+                </twig:Twigcn:Select>
+            </twig:Twigcn:Field>
+        </section>
+    </section>
+
+    {# States #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">States (Native)</h2>
+        </header>
+        <section class="flex flex-col gap-4 max-w-xs">
+            <twig:Twigcn:Select placeholder="Default">
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+            </twig:Twigcn:Select>
+            <twig:Twigcn:Select :disabled="true" placeholder="Disabled">
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+            </twig:Twigcn:Select>
+            <twig:Twigcn:Select :invalid="true" placeholder="Invalid">
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+            </twig:Twigcn:Select>
+        </section>
+    </section>
+
+    {# Native Select with Groups #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Option Groups (Native)</h2>
+        </header>
+        <section class="max-w-xs">
+            <twig:Twigcn:Select placeholder="Select a timezone">
+                <optgroup label="North America">
+                    <option value="est">Eastern Standard Time (EST)</option>
+                    <option value="cst">Central Standard Time (CST)</option>
+                    <option value="pst">Pacific Standard Time (PST)</option>
+                </optgroup>
+                <optgroup label="Europe">
+                    <option value="gmt">Greenwich Mean Time (GMT)</option>
+                    <option value="cet">Central European Time (CET)</option>
+                </optgroup>
+            </twig:Twigcn:Select>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <h3>Native Select</h3>
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Select placeholder="Select an option"&gt;
+    &lt;option value="1"&gt;Option 1&lt;/option&gt;
+    &lt;option value="2"&gt;Option 2&lt;/option&gt;
+&lt;/twig:Select&gt;</code></pre>
+
+            <h3>Custom Select</h3>
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:CustomSelect placeholder="Select an option"&gt;
+    &lt;twig:CustomSelectOption value="1" label="Option 1" /&gt;
+    &lt;twig:CustomSelectOption value="2" label="Option 2" /&gt;
+&lt;/twig:CustomSelect&gt;
+
+{# With search and groups #}
+&lt;twig:CustomSelect placeholder="Select..." :searchable="true" searchPlaceholder="Search..."&gt;
+    &lt;twig:CustomSelectGroup label="Group 1"&gt;
+        &lt;twig:CustomSelectOption value="a" label="Option A" /&gt;
+    &lt;/twig:CustomSelectGroup&gt;
+&lt;/twig:CustomSelect&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

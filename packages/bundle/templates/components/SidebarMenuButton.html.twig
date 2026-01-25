@@ -1,0 +1,10 @@
+{% set button_content %}{% block content %}{% endblock %}{% endset %}
+{% if href %}
+<a href="{{ href }}" class="{{ this.buttonClasses }}" {{ attributes }}>
+    {{- button_content -}}
+</a>
+{% else %}
+<button type="button" class="{{ this.buttonClasses }}" {{ attributes }}>
+    {{- button_content -}}
+</button>
+{% endif %}

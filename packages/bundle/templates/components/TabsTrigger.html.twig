@@ -1,0 +1,12 @@
+<button
+    type="button"
+    role="tab"
+    data-tabs-target="trigger"
+    data-tabs-value="{{ value }}"
+    data-action="click->tabs#select"
+    aria-selected="{{ active ? 'true' : 'false' }}"
+    class="{{ class }}"
+    {{ attributes }}
+>
+    {%- block content %}{% endblock -%}
+</button>

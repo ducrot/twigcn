@@ -1,0 +1,123 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Pagination - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Pagination</h1>
+        <p class="text-muted-foreground mt-2">
+            Pagination with page navigation, next and previous links.
+        </p>
+    </header>
+
+    {# Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section>
+            <twig:Twigcn:Pagination>
+                <twig:Twigcn:PaginationItem href="#">
+                    <twig:ux:icon name="lucide:chevron-left" class="size-4" />
+                    Previous
+                </twig:Twigcn:PaginationItem>
+                <twig:Twigcn:PaginationItem href="#">1</twig:Twigcn:PaginationItem>
+                <twig:Twigcn:PaginationItem href="#" :active="true">2</twig:Twigcn:PaginationItem>
+                <twig:Twigcn:PaginationItem href="#">3</twig:Twigcn:PaginationItem>
+                <twig:Twigcn:PaginationItem href="#">
+                    Next
+                    <twig:ux:icon name="lucide:chevron-right" class="size-4" />
+                </twig:Twigcn:PaginationItem>
+            </twig:Twigcn:Pagination>
+        </section>
+    </section>
+
+    {# With Ellipsis #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Ellipsis</h2>
+        </header>
+        <section>
+            <twig:Twigcn:Pagination>
+                <twig:Twigcn:PaginationItem href="#">
+                    <twig:ux:icon name="lucide:chevron-left" class="size-4" />
+                </twig:Twigcn:PaginationItem>
+                <twig:Twigcn:PaginationItem href="#">1</twig:Twigcn:PaginationItem>
+                <twig:Twigcn:PaginationItem :disabled="true">...</twig:Twigcn:PaginationItem>
+                <twig:Twigcn:PaginationItem href="#">4</twig:Twigcn:PaginationItem>
+                <twig:Twigcn:PaginationItem href="#" :active="true">5</twig:Twigcn:PaginationItem>
+                <twig:Twigcn:PaginationItem href="#">6</twig:Twigcn:PaginationItem>
+                <twig:Twigcn:PaginationItem :disabled="true">...</twig:Twigcn:PaginationItem>
+                <twig:Twigcn:PaginationItem href="#">10</twig:Twigcn:PaginationItem>
+                <twig:Twigcn:PaginationItem href="#">
+                    <twig:ux:icon name="lucide:chevron-right" class="size-4" />
+                </twig:Twigcn:PaginationItem>
+            </twig:Twigcn:Pagination>
+        </section>
+    </section>
+
+    {# Disabled States #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Disabled States</h2>
+        </header>
+        <section class="flex flex-col gap-4">
+            <p class="text-sm text-muted-foreground">First page (Previous disabled)</p>
+            <twig:Twigcn:Pagination>
+                <twig:Twigcn:PaginationItem :disabled="true">
+                    <twig:ux:icon name="lucide:chevron-left" class="size-4" />
+                    Previous
+                </twig:Twigcn:PaginationItem>
+                <twig:Twigcn:PaginationItem href="#" :active="true">1</twig:Twigcn:PaginationItem>
+                <twig:Twigcn:PaginationItem href="#">2</twig:Twigcn:PaginationItem>
+                <twig:Twigcn:PaginationItem href="#">3</twig:Twigcn:PaginationItem>
+                <twig:Twigcn:PaginationItem href="#">
+                    Next
+                    <twig:ux:icon name="lucide:chevron-right" class="size-4" />
+                </twig:Twigcn:PaginationItem>
+            </twig:Twigcn:Pagination>
+
+            <p class="text-sm text-muted-foreground mt-4">Last page (Next disabled)</p>
+            <twig:Twigcn:Pagination>
+                <twig:Twigcn:PaginationItem href="#">
+                    <twig:ux:icon name="lucide:chevron-left" class="size-4" />
+                    Previous
+                </twig:Twigcn:PaginationItem>
+                <twig:Twigcn:PaginationItem href="#">1</twig:Twigcn:PaginationItem>
+                <twig:Twigcn:PaginationItem href="#">2</twig:Twigcn:PaginationItem>
+                <twig:Twigcn:PaginationItem href="#" :active="true">3</twig:Twigcn:PaginationItem>
+                <twig:Twigcn:PaginationItem :disabled="true">
+                    Next
+                    <twig:ux:icon name="lucide:chevron-right" class="size-4" />
+                </twig:Twigcn:PaginationItem>
+            </twig:Twigcn:Pagination>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Pagination&gt;
+    &lt;twig:PaginationItem href="/page/1"&gt;
+        &lt;twig:ux:icon name="lucide:chevron-left" class="size-4" /&gt;
+        Previous
+    &lt;/twig:PaginationItem&gt;
+    &lt;twig:PaginationItem href="/page/1"&gt;1&lt;/twig:PaginationItem&gt;
+    &lt;twig:PaginationItem href="/page/2" :active="true"&gt;2&lt;/twig:PaginationItem&gt;
+    &lt;twig:PaginationItem href="/page/3"&gt;3&lt;/twig:PaginationItem&gt;
+    &lt;twig:PaginationItem href="/page/3"&gt;
+        Next
+        &lt;twig:ux:icon name="lucide:chevron-right" class="size-4" /&gt;
+    &lt;/twig:PaginationItem&gt;
+&lt;/twig:Pagination&gt;
+
+{# Disabled item #}
+&lt;twig:PaginationItem :disabled="true"&gt;...&lt;/twig:PaginationItem&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

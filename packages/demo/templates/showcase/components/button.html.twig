@@ -1,0 +1,155 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Button - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Button</h1>
+        <p class="text-muted-foreground mt-2">
+            Displays a button or a component that looks like a button.
+        </p>
+    </header>
+
+    {# Variants #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Variants</h2>
+        </header>
+        <section class="flex flex-wrap gap-4">
+            <twig:Twigcn:Button>Primary</twig:Twigcn:Button>
+            <twig:Twigcn:Button variant="secondary">Secondary</twig:Twigcn:Button>
+            <twig:Twigcn:Button variant="destructive">Destructive</twig:Twigcn:Button>
+            <twig:Twigcn:Button variant="outline">Outline</twig:Twigcn:Button>
+            <twig:Twigcn:Button variant="ghost">Ghost</twig:Twigcn:Button>
+            <twig:Twigcn:Button variant="link">Link</twig:Twigcn:Button>
+        </section>
+    </section>
+
+    {# Sizes #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Sizes</h2>
+        </header>
+        <section class="flex flex-wrap items-center gap-4">
+            <twig:Twigcn:Button size="sm">Small</twig:Twigcn:Button>
+            <twig:Twigcn:Button>Default</twig:Twigcn:Button>
+            <twig:Twigcn:Button size="lg">Large</twig:Twigcn:Button>
+        </section>
+    </section>
+
+    {# With Icons #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Icons</h2>
+        </header>
+        <section class="flex flex-wrap gap-4">
+            <twig:Twigcn:Button>
+                <twig:ux:icon name="lucide:send" />
+                Send Email
+            </twig:Twigcn:Button>
+            <twig:Twigcn:Button variant="destructive">
+                <twig:ux:icon name="lucide:trash" />
+                Delete
+            </twig:Twigcn:Button>
+            <twig:Twigcn:Button variant="outline">
+                <twig:ux:icon name="lucide:download" />
+                Download
+            </twig:Twigcn:Button>
+        </section>
+    </section>
+
+    {# Icon-Only Buttons #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Icon-Only</h2>
+        </header>
+        <section class="flex flex-wrap gap-4">
+            <twig:Twigcn:Button :iconOnly="true">
+                <twig:ux:icon name="lucide:plus" />
+            </twig:Twigcn:Button>
+            <twig:Twigcn:Button :iconOnly="true" variant="outline">
+                <twig:ux:icon name="lucide:settings" />
+            </twig:Twigcn:Button>
+            <twig:Twigcn:Button :iconOnly="true" variant="ghost">
+                <twig:ux:icon name="lucide:x" />
+            </twig:Twigcn:Button>
+            <twig:Twigcn:Button :iconOnly="true" variant="destructive">
+                <twig:ux:icon name="lucide:trash" />
+            </twig:Twigcn:Button>
+        </section>
+    </section>
+
+    {# Loading & Disabled States #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">States</h2>
+        </header>
+        <section class="flex flex-wrap gap-4">
+            <twig:Twigcn:Button :disabled="true">Disabled</twig:Twigcn:Button>
+            <twig:Twigcn:Button variant="outline" :disabled="true">
+                <twig:ux:icon name="lucide:loader" class="animate-spin" />
+                Loading
+            </twig:Twigcn:Button>
+        </section>
+    </section>
+
+    {# Size + Variant Combinations #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Combinations</h2>
+        </header>
+        <section class="flex flex-wrap items-center gap-4">
+            <twig:Twigcn:Button size="sm" variant="destructive">Small Destructive</twig:Twigcn:Button>
+            <twig:Twigcn:Button size="lg" variant="outline">Large Outline</twig:Twigcn:Button>
+            <twig:Twigcn:Button size="lg">
+                <twig:ux:icon name="lucide:shopping-cart" />
+                Buy Now
+            </twig:Twigcn:Button>
+        </section>
+    </section>
+
+    {# As Link #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">As Link</h2>
+            <p class="text-muted-foreground text-sm mb-4">
+                Use <code class="bg-muted px-1 rounded">:as="'a'"</code> to render the button as an anchor element.
+            </p>
+        </header>
+        <section class="flex flex-wrap items-center gap-4">
+            <twig:Twigcn:Button :as="'a'" href="{{ path('showcase_index') }}">
+                <twig:ux:icon name="lucide:external-link" class="size-4" />
+                Link Button
+            </twig:Twigcn:Button>
+            <twig:Twigcn:Button :as="'a'" href="{{ path('showcase_index') }}" variant="outline">
+                <twig:ux:icon name="lucide:arrow-right" class="size-4" />
+                Outline Link
+            </twig:Twigcn:Button>
+            <twig:Twigcn:Button :as="'a'" href="{{ path('showcase_index') }}" variant="ghost">
+                Learn More
+            </twig:Twigcn:Button>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Button&gt;Primary&lt;/twig:Button&gt;
+&lt;twig:Button variant="secondary"&gt;Secondary&lt;/twig:Button&gt;
+&lt;twig:Button variant="destructive" size="lg"&gt;Delete&lt;/twig:Button&gt;
+&lt;twig:Button :iconOnly="true" variant="outline"&gt;
+    &lt;twig:ux:icon name="lucide:settings" /&gt;
+&lt;/twig:Button&gt;
+
+{# As link #}
+&lt;twig:Button :as="'a'" href="/path/to/page"&gt;
+    Link Button
+&lt;/twig:Button&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

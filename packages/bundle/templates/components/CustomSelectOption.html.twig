@@ -1,0 +1,11 @@
+<div
+    role="option"
+    {% if value %}data-value="{{ value }}"{% endif %}
+    {% if label %}data-label="{{ label }}"{% endif %}
+    {% if selected %}aria-selected="true"{% endif %}
+    {% if disabled %}aria-disabled="true"{% endif %}
+    {% if class %}class="{{ class }}"{% endif %}
+    {{ attributes }}
+>
+    {% block content %}{{ label }}{% endblock %}
+</div>

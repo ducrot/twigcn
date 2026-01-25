@@ -1,0 +1,8 @@
+<form
+    class="{{ this.formClasses }}"
+    {% if action %}action="{{ action }}"{% endif %}
+    method="{{ method }}"
+    {{ attributes }}
+>
+    {% block content %}{% endblock %}
+</form>

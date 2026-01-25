@@ -1,0 +1,17 @@
+{
+    "name": "ducrot/twigcn-monorepo",
+    "description": "TwigcnBundle monorepo - Beautiful, accessible UI components for Symfony & Twig",
+    "license": "MIT",
+    "type": "project",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "packages/bundle",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

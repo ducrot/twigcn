@@ -1,0 +1,120 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Avatar - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Avatar</h1>
+        <p class="text-muted-foreground mt-2">
+            An image element with a fallback for representing the user.
+        </p>
+    </header>
+
+    {# Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section class="flex items-center gap-4">
+            <twig:Twigcn:Avatar src="https://github.com/shadcn.png" alt="@shadcn" />
+        </section>
+    </section>
+
+    {# Sizes #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Sizes</h2>
+        </header>
+        <section class="flex items-center gap-4">
+            <div class="flex flex-col items-center gap-2">
+                <twig:Twigcn:Avatar size="sm" src="https://github.com/shadcn.png" alt="User" />
+                <span class="text-sm text-muted-foreground">Small</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <twig:Twigcn:Avatar src="https://github.com/shadcn.png" alt="User" />
+                <span class="text-sm text-muted-foreground">Default</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <twig:Twigcn:Avatar size="lg" src="https://github.com/shadcn.png" alt="User" />
+                <span class="text-sm text-muted-foreground">Large</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <twig:Twigcn:Avatar size="xl" src="https://github.com/shadcn.png" alt="User" />
+                <span class="text-sm text-muted-foreground">XL</span>
+            </div>
+        </section>
+    </section>
+
+    {# Fallback #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Fallback</h2>
+        </header>
+        <section class="flex items-center gap-4">
+            <twig:Twigcn:Avatar alt="John Doe" />
+            <twig:Twigcn:Avatar alt="Jane Smith" />
+            <twig:Twigcn:Avatar fallback="AB" />
+            <twig:Twigcn:Avatar />
+        </section>
+    </section>
+
+    {# With Text #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Text</h2>
+        </header>
+        <section class="flex flex-col gap-4 max-w-sm">
+            <div class="flex items-center gap-4">
+                <twig:Twigcn:Avatar src="https://github.com/shadcn.png" alt="shadcn" />
+                <div>
+                    <p class="text-sm font-medium">shadcn</p>
+                    <p class="text-sm text-muted-foreground">@shadcn</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <twig:Twigcn:Avatar alt="John Doe" />
+                <div>
+                    <p class="text-sm font-medium">John Doe</p>
+                    <p class="text-sm text-muted-foreground">john@example.com</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    {# Avatar Group #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Avatar Group</h2>
+        </header>
+        <section class="flex -space-x-2">
+            <twig:Twigcn:Avatar src="https://github.com/shadcn.png" alt="User 1" class="border-2 border-background" />
+            <twig:Twigcn:Avatar alt="John Doe" class="border-2 border-background" />
+            <twig:Twigcn:Avatar alt="Jane Smith" class="border-2 border-background" />
+            <twig:Twigcn:Avatar fallback="+3" class="border-2 border-background" />
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>{# With image #}
+&lt;twig:Avatar src="https://example.com/avatar.jpg" alt="John Doe" /&gt;
+
+{# With fallback initials (auto-generated from alt) #}
+&lt;twig:Avatar alt="John Doe" /&gt;
+
+{# With custom fallback #}
+&lt;twig:Avatar fallback="JD" /&gt;
+
+{# Sizes #}
+&lt;twig:Avatar size="sm" src="..." alt="User" /&gt;
+&lt;twig:Avatar size="lg" src="..." alt="User" /&gt;
+&lt;twig:Avatar size="xl" src="..." alt="User" /&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

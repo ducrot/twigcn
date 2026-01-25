@@ -1,0 +1,155 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Popover - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Popover</h1>
+        <p class="text-muted-foreground mt-2">Displays rich content in a portal, triggered by a button.</p>
+    </header>
+
+    {# Basic Example #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Basic Popover</h2>
+        </header>
+        <section class="flex items-center gap-4">
+            <twig:Twigcn:Popover>
+                <twig:Twigcn:PopoverTrigger>
+                    <twig:Twigcn:Button variant="outline">Open Popover</twig:Twigcn:Button>
+                </twig:Twigcn:PopoverTrigger>
+                <twig:Twigcn:PopoverContent class="w-80">
+                    <div class="grid gap-4">
+                        <div class="flex flex-col gap-2">
+                            <h4 class="font-medium leading-none">Dimensions</h4>
+                            <p class="text-sm text-muted-foreground">Set the dimensions for the layer.</p>
+                        </div>
+                        <div class="grid gap-2">
+                            <div class="grid grid-cols-3 items-center gap-4">
+                                <twig:Twigcn:Label for="width">Width</twig:Twigcn:Label>
+                                <twig:Twigcn:Input id="width" value="100%" class="col-span-2 h-8" />
+                            </div>
+                            <div class="grid grid-cols-3 items-center gap-4">
+                                <twig:Twigcn:Label for="height">Height</twig:Twigcn:Label>
+                                <twig:Twigcn:Input id="height" value="25px" class="col-span-2 h-8" />
+                            </div>
+                        </div>
+                    </div>
+                </twig:Twigcn:PopoverContent>
+            </twig:Twigcn:Popover>
+        </section>
+    </section>
+
+    {# With Form #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Form</h2>
+        </header>
+        <section class="flex items-center gap-4">
+            <twig:Twigcn:Popover>
+                <twig:Twigcn:PopoverTrigger>
+                    <twig:Twigcn:Button variant="outline">
+                        <twig:ux:icon name="lucide:settings" class="w-4 h-4 mr-2" />
+                        Settings
+                    </twig:Twigcn:Button>
+                </twig:Twigcn:PopoverTrigger>
+                <twig:Twigcn:PopoverContent class="w-80">
+                    <div class="grid gap-4">
+                        <div class="flex flex-col gap-2">
+                            <h4 class="font-medium leading-none">Settings</h4>
+                            <p class="text-sm text-muted-foreground">Configure your preferences.</p>
+                        </div>
+                        <div class="grid gap-2">
+                            <twig:Twigcn:Field>
+                                <twig:Twigcn:Label for="name">Name</twig:Twigcn:Label>
+                                <twig:Twigcn:Input id="name" placeholder="Enter name" />
+                            </twig:Twigcn:Field>
+                            <twig:Twigcn:Field>
+                                <twig:Twigcn:Label for="email">Email</twig:Twigcn:Label>
+                                <twig:Twigcn:Input id="email" type="email" placeholder="Enter email" />
+                            </twig:Twigcn:Field>
+                        </div>
+                        <twig:Twigcn:Button size="sm">Save changes</twig:Twigcn:Button>
+                    </div>
+                </twig:Twigcn:PopoverContent>
+            </twig:Twigcn:Popover>
+        </section>
+    </section>
+
+    {# Alignment #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Alignment</h2>
+        </header>
+        <section class="flex flex-wrap items-center gap-4">
+            <twig:Twigcn:Popover>
+                <twig:Twigcn:PopoverTrigger>
+                    <twig:Twigcn:Button variant="outline">Align Start</twig:Twigcn:Button>
+                </twig:Twigcn:PopoverTrigger>
+                <twig:Twigcn:PopoverContent align="start" class="w-60">
+                    <p class="text-sm">This popover is aligned to the start.</p>
+                </twig:Twigcn:PopoverContent>
+            </twig:Twigcn:Popover>
+
+            <twig:Twigcn:Popover>
+                <twig:Twigcn:PopoverTrigger>
+                    <twig:Twigcn:Button variant="outline">Align Center</twig:Twigcn:Button>
+                </twig:Twigcn:PopoverTrigger>
+                <twig:Twigcn:PopoverContent align="center" class="w-60">
+                    <p class="text-sm">This popover is centered.</p>
+                </twig:Twigcn:PopoverContent>
+            </twig:Twigcn:Popover>
+
+            <twig:Twigcn:Popover>
+                <twig:Twigcn:PopoverTrigger>
+                    <twig:Twigcn:Button variant="outline">Align End</twig:Twigcn:Button>
+                </twig:Twigcn:PopoverTrigger>
+                <twig:Twigcn:PopoverContent align="end" class="w-60">
+                    <p class="text-sm">This popover is aligned to the end.</p>
+                </twig:Twigcn:PopoverContent>
+            </twig:Twigcn:Popover>
+        </section>
+    </section>
+
+    {# Info Popover #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Info Popover</h2>
+        </header>
+        <section class="flex items-center gap-4">
+            <span class="text-sm">What is a popover?</span>
+            <twig:Twigcn:Popover>
+                <twig:Twigcn:PopoverTrigger>
+                    <twig:Twigcn:Button variant="ghost" size="icon" class="h-6 w-6 rounded-full">
+                        <twig:ux:icon name="lucide:info" class="w-4 h-4" />
+                    </twig:Twigcn:Button>
+                </twig:Twigcn:PopoverTrigger>
+                <twig:Twigcn:PopoverContent class="w-80">
+                    <p class="text-sm">A popover is a floating panel that appears next to a trigger element. It can contain any content like forms, information, or actions.</p>
+                </twig:Twigcn:PopoverContent>
+            </twig:Twigcn:Popover>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Popover&gt;
+    &lt;twig:PopoverTrigger&gt;
+        &lt;twig:Button variant="outline"&gt;Open Popover&lt;/twig:Button&gt;
+    &lt;/twig:PopoverTrigger&gt;
+    &lt;twig:PopoverContent class="w-80"&gt;
+        &lt;div class="grid gap-4"&gt;
+            &lt;h4 class="font-medium"&gt;Title&lt;/h4&gt;
+            &lt;p class="text-sm"&gt;Content goes here.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/twig:PopoverContent&gt;
+&lt;/twig:Popover&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

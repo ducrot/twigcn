@@ -1,0 +1,143 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Item - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Item</h1>
+        <p class="text-muted-foreground mt-2">
+            A list item component for navigation or menu items.
+        </p>
+    </header>
+
+    {# Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section class="max-w-xs">
+            <div class="flex flex-col gap-1">
+                <twig:Twigcn:Item href="#">
+                    <twig:ux:icon name="lucide:home" class="size-4" />
+                    Dashboard
+                </twig:Twigcn:Item>
+                <twig:Twigcn:Item href="#" :active="true">
+                    <twig:ux:icon name="lucide:inbox" class="size-4" />
+                    Inbox
+                </twig:Twigcn:Item>
+                <twig:Twigcn:Item href="#">
+                    <twig:ux:icon name="lucide:settings" class="size-4" />
+                    Settings
+                </twig:Twigcn:Item>
+            </div>
+        </section>
+    </section>
+
+    {# States #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">States</h2>
+        </header>
+        <section class="max-w-xs">
+            <div class="flex flex-col gap-1">
+                <twig:Twigcn:Item href="#">
+                    <twig:ux:icon name="lucide:file" class="size-4" />
+                    Default
+                </twig:Twigcn:Item>
+                <twig:Twigcn:Item href="#" :active="true">
+                    <twig:ux:icon name="lucide:file-check" class="size-4" />
+                    Active
+                </twig:Twigcn:Item>
+                <twig:Twigcn:Item :disabled="true">
+                    <twig:ux:icon name="lucide:file-x" class="size-4" />
+                    Disabled
+                </twig:Twigcn:Item>
+            </div>
+        </section>
+    </section>
+
+    {# With Badge #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Badge</h2>
+        </header>
+        <section class="max-w-xs">
+            <div class="flex flex-col gap-1">
+                <twig:Twigcn:Item href="#" class="justify-between">
+                    <span class="flex items-center gap-3">
+                        <twig:ux:icon name="lucide:inbox" class="size-4" />
+                        Inbox
+                    </span>
+                    <twig:Twigcn:Badge>12</twig:Twigcn:Badge>
+                </twig:Twigcn:Item>
+                <twig:Twigcn:Item href="#" class="justify-between">
+                    <span class="flex items-center gap-3">
+                        <twig:ux:icon name="lucide:send" class="size-4" />
+                        Sent
+                    </span>
+                    <twig:Twigcn:Badge variant="secondary">3</twig:Twigcn:Badge>
+                </twig:Twigcn:Item>
+                <twig:Twigcn:Item href="#" class="justify-between">
+                    <span class="flex items-center gap-3">
+                        <twig:ux:icon name="lucide:archive" class="size-4" />
+                        Archive
+                    </span>
+                </twig:Twigcn:Item>
+            </div>
+        </section>
+    </section>
+
+    {# Menu Example #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Menu Example</h2>
+        </header>
+        <section class="max-w-xs border rounded-lg p-2">
+            <div class="flex flex-col gap-1">
+                <twig:Twigcn:Item href="#">
+                    <twig:ux:icon name="lucide:user" class="size-4" />
+                    Profile
+                </twig:Twigcn:Item>
+                <twig:Twigcn:Item href="#">
+                    <twig:ux:icon name="lucide:credit-card" class="size-4" />
+                    Billing
+                </twig:Twigcn:Item>
+                <twig:Twigcn:Item href="#">
+                    <twig:ux:icon name="lucide:settings" class="size-4" />
+                    Settings
+                </twig:Twigcn:Item>
+                <hr class="my-1">
+                <twig:Twigcn:Item href="#" class="text-destructive hover:text-destructive">
+                    <twig:ux:icon name="lucide:log-out" class="size-4" />
+                    Log out
+                </twig:Twigcn:Item>
+            </div>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Item href="/dashboard"&gt;
+    &lt;twig:ux:icon name="lucide:home" class="size-4" /&gt;
+    Dashboard
+&lt;/twig:Item&gt;
+
+{# Active state #}
+&lt;twig:Item href="/inbox" :active="true"&gt;
+    &lt;twig:ux:icon name="lucide:inbox" class="size-4" /&gt;
+    Inbox
+&lt;/twig:Item&gt;
+
+{# Disabled #}
+&lt;twig:Item :disabled="true"&gt;
+    Disabled Item
+&lt;/twig:Item&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,244 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Drawer - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Drawer</h1>
+        <p class="text-muted-foreground mt-2">A panel that slides in from the edge of the screen.</p>
+    </header>
+
+    {# Basic Example #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Basic Drawer</h2>
+        </header>
+        <section class="flex items-center gap-4">
+            <twig:Twigcn:DrawerTrigger for="drawer-basic" class="btn-outline">
+                Open Drawer
+            </twig:Twigcn:DrawerTrigger>
+
+            <twig:Twigcn:Drawer id="drawer-basic" side="right">
+                <twig:Twigcn:DrawerContent>
+                    <twig:Twigcn:DrawerHeader>
+                        <h3 class="text-lg font-semibold">Drawer Title</h3>
+                        <p class="text-sm text-muted-foreground">This is a basic drawer example.</p>
+                    </twig:Twigcn:DrawerHeader>
+                    <div class="p-4">
+                        <p>Drawer content goes here.</p>
+                    </div>
+                    <twig:Twigcn:DrawerFooter>
+                        <twig:Twigcn:DrawerClose class="btn-outline">Close</twig:Twigcn:DrawerClose>
+                    </twig:Twigcn:DrawerFooter>
+                </twig:Twigcn:DrawerContent>
+            </twig:Twigcn:Drawer>
+        </section>
+    </section>
+
+    {# Sides #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Different Sides</h2>
+        </header>
+        <section class="flex flex-wrap items-center gap-4">
+            <twig:Twigcn:DrawerTrigger for="drawer-left" class="btn-outline">
+                Left Drawer
+            </twig:Twigcn:DrawerTrigger>
+
+            <twig:Twigcn:Drawer id="drawer-left" side="left">
+                <twig:Twigcn:DrawerContent>
+                    <twig:Twigcn:DrawerHeader>
+                        <h3 class="text-lg font-semibold">Left Drawer</h3>
+                    </twig:Twigcn:DrawerHeader>
+                    <div class="p-4">
+                        <p>This drawer slides in from the left.</p>
+                    </div>
+                    <twig:Twigcn:DrawerFooter>
+                        <twig:Twigcn:DrawerClose class="btn-outline">Close</twig:Twigcn:DrawerClose>
+                    </twig:Twigcn:DrawerFooter>
+                </twig:Twigcn:DrawerContent>
+            </twig:Twigcn:Drawer>
+
+            <twig:Twigcn:DrawerTrigger for="drawer-right" class="btn-outline">
+                Right Drawer
+            </twig:Twigcn:DrawerTrigger>
+
+            <twig:Twigcn:Drawer id="drawer-right" side="right">
+                <twig:Twigcn:DrawerContent>
+                    <twig:Twigcn:DrawerHeader>
+                        <h3 class="text-lg font-semibold">Right Drawer</h3>
+                    </twig:Twigcn:DrawerHeader>
+                    <div class="p-4">
+                        <p>This drawer slides in from the right.</p>
+                    </div>
+                    <twig:Twigcn:DrawerFooter>
+                        <twig:Twigcn:DrawerClose class="btn-outline">Close</twig:Twigcn:DrawerClose>
+                    </twig:Twigcn:DrawerFooter>
+                </twig:Twigcn:DrawerContent>
+            </twig:Twigcn:Drawer>
+
+            <twig:Twigcn:DrawerTrigger for="drawer-top" class="btn-outline">
+                Top Drawer
+            </twig:Twigcn:DrawerTrigger>
+
+            <twig:Twigcn:Drawer id="drawer-top" side="top">
+                <twig:Twigcn:DrawerContent>
+                    <twig:Twigcn:DrawerHeader>
+                        <h3 class="text-lg font-semibold">Top Drawer</h3>
+                    </twig:Twigcn:DrawerHeader>
+                    <div class="p-4">
+                        <p>This drawer slides in from the top.</p>
+                    </div>
+                    <twig:Twigcn:DrawerFooter>
+                        <twig:Twigcn:DrawerClose class="btn-outline">Close</twig:Twigcn:DrawerClose>
+                    </twig:Twigcn:DrawerFooter>
+                </twig:Twigcn:DrawerContent>
+            </twig:Twigcn:Drawer>
+
+            <twig:Twigcn:DrawerTrigger for="drawer-bottom" class="btn-outline">
+                Bottom Drawer
+            </twig:Twigcn:DrawerTrigger>
+
+            <twig:Twigcn:Drawer id="drawer-bottom" side="bottom">
+                <twig:Twigcn:DrawerContent>
+                    <twig:Twigcn:DrawerHeader>
+                        <h3 class="text-lg font-semibold">Bottom Drawer</h3>
+                    </twig:Twigcn:DrawerHeader>
+                    <div class="p-4">
+                        <p>This drawer slides in from the bottom.</p>
+                    </div>
+                    <twig:Twigcn:DrawerFooter>
+                        <twig:Twigcn:DrawerClose class="btn-outline">Close</twig:Twigcn:DrawerClose>
+                    </twig:Twigcn:DrawerFooter>
+                </twig:Twigcn:DrawerContent>
+            </twig:Twigcn:Drawer>
+        </section>
+    </section>
+
+    {# With Form #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Form</h2>
+        </header>
+        <section class="flex items-center gap-4">
+            <twig:Twigcn:DrawerTrigger for="drawer-form" class="btn-primary">
+                <twig:ux:icon name="lucide:plus" class="w-4 h-4 mr-2" />
+                Add New Item
+            </twig:Twigcn:DrawerTrigger>
+
+            <twig:Twigcn:Drawer id="drawer-form" side="right">
+                <twig:Twigcn:DrawerContent>
+                    <twig:Twigcn:DrawerHeader>
+                        <h3 class="text-lg font-semibold">Create New Item</h3>
+                        <p class="text-sm text-muted-foreground">Fill in the details below.</p>
+                    </twig:Twigcn:DrawerHeader>
+                    <div class="p-4 flex flex-col gap-4">
+                        <twig:Twigcn:Field>
+                            <twig:Twigcn:Label for="item-name">Name</twig:Twigcn:Label>
+                            <twig:Twigcn:Input id="item-name" placeholder="Enter item name" />
+                        </twig:Twigcn:Field>
+                        <twig:Twigcn:Field>
+                            <twig:Twigcn:Label for="item-desc">Description</twig:Twigcn:Label>
+                            <twig:Twigcn:Textarea id="item-desc" placeholder="Enter description" />
+                        </twig:Twigcn:Field>
+                        <twig:Twigcn:Field>
+                            <twig:Twigcn:Label for="item-category">Category</twig:Twigcn:Label>
+                            <twig:Twigcn:Select id="item-category">
+                                <option value="">Select category</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="clothing">Clothing</option>
+                                <option value="books">Books</option>
+                            </twig:Twigcn:Select>
+                        </twig:Twigcn:Field>
+                    </div>
+                    <twig:Twigcn:DrawerFooter>
+                        <twig:Twigcn:DrawerClose class="btn-outline">Cancel</twig:Twigcn:DrawerClose>
+                        <twig:Twigcn:Button>Save Item</twig:Twigcn:Button>
+                    </twig:Twigcn:DrawerFooter>
+                </twig:Twigcn:DrawerContent>
+            </twig:Twigcn:Drawer>
+        </section>
+    </section>
+
+    {# Navigation Drawer #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Navigation Drawer</h2>
+        </header>
+        <section class="flex items-center gap-4">
+            <twig:Twigcn:DrawerTrigger for="drawer-nav" class="btn-outline">
+                <twig:ux:icon name="lucide:menu" class="w-4 h-4" />
+            </twig:Twigcn:DrawerTrigger>
+
+            <twig:Twigcn:Drawer id="drawer-nav" side="left">
+                <twig:Twigcn:DrawerContent>
+                    <twig:Twigcn:DrawerHeader>
+                        <h3 class="text-lg font-semibold">Navigation</h3>
+                    </twig:Twigcn:DrawerHeader>
+                    <nav class="p-4">
+                        <ul class="flex flex-col gap-2">
+                            <li>
+                                <a href="#" class="flex items-center gap-2 p-2 rounded-md hover:bg-accent">
+                                    <twig:ux:icon name="lucide:home" class="w-4 h-4" />
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center gap-2 p-2 rounded-md hover:bg-accent">
+                                    <twig:ux:icon name="lucide:user" class="w-4 h-4" />
+                                    Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center gap-2 p-2 rounded-md hover:bg-accent">
+                                    <twig:ux:icon name="lucide:settings" class="w-4 h-4" />
+                                    Settings
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center gap-2 p-2 rounded-md hover:bg-accent">
+                                    <twig:ux:icon name="lucide:help-circle" class="w-4 h-4" />
+                                    Help
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <twig:Twigcn:DrawerFooter>
+                        <twig:Twigcn:DrawerClose class="btn-outline w-full">Close</twig:Twigcn:DrawerClose>
+                    </twig:Twigcn:DrawerFooter>
+                </twig:Twigcn:DrawerContent>
+            </twig:Twigcn:Drawer>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:DrawerTrigger for="my-drawer" class="btn-outline"&gt;
+    Open Drawer
+&lt;/twig:DrawerTrigger&gt;
+
+&lt;twig:Drawer id="my-drawer" side="right"&gt;
+    &lt;twig:DrawerContent&gt;
+        &lt;twig:DrawerHeader&gt;
+            &lt;h3&gt;Title&lt;/h3&gt;
+        &lt;/twig:DrawerHeader&gt;
+        &lt;div class="p-4"&gt;Content&lt;/div&gt;
+        &lt;twig:DrawerFooter&gt;
+            &lt;twig:DrawerClose class="btn-outline"&gt;Close&lt;/twig:DrawerClose&gt;
+        &lt;/twig:DrawerFooter&gt;
+    &lt;/twig:DrawerContent&gt;
+&lt;/twig:Drawer&gt;
+
+{# Disable backdrop close #}
+&lt;twig:Drawer id="my-drawer" side="right" :closeOnBackdrop="false"&gt;
+    ...
+&lt;/twig:Drawer&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

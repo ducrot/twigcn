@@ -1,0 +1,7 @@
+<div
+    class="{{ this.groupClasses }}"
+    {% if orientation == 'vertical' %}data-orientation="vertical"{% endif %}
+    {{ attributes }}
+>
+    {% block content %}{% endblock %}
+</div>

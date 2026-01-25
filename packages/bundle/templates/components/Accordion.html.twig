@@ -1,0 +1,9 @@
+<div
+    data-controller="accordion"
+    data-accordion-type-value="{{ this.type }}"
+    data-accordion-collapsible-value="{{ this.collapsible ? 'true' : 'false' }}"
+    class="{{ this.accordionClasses }}"
+    {{ attributes }}
+>
+    {% block content %}{% endblock %}
+</div>

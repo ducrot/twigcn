@@ -1,0 +1,17 @@
+{
+    "name": "twigcn-monorepo",
+    "private": true,
+    "workspaces": [
+        "packages/ui",
+        "packages/demo"
+    ],
+    "scripts": {
+        "dev": "npm run dev --workspace=packages/demo",
+        "build": "npm run build --workspace=packages/ui",
+        "build:demo": "npm run build --workspace=packages/demo",
+        "typecheck": "npm run typecheck --workspace=packages/ui"
+    },
+    "devDependencies": {
+        "typescript": "^5.7.3"
+    }
+}

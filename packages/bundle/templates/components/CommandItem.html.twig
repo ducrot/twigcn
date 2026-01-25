@@ -1,0 +1,10 @@
+<div
+    role="menuitem"
+    data-command-target="item"
+    data-value="{{ value }}"
+    {% if disabled %}aria-disabled="true"{% endif %}
+    class="{{ class }}"
+    {{ attributes }}
+>
+    {% block content %}{% endblock %}
+</div>

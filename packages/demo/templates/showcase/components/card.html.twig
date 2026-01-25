@@ -1,0 +1,187 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Card - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Card</h1>
+        <p class="text-muted-foreground mt-2">
+            Displays a card with header, content, and footer.
+        </p>
+    </header>
+
+    {# Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section class="max-w-md">
+            <twig:Twigcn:Card>
+                <header>
+                    <h2>Card Title</h2>
+                    <p>Card Description</p>
+                </header>
+                <section>
+                    <p>Card Content</p>
+                </section>
+                <footer>
+                    <p class="text-sm text-muted-foreground">Card Footer</p>
+                </footer>
+            </twig:Twigcn:Card>
+        </section>
+    </section>
+
+    {# With Form #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Form</h2>
+        </header>
+        <section class="max-w-md">
+            <twig:Twigcn:Card>
+                <header>
+                    <h2>Create project</h2>
+                    <p>Deploy your new project in one-click.</p>
+                </header>
+                <section class="flex flex-col gap-4">
+                    <div class="grid gap-2">
+                        <twig:Twigcn:Label for="project-name">Name</twig:Twigcn:Label>
+                        <twig:Twigcn:Input id="project-name" placeholder="Name of your project" />
+                    </div>
+                    <div class="grid gap-2">
+                        <twig:Twigcn:Label for="project-desc">Description</twig:Twigcn:Label>
+                        <twig:Twigcn:Textarea id="project-desc" placeholder="Describe your project" />
+                    </div>
+                </section>
+                <footer class="flex justify-between">
+                    <twig:Twigcn:Button variant="outline">Cancel</twig:Twigcn:Button>
+                    <twig:Twigcn:Button>Deploy</twig:Twigcn:Button>
+                </footer>
+            </twig:Twigcn:Card>
+        </section>
+    </section>
+
+    {# With Image #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Image</h2>
+        </header>
+        <section class="max-w-sm">
+            <twig:Twigcn:Card class="overflow-hidden">
+                <header>
+                    <h2>Beautiful Landscapes</h2>
+                    <p>Explore stunning nature photography</p>
+                </header>
+                <section class="p-0">
+                    <img src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80" alt="Abstract gradient" class="w-full h-48 object-cover" />
+                </section>
+                <footer class="flex gap-2">
+                    <twig:Twigcn:Button variant="outline" size="sm">Share</twig:Twigcn:Button>
+                    <twig:Twigcn:Button size="sm">View Gallery</twig:Twigcn:Button>
+                </footer>
+            </twig:Twigcn:Card>
+        </section>
+    </section>
+
+    {# Stats Cards #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Stats Cards</h2>
+        </header>
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <twig:Twigcn:Card>
+                <header>
+                    <p>Total Revenue</p>
+                    <h2 class="text-2xl font-bold">$45,231.89</h2>
+                </header>
+                <section>
+                    <p class="text-xs text-muted-foreground">+20.1% from last month</p>
+                </section>
+            </twig:Twigcn:Card>
+            <twig:Twigcn:Card>
+                <header>
+                    <p>Subscriptions</p>
+                    <h2 class="text-2xl font-bold">+2350</h2>
+                </header>
+                <section>
+                    <p class="text-xs text-muted-foreground">+180.1% from last month</p>
+                </section>
+            </twig:Twigcn:Card>
+            <twig:Twigcn:Card>
+                <header>
+                    <p>Active Users</p>
+                    <h2 class="text-2xl font-bold">+573</h2>
+                </header>
+                <section>
+                    <p class="text-xs text-muted-foreground">+201 since last hour</p>
+                </section>
+            </twig:Twigcn:Card>
+        </section>
+    </section>
+
+    {# Notification Card #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Notification Card</h2>
+        </header>
+        <section class="max-w-md">
+            <twig:Twigcn:Card>
+                <header>
+                    <h2>Notifications</h2>
+                    <p>You have 3 unread messages.</p>
+                </header>
+                <section class="flex flex-col gap-4">
+                    <div class="flex items-start gap-4">
+                        <span class="size-2 bg-blue-500 rounded-full mt-2"></span>
+                        <div class="flex-1">
+                            <p class="text-sm font-medium">Your call has been confirmed.</p>
+                            <p class="text-sm text-muted-foreground">1 hour ago</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="size-2 bg-blue-500 rounded-full mt-2"></span>
+                        <div class="flex-1">
+                            <p class="text-sm font-medium">You have a new message!</p>
+                            <p class="text-sm text-muted-foreground">1 hour ago</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="size-2 bg-blue-500 rounded-full mt-2"></span>
+                        <div class="flex-1">
+                            <p class="text-sm font-medium">Your subscription is expiring soon!</p>
+                            <p class="text-sm text-muted-foreground">2 hours ago</p>
+                        </div>
+                    </div>
+                </section>
+                <footer>
+                    <twig:Twigcn:Button class="w-full">
+                        <twig:ux:icon name="lucide:check" />
+                        Mark all as read
+                    </twig:Twigcn:Button>
+                </footer>
+            </twig:Twigcn:Card>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Card&gt;
+    &lt;header&gt;
+        &lt;h2&gt;Card Title&lt;/h2&gt;
+        &lt;p&gt;Card Description&lt;/p&gt;
+    &lt;/header&gt;
+    &lt;section&gt;
+        &lt;p&gt;Card Content&lt;/p&gt;
+    &lt;/section&gt;
+    &lt;footer&gt;
+        &lt;p&gt;Card Footer&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/twig:Card&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

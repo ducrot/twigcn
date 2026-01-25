@@ -1,0 +1,41 @@
+{% set items %}{% block content %}{% endblock %}{% endset %}
+<div
+    data-controller="combobox"
+    data-combobox-placeholder-value="{{ placeholder }}"
+    class="select {{ class }}"
+    {{ attributes }}
+>
+    <input
+        type="hidden"
+        {% if name %}name="{{ name }}"{% endif %}
+        {% if id %}id="{{ id }}"{% endif %}
+        {% if value %}value="{{ value }}"{% endif %}
+        data-combobox-target="input"
+    />
+    <twig:Twigcn:Popover>
+        <twig:Twigcn:PopoverTrigger>
+            <button
+                type="button"
+                role="combobox"
+                aria-expanded="false"
+                {% if disabled %}disabled{% endif %}
+                data-combobox-target="trigger"
+                class="btn-outline"
+            >
+                <span data-combobox-target="label">{{ placeholder }}</span>
+                <twig:ux:icon name="lucide:chevrons-up-down" class="w-4 h-4 ml-2 shrink-0 opacity-50" />
+            </button>
+        </twig:Twigcn:PopoverTrigger>
+        <twig:Twigcn:PopoverContent class="w-[200px] p-0">
+            <twig:Twigcn:Command>
+                <twig:Twigcn:CommandInput placeholder="{{ searchPlaceholder }}" />
+                <twig:Twigcn:CommandList>
+                    <twig:Twigcn:CommandEmpty>{{ emptyText }}</twig:Twigcn:CommandEmpty>
+                    <twig:Twigcn:CommandGroup>
+                        {{ items|raw }}
+                    </twig:Twigcn:CommandGroup>
+                </twig:Twigcn:CommandList>
+            </twig:Twigcn:Command>
+        </twig:Twigcn:PopoverContent>
+    </twig:Twigcn:Popover>
+</div>

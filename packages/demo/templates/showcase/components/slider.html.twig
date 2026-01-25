@@ -1,0 +1,148 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Slider - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Slider</h1>
+        <p class="text-muted-foreground mt-2">
+            An input for selecting a value from a range.
+        </p>
+    </header>
+
+    {# Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section class="max-w-md">
+            <twig:Twigcn:Slider :value="50" />
+        </section>
+    </section>
+
+    {# Values #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Different Values</h2>
+        </header>
+        <section class="flex flex-col gap-6 max-w-md">
+            <div class="flex flex-col gap-2">
+                <div class="flex justify-between text-sm">
+                    <span>0%</span>
+                    <span class="text-muted-foreground">Empty</span>
+                </div>
+                <twig:Twigcn:Slider :value="0" />
+            </div>
+            <div class="flex flex-col gap-2">
+                <div class="flex justify-between text-sm">
+                    <span>25%</span>
+                    <span class="text-muted-foreground">Quarter</span>
+                </div>
+                <twig:Twigcn:Slider :value="25" />
+            </div>
+            <div class="flex flex-col gap-2">
+                <div class="flex justify-between text-sm">
+                    <span>50%</span>
+                    <span class="text-muted-foreground">Half</span>
+                </div>
+                <twig:Twigcn:Slider :value="50" />
+            </div>
+            <div class="flex flex-col gap-2">
+                <div class="flex justify-between text-sm">
+                    <span>75%</span>
+                    <span class="text-muted-foreground">Three quarters</span>
+                </div>
+                <twig:Twigcn:Slider :value="75" />
+            </div>
+            <div class="flex flex-col gap-2">
+                <div class="flex justify-between text-sm">
+                    <span>100%</span>
+                    <span class="text-muted-foreground">Full</span>
+                </div>
+                <twig:Twigcn:Slider :value="100" />
+            </div>
+        </section>
+    </section>
+
+    {# Custom Range #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Custom Range</h2>
+        </header>
+        <section class="flex flex-col gap-4 max-w-md">
+            <twig:Twigcn:Field>
+                <twig:Twigcn:Label for="temperature">Temperature (0-40°C)</twig:Twigcn:Label>
+                <twig:Twigcn:Slider id="temperature" :value="22" :min="0" :max="40" />
+            </twig:Twigcn:Field>
+            <twig:Twigcn:Field>
+                <twig:Twigcn:Label for="volume">Volume (0-10)</twig:Twigcn:Label>
+                <twig:Twigcn:Slider id="volume" :value="7" :min="0" :max="10" />
+            </twig:Twigcn:Field>
+        </section>
+    </section>
+
+    {# With Live Value Display #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Live Value</h2>
+        </header>
+        <section class="max-w-md">
+            <div data-controller="slider">
+                <twig:Twigcn:Field>
+                    <twig:Twigcn:Label for="price-range">Price</twig:Twigcn:Label>
+                    <p id="price-range-desc">Set your budget: $<span data-slider-target="output">150</span></p>
+                    <input type="range" id="price-range" value="150" min="0" max="500"
+                           class="input w-full"
+                           data-slider-target="input"
+                           data-action="input->slider#update"
+                           style="--slider-value: 30%"
+                           aria-describedby="price-range-desc">
+                </twig:Twigcn:Field>
+            </div>
+        </section>
+    </section>
+
+    {# With Steps #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Steps</h2>
+        </header>
+        <section class="max-w-md">
+            <twig:Twigcn:Field>
+                <twig:Twigcn:Label for="rating">Rating (steps of 10)</twig:Twigcn:Label>
+                <twig:Twigcn:Slider id="rating" :value="50" :step="10" />
+            </twig:Twigcn:Field>
+        </section>
+    </section>
+
+    {# Disabled #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Disabled</h2>
+        </header>
+        <section class="max-w-md">
+            <twig:Twigcn:Slider :value="50" :disabled="true" />
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Slider :value="50" /&gt;
+
+{# Custom range #}
+&lt;twig:Slider :value="22" :min="0" :max="40" /&gt;
+
+{# With steps #}
+&lt;twig:Slider :value="50" :step="10" /&gt;
+
+{# Disabled #}
+&lt;twig:Slider :value="50" :disabled="true" /&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

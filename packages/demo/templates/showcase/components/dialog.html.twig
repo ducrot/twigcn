@@ -1,0 +1,139 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Dialog - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Dialog</h1>
+        <p class="text-muted-foreground mt-2">
+            A modal dialog that interrupts the user with important content.
+        </p>
+    </header>
+
+    {# Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section>
+            <twig:Twigcn:Button onclick="document.getElementById('demo-dialog').showModal()">
+                Open Dialog
+            </twig:Twigcn:Button>
+
+            <twig:Twigcn:Dialog id="demo-dialog">
+                <header>
+                    <h2>Edit Profile</h2>
+                    <p>Make changes to your profile here. Click save when you're done.</p>
+                </header>
+                <section class="flex flex-col gap-4">
+                    <twig:Twigcn:Field>
+                        <twig:Twigcn:Label for="dialog-name">Name</twig:Twigcn:Label>
+                        <twig:Twigcn:Input id="dialog-name" value="John Doe" />
+                    </twig:Twigcn:Field>
+                    <twig:Twigcn:Field>
+                        <twig:Twigcn:Label for="dialog-email">Email</twig:Twigcn:Label>
+                        <twig:Twigcn:Input id="dialog-email" type="email" value="john@example.com" />
+                    </twig:Twigcn:Field>
+                </section>
+                <footer>
+                    <twig:Twigcn:Button variant="outline" onclick="document.getElementById('demo-dialog').close()">Cancel</twig:Twigcn:Button>
+                    <twig:Twigcn:Button onclick="document.getElementById('demo-dialog').close()">Save changes</twig:Twigcn:Button>
+                </footer>
+            </twig:Twigcn:Dialog>
+        </section>
+    </section>
+
+    {# Alert Dialog #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Alert Dialog</h2>
+        </header>
+        <section>
+            <twig:Twigcn:Button variant="destructive" onclick="document.getElementById('alert-dialog').showModal()">
+                Delete Account
+            </twig:Twigcn:Button>
+
+            <twig:Twigcn:Dialog id="alert-dialog" :closeOnBackdrop="false">
+                <header>
+                    <h2>Are you absolutely sure?</h2>
+                    <p>This action cannot be undone. This will permanently delete your account and remove your data from our servers.</p>
+                </header>
+                <footer>
+                    <twig:Twigcn:Button variant="outline" onclick="document.getElementById('alert-dialog').close()">Cancel</twig:Twigcn:Button>
+                    <twig:Twigcn:Button variant="destructive" onclick="document.getElementById('alert-dialog').close()">Delete</twig:Twigcn:Button>
+                </footer>
+            </twig:Twigcn:Dialog>
+        </section>
+    </section>
+
+    {# With Form #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Form</h2>
+        </header>
+        <section>
+            <twig:Twigcn:Button variant="outline" onclick="document.getElementById('form-dialog').showModal()">
+                <twig:ux:icon name="lucide:plus" />
+                New Project
+            </twig:Twigcn:Button>
+
+            <twig:Twigcn:Dialog id="form-dialog">
+                <header>
+                    <h2>Create Project</h2>
+                    <p>Add a new project to your workspace.</p>
+                </header>
+                <section class="flex flex-col gap-4">
+                    <twig:Twigcn:Field>
+                        <twig:Twigcn:Label for="project-name">Project Name</twig:Twigcn:Label>
+                        <twig:Twigcn:Input id="project-name" placeholder="My awesome project" />
+                    </twig:Twigcn:Field>
+                    <twig:Twigcn:Field>
+                        <twig:Twigcn:Label for="project-desc">Description</twig:Twigcn:Label>
+                        <twig:Twigcn:Textarea id="project-desc" placeholder="Describe your project..." :rows="3" />
+                    </twig:Twigcn:Field>
+                </section>
+                <footer>
+                    <twig:Twigcn:Button variant="outline" onclick="document.getElementById('form-dialog').close()">Cancel</twig:Twigcn:Button>
+                    <twig:Twigcn:Button onclick="document.getElementById('form-dialog').close()">Create Project</twig:Twigcn:Button>
+                </footer>
+            </twig:Twigcn:Dialog>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>{# Trigger button #}
+&lt;twig:Button onclick="document.getElementById('my-dialog').showModal()"&gt;
+    Open Dialog
+&lt;/twig:Button&gt;
+
+{# Dialog component #}
+&lt;twig:Dialog id="my-dialog"&gt;
+    &lt;header&gt;
+        &lt;h2&gt;Dialog Title&lt;/h2&gt;
+        &lt;p&gt;Dialog description text.&lt;/p&gt;
+    &lt;/header&gt;
+    &lt;section&gt;
+        {# Dialog content #}
+    &lt;/section&gt;
+    &lt;footer&gt;
+        &lt;twig:Button variant="outline" onclick="document.getElementById('my-dialog').close()"&gt;
+            Cancel
+        &lt;/twig:Button&gt;
+        &lt;twig:Button&gt;Confirm&lt;/twig:Button&gt;
+    &lt;/footer&gt;
+&lt;/twig:Dialog&gt;
+
+{# Alert Dialog - prevent closing on backdrop click #}
+&lt;twig:Dialog id="alert-dialog" :closeOnBackdrop="false"&gt;
+    ...
+&lt;/twig:Dialog&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+<input
+    type="checkbox"
+    role="switch"
+    class="{{ this.switchClasses }}"
+    {% if name %}name="{{ name }}"{% endif %}
+    {% if id %}id="{{ id }}"{% endif %}
+    {% if value %}value="{{ value }}"{% endif %}
+    {% if checked %}checked{% endif %}
+    {% if disabled %}disabled{% endif %}
+    {% if invalid %}aria-invalid="true"{% endif %}
+    {% if required %}required{% endif %}
+    {{ attributes }}
+>

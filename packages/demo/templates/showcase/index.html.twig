@@ -1,0 +1,56 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Component Showcase - TwigcnBundle{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Component Showcase</h1>
+        <p class="text-muted-foreground mt-2">
+            Beautifully designed components built with Tailwind CSS, shadcn/ui + Basecoat inspired.
+        </p>
+    </header>
+
+    <twig:Twigcn:Tabs>
+        <twig:Twigcn:TabsList>
+            <twig:Twigcn:TabsTrigger value="grouped" :active="true">Grouped</twig:Twigcn:TabsTrigger>
+            <twig:Twigcn:TabsTrigger value="alphabetical">A-Z</twig:Twigcn:TabsTrigger>
+        </twig:Twigcn:TabsList>
+
+        <twig:Twigcn:TabsContent value="grouped" :active="true">
+            <div class="flex flex-col gap-8 mt-6">
+                {% for category, items in components %}
+                    <section>
+                        <h2 class="text-xl font-semibold mb-4 capitalize">{{ category }}</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            {% for slug, name in items %}
+                                <a href="{{ path('showcase_component', {slug: slug}) }}"
+                                   class="card hover:border-primary transition-colors group">
+                                    <section class="flex items-center justify-between">
+                                        <span class="font-medium group-hover:text-primary transition-colors">{{ name }}</span>
+                                        <twig:ux:icon name="lucide:arrow-right" class="size-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                                    </section>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </section>
+                {% endfor %}
+            </div>
+        </twig:Twigcn:TabsContent>
+
+        <twig:Twigcn:TabsContent value="alphabetical">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+                {% for slug, name in componentsAlphabetical %}
+                    <a href="{{ path('showcase_component', {slug: slug}) }}"
+                       class="card hover:border-primary transition-colors group">
+                        <section class="flex items-center justify-between">
+                            <span class="font-medium group-hover:text-primary transition-colors">{{ name }}</span>
+                            <twig:ux:icon name="lucide:arrow-right" class="size-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                        </section>
+                    </a>
+                {% endfor %}
+            </div>
+        </twig:Twigcn:TabsContent>
+    </twig:Twigcn:Tabs>
+</div>
+{% endblock %}

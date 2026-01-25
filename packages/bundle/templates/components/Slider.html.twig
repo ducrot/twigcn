@@ -1,0 +1,15 @@
+<input
+    type="range"
+    class="{{ this.sliderClasses }}"
+    {% if name %}name="{{ name }}"{% endif %}
+    {% if id %}id="{{ id }}"{% endif %}
+    value="{{ value }}"
+    min="{{ min }}"
+    max="{{ max }}"
+    step="{{ step }}"
+    {% if disabled %}disabled{% endif %}
+    style="--slider-value: {{ this.sliderValue }}%"
+    data-controller="slider"
+    data-action="input->slider#update"
+    {{ attributes }}
+>

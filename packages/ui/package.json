@@ -1,0 +1,71 @@
+{
+    "name": "@ducrot/twigcn-ui",
+    "version": "1.0.0",
+    "type": "module",
+    "description": "Stimulus controllers and styles for TwigcnBundle - Beautiful UI components for Symfony & Twig",
+    "license": "MIT",
+    "author": {
+        "name": "Christian Ducrot",
+        "email": "christian@ducrot.de"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ducrot/twigcn-bundle.git",
+        "directory": "packages/ui"
+    },
+    "homepage": "https://github.com/ducrot/twigcn-bundle#readme",
+    "bugs": {
+        "url": "https://github.com/ducrot/twigcn-bundle/issues"
+    },
+    "keywords": [
+        "stimulus",
+        "tailwind",
+        "symfony",
+        "twig",
+        "ui",
+        "components"
+    ],
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "files": [
+        "dist",
+        "tailwind",
+        "src"
+    ],
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        },
+        "./controllers": {
+            "types": "./dist/controllers/index.d.ts",
+            "import": "./dist/controllers/index.js"
+        },
+        "./controllers/*": {
+            "types": "./dist/controllers/*.d.ts",
+            "import": "./dist/controllers/*.js"
+        },
+        "./styles": "./dist/styles/twigcn.css",
+        "./tailwind": "./tailwind/preset.js",
+        "./controllers.json": "./dist/controllers.json",
+        "./src/styles/*": "./src/styles/*"
+    },
+    "scripts": {
+        "build": "vite build && npm run build:types",
+        "build:types": "tsc --emitDeclarationOnly --declaration --outDir dist",
+        "typecheck": "tsc --noEmit",
+        "clean": "rm -rf dist"
+    },
+    "peerDependencies": {
+        "@hotwired/stimulus": "^3.2.0",
+        "tailwindcss": "^4.0.0"
+    },
+    "devDependencies": {
+        "@hotwired/stimulus": "^3.2.2",
+        "tailwindcss": "^4.1.0",
+        "typescript": "^5.7.3",
+        "vite": "^6.0.11",
+        "vite-plugin-dts": "^4.5.0"
+    }
+}

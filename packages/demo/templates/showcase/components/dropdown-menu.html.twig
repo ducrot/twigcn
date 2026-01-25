@@ -1,0 +1,211 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}DropdownMenu - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">DropdownMenu</h1>
+        <p class="text-muted-foreground mt-2">Displays a menu to the user — such as a set of actions or functions — triggered by a button.</p>
+    </header>
+
+    {# Basic Example #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Basic Dropdown</h2>
+        </header>
+        <section class="flex items-center gap-4">
+            <twig:Twigcn:DropdownMenu>
+                <twig:Twigcn:DropdownMenuTrigger>
+                    <twig:Twigcn:Button variant="outline">
+                        Open Menu
+                        <twig:ux:icon name="lucide:chevron-down" class="w-4 h-4 ml-2" />
+                    </twig:Twigcn:Button>
+                </twig:Twigcn:DropdownMenuTrigger>
+                <twig:Twigcn:DropdownMenuContent class="w-36">
+                    <twig:Twigcn:DropdownMenuItem>Profile</twig:Twigcn:DropdownMenuItem>
+                    <twig:Twigcn:DropdownMenuItem>Settings</twig:Twigcn:DropdownMenuItem>
+                    <twig:Twigcn:DropdownMenuItem>Team</twig:Twigcn:DropdownMenuItem>
+                    <twig:Twigcn:DropdownMenuItem>Billing</twig:Twigcn:DropdownMenuItem>
+                </twig:Twigcn:DropdownMenuContent>
+            </twig:Twigcn:DropdownMenu>
+        </section>
+    </section>
+
+    {# With Icons #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Icons</h2>
+        </header>
+        <section class="flex items-center gap-4">
+            <twig:Twigcn:DropdownMenu>
+                <twig:Twigcn:DropdownMenuTrigger>
+                    <twig:Twigcn:Button variant="outline">
+                        Account
+                        <twig:ux:icon name="lucide:chevron-down" class="w-4 h-4 ml-2" />
+                    </twig:Twigcn:Button>
+                </twig:Twigcn:DropdownMenuTrigger>
+                <twig:Twigcn:DropdownMenuContent>
+                    <twig:Twigcn:DropdownMenuItem>
+                        <twig:ux:icon name="lucide:user" class="w-4 h-4 mr-2" />
+                        Profile
+                    </twig:Twigcn:DropdownMenuItem>
+                    <twig:Twigcn:DropdownMenuItem>
+                        <twig:ux:icon name="lucide:settings" class="w-4 h-4 mr-2" />
+                        Settings
+                    </twig:Twigcn:DropdownMenuItem>
+                    <twig:Twigcn:DropdownMenuItem>
+                        <twig:ux:icon name="lucide:keyboard" class="w-4 h-4 mr-2" />
+                        Keyboard shortcuts
+                    </twig:Twigcn:DropdownMenuItem>
+                </twig:Twigcn:DropdownMenuContent>
+            </twig:Twigcn:DropdownMenu>
+        </section>
+    </section>
+
+    {# With Links #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Links</h2>
+        </header>
+        <section class="flex items-center gap-4">
+            <twig:Twigcn:DropdownMenu>
+                <twig:Twigcn:DropdownMenuTrigger>
+                    <twig:Twigcn:Button variant="outline">
+                        Navigation
+                        <twig:ux:icon name="lucide:chevron-down" class="w-4 h-4 ml-2" />
+                    </twig:Twigcn:Button>
+                </twig:Twigcn:DropdownMenuTrigger>
+                <twig:Twigcn:DropdownMenuContent>
+                    <twig:Twigcn:DropdownMenuItem href="https://github.com">
+                        <twig:ux:icon name="lucide:github" class="w-4 h-4 mr-2" />
+                        GitHub
+                    </twig:Twigcn:DropdownMenuItem>
+                    <twig:Twigcn:DropdownMenuItem href="https://twitter.com">
+                        <twig:ux:icon name="lucide:twitter" class="w-4 h-4 mr-2" />
+                        Twitter
+                    </twig:Twigcn:DropdownMenuItem>
+                    <twig:Twigcn:DropdownMenuItem href="/docs">
+                        <twig:ux:icon name="lucide:book" class="w-4 h-4 mr-2" />
+                        Documentation
+                    </twig:Twigcn:DropdownMenuItem>
+                </twig:Twigcn:DropdownMenuContent>
+            </twig:Twigcn:DropdownMenu>
+        </section>
+    </section>
+
+    {# With Disabled Items #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Disabled Items</h2>
+        </header>
+        <section class="flex items-center gap-4">
+            <twig:Twigcn:DropdownMenu>
+                <twig:Twigcn:DropdownMenuTrigger>
+                    <twig:Twigcn:Button variant="outline">
+                        Actions
+                        <twig:ux:icon name="lucide:chevron-down" class="w-4 h-4 ml-2" />
+                    </twig:Twigcn:Button>
+                </twig:Twigcn:DropdownMenuTrigger>
+                <twig:Twigcn:DropdownMenuContent>
+                    <twig:Twigcn:DropdownMenuItem>
+                        <twig:ux:icon name="lucide:copy" class="w-4 h-4 mr-2" />
+                        Copy
+                    </twig:Twigcn:DropdownMenuItem>
+                    <twig:Twigcn:DropdownMenuItem>
+                        <twig:ux:icon name="lucide:scissors" class="w-4 h-4 mr-2" />
+                        Cut
+                    </twig:Twigcn:DropdownMenuItem>
+                    <twig:Twigcn:DropdownMenuItem :disabled="true">
+                        <twig:ux:icon name="lucide:clipboard" class="w-4 h-4 mr-2" />
+                        Paste (clipboard empty)
+                    </twig:Twigcn:DropdownMenuItem>
+                </twig:Twigcn:DropdownMenuContent>
+            </twig:Twigcn:DropdownMenu>
+        </section>
+    </section>
+
+    {# Alignment #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Alignment</h2>
+        </header>
+        <section class="flex items-center gap-4">
+            <twig:Twigcn:DropdownMenu>
+                <twig:Twigcn:DropdownMenuTrigger>
+                    <twig:Twigcn:Button variant="outline">Align Start</twig:Twigcn:Button>
+                </twig:Twigcn:DropdownMenuTrigger>
+                <twig:Twigcn:DropdownMenuContent align="start">
+                    <twig:Twigcn:DropdownMenuItem>Option 1</twig:Twigcn:DropdownMenuItem>
+                    <twig:Twigcn:DropdownMenuItem>Option 2</twig:Twigcn:DropdownMenuItem>
+                    <twig:Twigcn:DropdownMenuItem>Option 3</twig:Twigcn:DropdownMenuItem>
+                </twig:Twigcn:DropdownMenuContent>
+            </twig:Twigcn:DropdownMenu>
+
+            <twig:Twigcn:DropdownMenu>
+                <twig:Twigcn:DropdownMenuTrigger>
+                    <twig:Twigcn:Button variant="outline">Align End</twig:Twigcn:Button>
+                </twig:Twigcn:DropdownMenuTrigger>
+                <twig:Twigcn:DropdownMenuContent align="end">
+                    <twig:Twigcn:DropdownMenuItem>Option 1</twig:Twigcn:DropdownMenuItem>
+                    <twig:Twigcn:DropdownMenuItem>Option 2</twig:Twigcn:DropdownMenuItem>
+                    <twig:Twigcn:DropdownMenuItem>Option 3</twig:Twigcn:DropdownMenuItem>
+                </twig:Twigcn:DropdownMenuContent>
+            </twig:Twigcn:DropdownMenu>
+        </section>
+    </section>
+
+    {# User Menu Example #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">User Menu Example</h2>
+        </header>
+        <section class="flex items-center gap-4">
+            <twig:Twigcn:DropdownMenu>
+                <twig:Twigcn:DropdownMenuTrigger>
+                    <twig:Twigcn:Button variant="ghost" class="relative h-8 w-8 rounded-full">
+                        <twig:Twigcn:Avatar src="https://github.com/shadcn.png" alt="User" size="sm" />
+                    </twig:Twigcn:Button>
+                </twig:Twigcn:DropdownMenuTrigger>
+                <twig:Twigcn:DropdownMenuContent class="w-56">
+                    <twig:Twigcn:DropdownMenuItem>
+                        <twig:ux:icon name="lucide:user" class="w-4 h-4 mr-2" />
+                        Profile
+                    </twig:Twigcn:DropdownMenuItem>
+                    <twig:Twigcn:DropdownMenuItem>
+                        <twig:ux:icon name="lucide:credit-card" class="w-4 h-4 mr-2" />
+                        Billing
+                    </twig:Twigcn:DropdownMenuItem>
+                    <twig:Twigcn:DropdownMenuItem>
+                        <twig:ux:icon name="lucide:settings" class="w-4 h-4 mr-2" />
+                        Settings
+                    </twig:Twigcn:DropdownMenuItem>
+                    <twig:Twigcn:DropdownMenuItem>
+                        <twig:ux:icon name="lucide:log-out" class="w-4 h-4 mr-2" />
+                        Log out
+                    </twig:Twigcn:DropdownMenuItem>
+                </twig:Twigcn:DropdownMenuContent>
+            </twig:Twigcn:DropdownMenu>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:DropdownMenu&gt;
+    &lt;twig:DropdownMenuTrigger&gt;
+        &lt;twig:Button variant="outline"&gt;Open Menu&lt;/twig:Button&gt;
+    &lt;/twig:DropdownMenuTrigger&gt;
+    &lt;twig:DropdownMenuContent&gt;
+        &lt;twig:DropdownMenuItem&gt;Profile&lt;/twig:DropdownMenuItem&gt;
+        &lt;twig:DropdownMenuItem&gt;Settings&lt;/twig:DropdownMenuItem&gt;
+        &lt;twig:DropdownMenuItem href="/docs"&gt;Documentation&lt;/twig:DropdownMenuItem&gt;
+    &lt;/twig:DropdownMenuContent&gt;
+&lt;/twig:DropdownMenu&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

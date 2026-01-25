@@ -1,0 +1,11 @@
+<div
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+    class="{{ this.toastClasses }}"
+    {{ attributes }}
+>
+    <div class="toast-content">
+        {% block content %}{% endblock %}
+    </div>
+</div>

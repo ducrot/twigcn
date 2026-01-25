@@ -1,0 +1,112 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Spinner - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Spinner</h1>
+        <p class="text-muted-foreground mt-2">
+            Displays a loading spinner indicator.
+        </p>
+    </header>
+
+    {# Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section>
+            <twig:Twigcn:Spinner />
+        </section>
+    </section>
+
+    {# Sizes #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Sizes</h2>
+        </header>
+        <section class="flex items-center gap-6">
+            <div class="flex flex-col items-center gap-2">
+                <twig:Twigcn:Spinner size="sm" />
+                <span class="text-sm text-muted-foreground">Small</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <twig:Twigcn:Spinner />
+                <span class="text-sm text-muted-foreground">Default</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <twig:Twigcn:Spinner size="lg" />
+                <span class="text-sm text-muted-foreground">Large</span>
+            </div>
+        </section>
+    </section>
+
+    {# With Button #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Button</h2>
+        </header>
+        <section class="flex flex-wrap gap-4">
+            <twig:Twigcn:Button :disabled="true">
+                <twig:Twigcn:Spinner size="sm" />
+                Loading...
+            </twig:Twigcn:Button>
+            <twig:Twigcn:Button variant="outline" :disabled="true">
+                <twig:Twigcn:Spinner size="sm" />
+                Please wait
+            </twig:Twigcn:Button>
+        </section>
+    </section>
+
+    {# Custom Color #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Custom Colors</h2>
+        </header>
+        <section class="flex items-center gap-6">
+            <twig:Twigcn:Spinner class="text-primary" />
+            <twig:Twigcn:Spinner class="text-destructive" />
+            <twig:Twigcn:Spinner class="text-muted-foreground" />
+        </section>
+    </section>
+
+    {# In Card #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">In Card</h2>
+        </header>
+        <section class="max-w-sm">
+            <twig:Twigcn:Card class="items-center justify-center py-12">
+                <section class="flex flex-col items-center gap-4">
+                    <twig:Twigcn:Spinner size="lg" />
+                    <p class="text-muted-foreground text-sm">Loading data...</p>
+                </section>
+            </twig:Twigcn:Card>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Spinner /&gt;
+
+{# Sizes #}
+&lt;twig:Spinner size="sm" /&gt;
+&lt;twig:Spinner size="lg" /&gt;
+
+{# Custom color #}
+&lt;twig:Spinner class="text-primary" /&gt;
+
+{# In a button #}
+&lt;twig:Button :disabled="true"&gt;
+    &lt;twig:Spinner size="sm" /&gt;
+    Loading...
+&lt;/twig:Button&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

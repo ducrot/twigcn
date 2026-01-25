@@ -1,0 +1,111 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Combobox - Components{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Combobox</h1>
+        <p class="text-muted-foreground mt-2">Autocomplete input and command palette with a list of suggestions.</p>
+    </header>
+
+    {# Basic Example #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Basic Combobox</h2>
+        </header>
+        <section class="max-w-xs">
+            <twig:Twigcn:Combobox placeholder="Select framework...">
+                <twig:Twigcn:ComboboxItem value="next" label="Next.js" />
+                <twig:Twigcn:ComboboxItem value="sveltekit" label="SvelteKit" />
+                <twig:Twigcn:ComboboxItem value="nuxt" label="Nuxt.js" />
+                <twig:Twigcn:ComboboxItem value="remix" label="Remix" />
+                <twig:Twigcn:ComboboxItem value="astro" label="Astro" />
+            </twig:Twigcn:Combobox>
+        </section>
+    </section>
+
+    {# With Icons #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Custom Content</h2>
+        </header>
+        <section class="max-w-xs">
+            <twig:Twigcn:Combobox placeholder="Select status...">
+                <twig:Twigcn:ComboboxItem value="backlog" label="Backlog">
+                    <twig:ux:icon name="lucide:circle" class="w-4 h-4 mr-2 text-muted-foreground" />
+                    Backlog
+                </twig:Twigcn:ComboboxItem>
+                <twig:Twigcn:ComboboxItem value="todo" label="Todo">
+                    <twig:ux:icon name="lucide:circle-dot" class="w-4 h-4 mr-2 text-blue-500" />
+                    Todo
+                </twig:Twigcn:ComboboxItem>
+                <twig:Twigcn:ComboboxItem value="in-progress" label="In Progress">
+                    <twig:ux:icon name="lucide:timer" class="w-4 h-4 mr-2 text-yellow-500" />
+                    In Progress
+                </twig:Twigcn:ComboboxItem>
+                <twig:Twigcn:ComboboxItem value="done" label="Done">
+                    <twig:ux:icon name="lucide:check-circle" class="w-4 h-4 mr-2 text-green-500" />
+                    Done
+                </twig:Twigcn:ComboboxItem>
+                <twig:Twigcn:ComboboxItem value="canceled" label="Canceled">
+                    <twig:ux:icon name="lucide:x-circle" class="w-4 h-4 mr-2 text-red-500" />
+                    Canceled
+                </twig:Twigcn:ComboboxItem>
+            </twig:Twigcn:Combobox>
+        </section>
+    </section>
+
+    {# In a Form #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">In a Form</h2>
+        </header>
+        <section class="max-w-md">
+            <form class="flex flex-col gap-4">
+                <twig:Twigcn:Field>
+                    <twig:Twigcn:Label>Country</twig:Twigcn:Label>
+                    <twig:Twigcn:Combobox name="country" placeholder="Select country..." searchPlaceholder="Search country...">
+                        <twig:Twigcn:ComboboxItem value="us" label="United States" />
+                        <twig:Twigcn:ComboboxItem value="uk" label="United Kingdom" />
+                        <twig:Twigcn:ComboboxItem value="ca" label="Canada" />
+                        <twig:Twigcn:ComboboxItem value="au" label="Australia" />
+                        <twig:Twigcn:ComboboxItem value="de" label="Germany" />
+                        <twig:Twigcn:ComboboxItem value="fr" label="France" />
+                        <twig:Twigcn:ComboboxItem value="es" label="Spain" />
+                        <twig:Twigcn:ComboboxItem value="it" label="Italy" />
+                    </twig:Twigcn:Combobox>
+                </twig:Twigcn:Field>
+                <twig:Twigcn:Button type="submit">Submit</twig:Twigcn:Button>
+            </form>
+        </section>
+    </section>
+
+    {# Disabled #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Disabled</h2>
+        </header>
+        <section class="max-w-xs">
+            <twig:Twigcn:Combobox placeholder="Select option..." :disabled="true">
+                <twig:Twigcn:ComboboxItem value="option1" label="Option 1" />
+                <twig:Twigcn:ComboboxItem value="option2" label="Option 2" />
+            </twig:Twigcn:Combobox>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Combobox placeholder="Select..."&gt;
+    &lt;twig:ComboboxItem value="opt1" label="Option 1" /&gt;
+    &lt;twig:ComboboxItem value="opt2" label="Option 2" /&gt;
+    &lt;twig:ComboboxItem value="opt3" label="Option 3" /&gt;
+&lt;/twig:Combobox&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

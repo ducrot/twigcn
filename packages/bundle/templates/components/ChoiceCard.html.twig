@@ -1,0 +1,14 @@
+<label class="flex gap-3 border rounded-md p-4 cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5 dark:has-[:checked]:bg-primary/10 has-[:disabled]:opacity-50 has-[:disabled]:cursor-not-allowed {{ class }}" {{ attributes }}>
+    <section class="flex-1">
+        {% block content %}{% endblock %}
+    </section>
+    <input
+        type="{{ type }}"
+        class="self-start"
+        {% if name %}name="{{ name }}"{% endif %}
+        {% if id %}id="{{ id }}"{% endif %}
+        {% if value %}value="{{ value }}"{% endif %}
+        {% if checked %}checked{% endif %}
+        {% if disabled %}disabled{% endif %}
+    >
+</label>

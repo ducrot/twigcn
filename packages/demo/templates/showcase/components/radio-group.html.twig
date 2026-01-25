@@ -1,0 +1,157 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Radio Group - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Radio Group</h1>
+        <p class="text-muted-foreground mt-2">
+            A set of checkable buttons where only one can be checked at a time.
+        </p>
+    </header>
+
+    {# Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section class="max-w-md">
+            <twig:Twigcn:RadioGroup name="plan">
+                <div class="flex items-center gap-4">
+                    <twig:Twigcn:Radio id="plan-free" name="plan" value="free" :checked="true" />
+                    <twig:Twigcn:Label for="plan-free">Free</twig:Twigcn:Label>
+                </div>
+                <div class="flex items-center gap-4">
+                    <twig:Twigcn:Radio id="plan-pro" name="plan" value="pro" />
+                    <twig:Twigcn:Label for="plan-pro">Pro</twig:Twigcn:Label>
+                </div>
+                <div class="flex items-center gap-4">
+                    <twig:Twigcn:Radio id="plan-enterprise" name="plan" value="enterprise" />
+                    <twig:Twigcn:Label for="plan-enterprise">Enterprise</twig:Twigcn:Label>
+                </div>
+            </twig:Twigcn:RadioGroup>
+        </section>
+    </section>
+
+    {# With Legend #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Legend</h2>
+        </header>
+        <section class="max-w-md">
+            <twig:Twigcn:RadioGroup name="notification" legend="Notify me about">
+                <div class="flex items-center gap-4">
+                    <twig:Twigcn:Radio id="notify-all" name="notification" value="all" :checked="true" />
+                    <twig:Twigcn:Label for="notify-all">All new messages</twig:Twigcn:Label>
+                </div>
+                <div class="flex items-center gap-4">
+                    <twig:Twigcn:Radio id="notify-direct" name="notification" value="direct" />
+                    <twig:Twigcn:Label for="notify-direct">Direct messages and mentions</twig:Twigcn:Label>
+                </div>
+                <div class="flex items-center gap-4">
+                    <twig:Twigcn:Radio id="notify-nothing" name="notification" value="nothing" />
+                    <twig:Twigcn:Label for="notify-nothing">Nothing</twig:Twigcn:Label>
+                </div>
+            </twig:Twigcn:RadioGroup>
+        </section>
+    </section>
+
+    {# States #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">States</h2>
+        </header>
+        <section class="flex flex-col gap-4 max-w-md">
+            <div class="flex items-center gap-4">
+                <twig:Twigcn:Radio id="state-default" name="states" value="default" />
+                <twig:Twigcn:Label for="state-default">Default</twig:Twigcn:Label>
+            </div>
+            <div class="flex items-center gap-4">
+                <twig:Twigcn:Radio id="state-checked" name="states" value="checked" :checked="true" />
+                <twig:Twigcn:Label for="state-checked">Checked</twig:Twigcn:Label>
+            </div>
+            <div class="flex items-center gap-4">
+                <twig:Twigcn:Radio id="state-disabled" name="states-disabled" value="disabled" :disabled="true" />
+                <twig:Twigcn:Label for="state-disabled">Disabled</twig:Twigcn:Label>
+            </div>
+            <div class="flex items-center gap-4">
+                <twig:Twigcn:Radio id="state-disabled-checked" name="states-disabled" value="disabled-checked" :disabled="true" :checked="true" />
+                <twig:Twigcn:Label for="state-disabled-checked">Disabled & Checked</twig:Twigcn:Label>
+            </div>
+        </section>
+    </section>
+
+    {# With Descriptions #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Descriptions</h2>
+        </header>
+        <section class="max-w-md">
+            <twig:Twigcn:RadioGroup name="billing" legend="Billing cycle">
+                <div class="flex items-start gap-4">
+                    <twig:Twigcn:Radio id="billing-monthly" name="billing" value="monthly" class="mt-1" />
+                    <div class="grid gap-1">
+                        <twig:Twigcn:Label for="billing-monthly">Monthly</twig:Twigcn:Label>
+                        <p class="text-muted-foreground text-sm">Pay month-to-month</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <twig:Twigcn:Radio id="billing-yearly" name="billing" value="yearly" :checked="true" class="mt-1" />
+                    <div class="grid gap-1">
+                        <twig:Twigcn:Label for="billing-yearly">Yearly</twig:Twigcn:Label>
+                        <p class="text-muted-foreground text-sm">Pay once per year, save 20%</p>
+                    </div>
+                </div>
+            </twig:Twigcn:RadioGroup>
+        </section>
+    </section>
+
+    {# Horizontal Layout #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Horizontal Layout</h2>
+        </header>
+        <section class="max-w-md">
+            <twig:Twigcn:RadioGroup name="size" class="flex flex-row gap-6">
+                <div class="flex items-center gap-2">
+                    <twig:Twigcn:Radio id="size-sm" name="size" value="sm" />
+                    <twig:Twigcn:Label for="size-sm">Small</twig:Twigcn:Label>
+                </div>
+                <div class="flex items-center gap-2">
+                    <twig:Twigcn:Radio id="size-md" name="size" value="md" :checked="true" />
+                    <twig:Twigcn:Label for="size-md">Medium</twig:Twigcn:Label>
+                </div>
+                <div class="flex items-center gap-2">
+                    <twig:Twigcn:Radio id="size-lg" name="size" value="lg" />
+                    <twig:Twigcn:Label for="size-lg">Large</twig:Twigcn:Label>
+                </div>
+            </twig:Twigcn:RadioGroup>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:RadioGroup name="plan" legend="Select a plan"&gt;
+    &lt;div class="flex items-center gap-4"&gt;
+        &lt;twig:Radio id="free" name="plan" value="free" :checked="true" /&gt;
+        &lt;twig:Label for="free"&gt;Free&lt;/twig:Label&gt;
+    &lt;/div&gt;
+    &lt;div class="flex items-center gap-4"&gt;
+        &lt;twig:Radio id="pro" name="plan" value="pro" /&gt;
+        &lt;twig:Label for="pro"&gt;Pro&lt;/twig:Label&gt;
+    &lt;/div&gt;
+&lt;/twig:RadioGroup&gt;
+
+{# Horizontal layout #}
+&lt;twig:RadioGroup name="size" class="flex flex-row gap-6"&gt;
+    ...
+&lt;/twig:RadioGroup&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

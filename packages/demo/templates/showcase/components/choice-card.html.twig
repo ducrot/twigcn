@@ -1,0 +1,103 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Choice Card - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Choice Card</h1>
+        <p class="text-muted-foreground mt-2">
+            A selectable card component for radio and checkbox inputs with title and description.
+        </p>
+    </header>
+
+    {# Default (Radio Group) #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default (Radio Group)</h2>
+        </header>
+        <section class="flex flex-col gap-3 max-w-md">
+            <twig:Twigcn:ChoiceCard name="compute-env" value="kubernetes" :checked="true">
+                <h3>Kubernetes</h3>
+                <p>Run GPU workloads on a K8s configured cluster.</p>
+            </twig:Twigcn:ChoiceCard>
+            <twig:Twigcn:ChoiceCard name="compute-env" value="vm">
+                <h3>Virtual Machine</h3>
+                <p>Access a VM configured cluster to run GPU workloads.</p>
+            </twig:Twigcn:ChoiceCard>
+            <twig:Twigcn:ChoiceCard name="compute-env" value="bare-metal">
+                <h3>Bare Metal</h3>
+                <p>Direct access to physical servers for maximum performance.</p>
+            </twig:Twigcn:ChoiceCard>
+        </section>
+    </section>
+
+    {# Checkbox Variant #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Checkbox Variant</h2>
+        </header>
+        <section class="flex flex-col gap-3 max-w-md">
+            <twig:Twigcn:ChoiceCard type="checkbox" name="features[]" value="monitoring" :checked="true">
+                <h3>Monitoring</h3>
+                <p>Real-time metrics and alerting for your infrastructure.</p>
+            </twig:Twigcn:ChoiceCard>
+            <twig:Twigcn:ChoiceCard type="checkbox" name="features[]" value="logging">
+                <h3>Logging</h3>
+                <p>Centralized log aggregation and search.</p>
+            </twig:Twigcn:ChoiceCard>
+            <twig:Twigcn:ChoiceCard type="checkbox" name="features[]" value="backup" :checked="true">
+                <h3>Backup</h3>
+                <p>Automated daily backups with point-in-time recovery.</p>
+            </twig:Twigcn:ChoiceCard>
+        </section>
+    </section>
+
+    {# Disabled State #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Disabled State</h2>
+        </header>
+        <section class="flex flex-col gap-3 max-w-md">
+            <twig:Twigcn:ChoiceCard name="plan" value="free" :checked="true">
+                <h3>Free Plan</h3>
+                <p>Basic features for personal projects.</p>
+            </twig:Twigcn:ChoiceCard>
+            <twig:Twigcn:ChoiceCard name="plan" value="enterprise" :disabled="true">
+                <h3>Enterprise Plan</h3>
+                <p>Contact sales for custom pricing.</p>
+            </twig:Twigcn:ChoiceCard>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>{# Radio group #}
+&lt;twig:ChoiceCard name="option" value="a" :checked="true"&gt;
+    &lt;h3&gt;Option A&lt;/h3&gt;
+    &lt;p&gt;Description for option A.&lt;/p&gt;
+&lt;/twig:ChoiceCard&gt;
+&lt;twig:ChoiceCard name="option" value="b"&gt;
+    &lt;h3&gt;Option B&lt;/h3&gt;
+    &lt;p&gt;Description for option B.&lt;/p&gt;
+&lt;/twig:ChoiceCard&gt;
+
+{# Checkbox variant #}
+&lt;twig:ChoiceCard type="checkbox" name="features[]" value="feature1"&gt;
+    &lt;h3&gt;Feature 1&lt;/h3&gt;
+    &lt;p&gt;Enable this feature.&lt;/p&gt;
+&lt;/twig:ChoiceCard&gt;
+
+{# Disabled #}
+&lt;twig:ChoiceCard name="option" value="c" :disabled="true"&gt;
+    &lt;h3&gt;Unavailable Option&lt;/h3&gt;
+    &lt;p&gt;This option is not available.&lt;/p&gt;
+&lt;/twig:ChoiceCard&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

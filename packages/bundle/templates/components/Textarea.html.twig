@@ -1,0 +1,11 @@
+<textarea
+    class="{{ this.textareaClasses }}"
+    rows="{{ rows }}"
+    {% if name %}name="{{ name }}"{% endif %}
+    {% if id %}id="{{ id }}"{% endif %}
+    {% if placeholder %}placeholder="{{ placeholder }}"{% endif %}
+    {% if disabled %}disabled{% endif %}
+    {% if invalid %}aria-invalid="true"{% endif %}
+    {% if required %}required{% endif %}
+    {{ attributes }}
+>{{ value }}</textarea>

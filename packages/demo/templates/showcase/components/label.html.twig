@@ -1,0 +1,89 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Label - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Label</h1>
+        <p class="text-muted-foreground mt-2">
+            Renders an accessible label associated with controls.
+        </p>
+    </header>
+
+    {# Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section class="grid gap-4 max-w-sm">
+            <twig:Twigcn:Label for="email">Your email address</twig:Twigcn:Label>
+            <twig:Twigcn:Input id="email" type="email" placeholder="Email" />
+        </section>
+    </section>
+
+    {# With Checkbox #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Checkbox</h2>
+        </header>
+        <section class="max-w-sm">
+            <twig:Twigcn:Label class="flex items-center gap-4">
+                <input type="checkbox" class="input">
+                Accept terms and conditions
+            </twig:Twigcn:Label>
+        </section>
+    </section>
+
+    {# With Disabled Input #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Disabled State</h2>
+        </header>
+        <section class="grid gap-4 max-w-sm">
+            <twig:Twigcn:Label for="disabled-email">Email</twig:Twigcn:Label>
+            <twig:Twigcn:Input id="disabled-email" type="email" placeholder="Email" :disabled="true" />
+            <p class="text-muted-foreground text-sm">Label style is affected by disabled inputs.</p>
+        </section>
+    </section>
+
+    {# Form Example #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Form Example</h2>
+        </header>
+        <section class="flex flex-col gap-4 max-w-sm">
+            <div class="grid gap-2">
+                <twig:Twigcn:Label for="name">Name</twig:Twigcn:Label>
+                <twig:Twigcn:Input id="name" placeholder="John Doe" />
+            </div>
+            <div class="grid gap-2">
+                <twig:Twigcn:Label for="form-email">Email</twig:Twigcn:Label>
+                <twig:Twigcn:Input id="form-email" type="email" placeholder="john@example.com" />
+            </div>
+            <div class="grid gap-2">
+                <twig:Twigcn:Label for="message">Message</twig:Twigcn:Label>
+                <twig:Twigcn:Textarea id="message" placeholder="Your message" :rows="4" />
+            </div>
+            <twig:Twigcn:Button type="submit">Submit</twig:Twigcn:Button>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Label for="email"&gt;Email&lt;/twig:Label&gt;
+&lt;twig:Input id="email" type="email" /&gt;
+
+{# With Checkbox #}
+&lt;twig:Label class="flex items-center gap-4"&gt;
+    &lt;input type="checkbox" class="input"&gt;
+    Accept terms
+&lt;/twig:Label&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

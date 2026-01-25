@@ -1,0 +1,132 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Skeleton - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Skeleton</h1>
+        <p class="text-muted-foreground mt-2">
+            Use to show a placeholder while content is loading.
+        </p>
+    </header>
+
+    {# Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section class="max-w-sm">
+            <twig:Twigcn:Skeleton class="h-4 w-full" />
+        </section>
+    </section>
+
+    {# Shapes #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Shapes</h2>
+        </header>
+        <section class="flex flex-wrap items-center gap-6">
+            <div class="flex flex-col items-center gap-2">
+                <twig:Twigcn:Skeleton class="h-12 w-12" />
+                <span class="text-sm text-muted-foreground">Square</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <twig:Twigcn:Skeleton class="h-12 w-12 rounded-full" />
+                <span class="text-sm text-muted-foreground">Circle</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <twig:Twigcn:Skeleton class="h-4 w-32" />
+                <span class="text-sm text-muted-foreground">Line</span>
+            </div>
+        </section>
+    </section>
+
+    {# Card Skeleton #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Card Skeleton</h2>
+        </header>
+        <section class="max-w-sm">
+            <twig:Twigcn:Card>
+                <header class="flex flex-row items-center gap-4">
+                    <twig:Twigcn:Skeleton class="h-12 w-12 rounded-full" />
+                    <div class="flex-1 space-y-2">
+                        <twig:Twigcn:Skeleton class="h-4 w-3/4" />
+                        <twig:Twigcn:Skeleton class="h-4 w-1/2" />
+                    </div>
+                </header>
+                <section class="space-y-2">
+                    <twig:Twigcn:Skeleton class="h-4 w-full" />
+                    <twig:Twigcn:Skeleton class="h-4 w-full" />
+                    <twig:Twigcn:Skeleton class="h-4 w-2/3" />
+                </section>
+            </twig:Twigcn:Card>
+        </section>
+    </section>
+
+    {# List Skeleton #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">List Skeleton</h2>
+        </header>
+        <section class="max-w-md flex flex-col gap-4">
+            {% for i in 1..3 %}
+            <div class="flex items-center gap-4">
+                <twig:Twigcn:Skeleton class="h-10 w-10 rounded-full" />
+                <div class="flex-1 space-y-2">
+                    <twig:Twigcn:Skeleton class="h-4 w-3/4" />
+                    <twig:Twigcn:Skeleton class="h-3 w-1/2" />
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+    </section>
+
+    {# Table Skeleton #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Table Skeleton</h2>
+        </header>
+        <section class="max-w-xl">
+            <div class="border rounded-lg p-4">
+                <div class="flex gap-4 pb-4 border-b">
+                    <twig:Twigcn:Skeleton class="h-4 w-24" />
+                    <twig:Twigcn:Skeleton class="h-4 w-32" />
+                    <twig:Twigcn:Skeleton class="h-4 w-20" />
+                </div>
+                {% for i in 1..4 %}
+                <div class="flex gap-4 py-4 {{ i < 4 ? 'border-b' : '' }}">
+                    <twig:Twigcn:Skeleton class="h-4 w-24" />
+                    <twig:Twigcn:Skeleton class="h-4 w-32" />
+                    <twig:Twigcn:Skeleton class="h-4 w-20" />
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>{# Simple line #}
+&lt;twig:Skeleton class="h-4 w-full" /&gt;
+
+{# Circle (avatar) #}
+&lt;twig:Skeleton class="h-12 w-12 rounded-full" /&gt;
+
+{# Card skeleton #}
+&lt;div class="flex items-center gap-4"&gt;
+    &lt;twig:Skeleton class="h-12 w-12 rounded-full" /&gt;
+    &lt;div class="flex-1 space-y-2"&gt;
+        &lt;twig:Skeleton class="h-4 w-3/4" /&gt;
+        &lt;twig:Skeleton class="h-4 w-1/2" /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,9 @@
+<span
+    data-tooltip="{{ text }}"
+    {% if side != 'top' %}data-side="{{ side }}"{% endif %}
+    {% if align != 'center' %}data-align="{{ align }}"{% endif %}
+    {% if class %}class="{{ class }}"{% endif %}
+    {{ attributes }}
+>
+    {%- block content %}{% endblock -%}
+</span>

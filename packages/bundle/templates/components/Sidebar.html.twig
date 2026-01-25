@@ -1,0 +1,8 @@
+<aside
+    data-controller="sidebar"
+    data-sidebar-collapsible-value="{{ collapsible ? 'true' : 'false' }}"
+    class="{{ this.sidebarClasses }}"
+    {{ attributes }}
+>
+    {% block content %}{% endblock %}
+</aside>

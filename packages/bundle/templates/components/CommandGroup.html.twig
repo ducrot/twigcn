@@ -1,0 +1,6 @@
+<div data-command-target="group" role="group" class="{{ class }}" {{ attributes }}>
+    {% if heading %}
+    <div role="heading">{{ heading }}</div>
+    {% endif %}
+    {% block content %}{% endblock %}
+</div>

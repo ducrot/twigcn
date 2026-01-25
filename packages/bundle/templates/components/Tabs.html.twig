@@ -1,0 +1,9 @@
+<div
+    data-controller="tabs"
+    {% if defaultValue %}data-tabs-default-value="{{ defaultValue }}"{% endif %}
+    {% if storageKey %}data-tabs-storage-key-value="{{ storageKey }}"{% endif %}
+    class="{{ this.tabsClasses }}"
+    {{ attributes }}
+>
+    {% block content %}{% endblock %}
+</div>

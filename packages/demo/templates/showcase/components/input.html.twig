@@ -1,0 +1,90 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Input - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Input</h1>
+        <p class="text-muted-foreground mt-2">
+            Displays a form input field or a component that looks like an input field.
+        </p>
+    </header>
+
+    {# Default Input #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section class="grid gap-4 max-w-sm">
+            <twig:Twigcn:Input type="email" placeholder="Email" />
+            <twig:Twigcn:Input type="text" placeholder="Username" />
+            <twig:Twigcn:Input type="password" placeholder="Password" />
+        </section>
+    </section>
+
+    {# Input Types #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Types</h2>
+        </header>
+        <section class="grid gap-4 max-w-sm">
+            <twig:Twigcn:Input type="text" placeholder="Text" />
+            <twig:Twigcn:Input type="email" placeholder="Email" />
+            <twig:Twigcn:Input type="password" placeholder="Password" />
+            <twig:Twigcn:Input type="number" placeholder="Number" />
+            <twig:Twigcn:Input type="date" />
+            <twig:Twigcn:Input type="search" placeholder="Search..." />
+        </section>
+    </section>
+
+    {# Input States #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">States</h2>
+        </header>
+        <section class="grid gap-4 max-w-sm">
+            <twig:Twigcn:Input placeholder="Default" />
+            <twig:Twigcn:Input placeholder="Invalid" :invalid="true" />
+            <twig:Twigcn:Input placeholder="Disabled" :disabled="true" />
+            <twig:Twigcn:Input placeholder="Required" :required="true" />
+        </section>
+    </section>
+
+    {# Input with Value #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Value</h2>
+        </header>
+        <section class="grid gap-4 max-w-sm">
+            <twig:Twigcn:Input type="text" value="john@example.com" />
+            <twig:Twigcn:Input type="number" value="42" placeholder="Number" />
+            <twig:Twigcn:Input type="date" value="2025-01-07" />
+        </section>
+    </section>
+
+    {# Input with Button #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Button</h2>
+        </header>
+        <section class="flex items-center gap-2 max-w-sm">
+            <twig:Twigcn:Input type="email" placeholder="Email" class="flex-1" />
+            <twig:Twigcn:Button>Subscribe</twig:Twigcn:Button>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Input type="email" placeholder="Email" /&gt;
+&lt;twig:Input type="text" name="username" id="username" /&gt;
+&lt;twig:Input placeholder="Invalid" :invalid="true" /&gt;
+&lt;twig:Input placeholder="Disabled" :disabled="true" /&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,125 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Field - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Field</h1>
+        <p class="text-muted-foreground mt-2">
+            A wrapper component for form fields with label, input, and error message.
+        </p>
+    </header>
+
+    {# Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section class="max-w-sm">
+            <twig:Twigcn:Field>
+                <twig:Twigcn:Label for="email">Email</twig:Twigcn:Label>
+                <twig:Twigcn:Input id="email" type="email" placeholder="Enter your email" />
+            </twig:Twigcn:Field>
+        </section>
+    </section>
+
+    {# With Description #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Description</h2>
+        </header>
+        <section class="max-w-sm">
+            <twig:Twigcn:Field>
+                <twig:Twigcn:Label for="username">Username</twig:Twigcn:Label>
+                <twig:Twigcn:Input id="username" placeholder="Enter username" />
+                <p>This is your public display name.</p>
+            </twig:Twigcn:Field>
+        </section>
+    </section>
+
+    {# With Error #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Error</h2>
+        </header>
+        <section class="max-w-sm">
+            <twig:Twigcn:Field :invalid="true">
+                <twig:Twigcn:Label for="password">Password</twig:Twigcn:Label>
+                <twig:Twigcn:Input id="password" type="password" :invalid="true" />
+                <div role="alert">Password must be at least 8 characters.</div>
+            </twig:Twigcn:Field>
+        </section>
+    </section>
+
+    {# Horizontal #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Horizontal Layout</h2>
+        </header>
+        <section class="max-w-md">
+            <twig:Twigcn:Field orientation="horizontal">
+                <twig:Twigcn:Checkbox id="terms" />
+                <section>
+                    <twig:Twigcn:Label for="terms">Accept terms and conditions</twig:Twigcn:Label>
+                    <p>You agree to our Terms of Service and Privacy Policy.</p>
+                </section>
+            </twig:Twigcn:Field>
+        </section>
+    </section>
+
+    {# Form Example #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Form Example</h2>
+        </header>
+        <section class="flex flex-col gap-4 max-w-sm">
+            <twig:Twigcn:Field>
+                <twig:Twigcn:Label for="form-name">Name</twig:Twigcn:Label>
+                <twig:Twigcn:Input id="form-name" placeholder="John Doe" />
+            </twig:Twigcn:Field>
+            <twig:Twigcn:Field>
+                <twig:Twigcn:Label for="form-email">Email</twig:Twigcn:Label>
+                <twig:Twigcn:Input id="form-email" type="email" placeholder="john@example.com" />
+                <p>We'll never share your email.</p>
+            </twig:Twigcn:Field>
+            <twig:Twigcn:Field :invalid="true">
+                <twig:Twigcn:Label for="form-phone">Phone</twig:Twigcn:Label>
+                <twig:Twigcn:Input id="form-phone" type="tel" :invalid="true" />
+                <div role="alert">Please enter a valid phone number.</div>
+            </twig:Twigcn:Field>
+            <twig:Twigcn:Button type="submit">Submit</twig:Twigcn:Button>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Field&gt;
+    &lt;twig:Label for="email"&gt;Email&lt;/twig:Label&gt;
+    &lt;twig:Input id="email" type="email" /&gt;
+    &lt;p&gt;Description text&lt;/p&gt;
+&lt;/twig:Field&gt;
+
+{# With error #}
+&lt;twig:Field :invalid="true"&gt;
+    &lt;twig:Label for="password"&gt;Password&lt;/twig:Label&gt;
+    &lt;twig:Input id="password" :invalid="true" /&gt;
+    &lt;div role="alert"&gt;Error message&lt;/div&gt;
+&lt;/twig:Field&gt;
+
+{# Horizontal with checkbox #}
+&lt;twig:Field orientation="horizontal"&gt;
+    &lt;twig:Checkbox id="terms" /&gt;
+    &lt;section&gt;
+        &lt;twig:Label for="terms"&gt;Accept terms&lt;/twig:Label&gt;
+        &lt;p&gt;Description&lt;/p&gt;
+    &lt;/section&gt;
+&lt;/twig:Field&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Textarea - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Textarea</h1>
+        <p class="text-muted-foreground mt-2">
+            Displays a form textarea or a component that looks like a textarea.
+        </p>
+    </header>
+
+    {# Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section class="max-w-md">
+            <twig:Twigcn:Textarea placeholder="Type your message here" />
+        </section>
+    </section>
+
+    {# States #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">States</h2>
+        </header>
+        <section class="grid gap-4 max-w-md">
+            <twig:Twigcn:Textarea placeholder="Default" />
+            <twig:Twigcn:Textarea placeholder="Invalid" :invalid="true" />
+            <twig:Twigcn:Textarea placeholder="Disabled" :disabled="true" />
+            <twig:Twigcn:Textarea placeholder="Required" :required="true" />
+        </section>
+    </section>
+
+    {# With Rows #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Custom Rows</h2>
+        </header>
+        <section class="grid gap-4 max-w-md">
+            <twig:Twigcn:Textarea placeholder="2 rows" :rows="2" />
+            <twig:Twigcn:Textarea placeholder="5 rows" :rows="5" />
+            <twig:Twigcn:Textarea placeholder="8 rows" :rows="8" />
+        </section>
+    </section>
+
+    {# With Label #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Label</h2>
+        </header>
+        <section class="grid gap-4 max-w-md">
+            <twig:Twigcn:Label for="bio">Bio</twig:Twigcn:Label>
+            <twig:Twigcn:Textarea id="bio" placeholder="Tell us about yourself" :rows="4" />
+            <p class="text-muted-foreground text-sm">You can @mention other users.</p>
+        </section>
+    </section>
+
+    {# With Button #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Button</h2>
+        </header>
+        <section class="grid gap-4 max-w-md">
+            <twig:Twigcn:Textarea placeholder="Type your message here" />
+            <twig:Twigcn:Button type="submit">Submit</twig:Twigcn:Button>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Textarea placeholder="Message" /&gt;
+&lt;twig:Textarea :rows="5" placeholder="Long text" /&gt;
+&lt;twig:Textarea :invalid="true" placeholder="Error" /&gt;
+&lt;twig:Textarea :disabled="true" /&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

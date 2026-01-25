@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased h-full">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}TwigcnBundle{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>">
+        {% block stylesheets %}
+            {{ vite_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ vite_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body class="h-full">
+        <div class="min-h-full">
+            {# Header #}
+            <header class="border-b">
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div class="flex py-2 items-center">
+                        {# Brand #}
+                        <div class="flex items-center gap-4">
+                            <a aria-current="page" href="{{ path('app_home') }}" class="flex items-center justify-center gap-2 whitespace-nowrap group">
+                                <span aria-hidden="true" class="rounded-md p-1 transition-all disabled:pointer-events-none disabled:opacity-50 shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive group-hover:bg-accent text-primary group-hover:text-accent-foreground dark:group-hover:bg-accent/50">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="size-5">
+                                        <rect width="256" height="256" fill="none"></rect>
+                                        <line x1="208" y1="128" x2="128" y2="208" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"></line>
+                                        <line x1="192" y1="40" x2="40" y2="192" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"></line>
+                                    </svg>
+                                </span>
+                                <span class="text-sm font-bold">TwigcnBundle</span>
+                            </a>
+                        </div>
+
+                        {# Nav #}
+                        <nav class="items-center hidden lg:flex ml-4">
+                            <a href="{{ path('showcase_index') }}" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-8 rounded-md gap-1.5 px-3">Components</a>
+                        </nav>
+
+                        {# Actions #}
+                        <div class="flex items-center gap-4 ml-auto">
+                            <twig:Twigcn:ThemeSwitcher />
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            {# Main Content #}
+            <main class="py-16">
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    {% block content %}{% endblock %}
+                </div>
+            </main>
+
+            {# Footer #}
+            <footer class="border-t">
+                <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                    <p class="text-center text-sm text-muted-foreground">
+                        &copy; {{ "now"|date("Y") }} TwigcnBundle. Built with Symfony, Tailwind CSS & Stimulus.
+                    </p>
+                </div>
+            </footer>
+        </div>
+
+        {% block body %}{% endblock %}
+    </body>
+</html>

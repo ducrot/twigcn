@@ -1,0 +1,10 @@
+{% set item_content %}{% block content %}{% endblock %}{% endset %}
+{% if href %}
+<a href="{{ href }}" role="menuitem" {% if disabled %}aria-disabled="true"{% endif %} class="{{ class }}" {{ attributes }}>
+    {{- item_content -}}
+</a>
+{% else %}
+<button type="button" role="menuitem" {% if disabled %}aria-disabled="true"{% endif %} class="{{ class }}" {{ attributes }}>
+    {{- item_content -}}
+</button>
+{% endif %}

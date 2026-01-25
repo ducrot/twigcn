@@ -1,0 +1,150 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Toast - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div
+    class="flex flex-col gap-8"
+    data-controller="toast-demo"
+    data-toast-demo-toaster-outlet="[data-controller='toaster']"
+>
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Toast</h1>
+        <p class="text-muted-foreground mt-2">A succinct message that is displayed temporarily.</p>
+    </header>
+
+    {# Basic Examples #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Trigger Toasts</h2>
+            <p class="text-muted-foreground text-sm">Click the buttons below to trigger different toast notifications.</p>
+        </header>
+        <section class="flex flex-wrap gap-4">
+            <twig:Twigcn:Button
+                variant="outline"
+                data-action="click->toast-demo#showDefault"
+            >
+                Show Default Toast
+            </twig:Twigcn:Button>
+
+            <twig:Twigcn:Button
+                variant="outline"
+                data-action="click->toast-demo#showSuccess"
+            >
+                Show Success Toast
+            </twig:Twigcn:Button>
+
+            <twig:Twigcn:Button
+                variant="outline"
+                data-action="click->toast-demo#showError"
+            >
+                Show Error Toast
+            </twig:Twigcn:Button>
+
+            <twig:Twigcn:Button
+                variant="outline"
+                data-action="click->toast-demo#showWarning"
+            >
+                Show Warning Toast
+            </twig:Twigcn:Button>
+
+            <twig:Twigcn:Button
+                variant="outline"
+                data-action="click->toast-demo#showWithAction"
+            >
+                Toast with Action
+            </twig:Twigcn:Button>
+        </section>
+    </section>
+
+    {# Positions #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Toaster Positions</h2>
+            <p class="text-muted-foreground text-sm">The Toaster component can be positioned in different corners of the screen.</p>
+        </header>
+        <section>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <button
+                    class="p-4 border rounded-lg text-left cursor-pointer hover:bg-accent/50 transition-colors"
+                    data-position="top-left"
+                    data-action="click->toast-demo#changePosition"
+                >
+                    <p class="text-sm font-medium">top-left</p>
+                    <p class="text-xs text-muted-foreground">data-align="start"</p>
+                </button>
+                <button
+                    class="p-4 border rounded-lg text-left cursor-pointer hover:bg-accent/50 transition-colors"
+                    data-position="top-center"
+                    data-action="click->toast-demo#changePosition"
+                >
+                    <p class="text-sm font-medium">top-center</p>
+                    <p class="text-xs text-muted-foreground">data-align="center"</p>
+                </button>
+                <button
+                    class="p-4 border rounded-lg text-left cursor-pointer hover:bg-accent/50 transition-colors"
+                    data-position="top-right"
+                    data-action="click->toast-demo#changePosition"
+                >
+                    <p class="text-sm font-medium">top-right</p>
+                    <p class="text-xs text-muted-foreground">data-align="end"</p>
+                </button>
+                <button
+                    class="p-4 border rounded-lg text-left cursor-pointer hover:bg-accent/50 transition-colors"
+                    data-position="bottom-left"
+                    data-action="click->toast-demo#changePosition"
+                >
+                    <p class="text-sm font-medium">bottom-left</p>
+                    <p class="text-xs text-muted-foreground">data-align="start"</p>
+                </button>
+                <button
+                    class="p-4 border rounded-lg text-left cursor-pointer hover:bg-accent/50 transition-colors"
+                    data-position="bottom-center"
+                    data-action="click->toast-demo#changePosition"
+                >
+                    <p class="text-sm font-medium">bottom-center</p>
+                    <p class="text-xs text-muted-foreground">data-align="center"</p>
+                </button>
+                <button
+                    class="p-4 border rounded-lg text-left cursor-pointer hover:bg-accent/50 transition-colors bg-accent"
+                    data-position="bottom-right"
+                    data-action="click->toast-demo#changePosition"
+                >
+                    <p class="text-sm font-medium">bottom-right (default)</p>
+                    <p class="text-xs text-muted-foreground">data-align="end"</p>
+                </button>
+            </div>
+        </section>
+    </section>
+
+    {# Usage Example #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <h3 class="text-base font-medium mt-0">1. Add Toaster to your layout</h3>
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Toaster position="bottom-right" /&gt;</code></pre>
+
+            <h3 class="text-base font-medium">2. Trigger toasts via Stimulus outlet</h3>
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>// In your controller, declare the toaster outlet
+static outlets = ['toaster'];
+
+// Then call toast() on the outlet
+this.toasterOutlet.toast({
+    title: 'Success!',
+    description: 'Your changes have been saved.',
+    variant: 'success', // 'default' | 'success' | 'destructive' | 'warning'
+    duration: 5000, // Auto-dismiss after 5 seconds (0 = no auto-dismiss)
+    action: {
+        label: 'Undo',
+        onClick: () => console.log('Undo clicked')
+    }
+});</code></pre>
+        </section>
+    </section>
+</div>
+
+{# Toaster container - positioned fixed at bottom right #}
+<twig:Twigcn:Toaster position="bottom-right" />
+{% endblock %}

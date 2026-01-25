@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<div class="flex gap-8">
+    {# Sidebar Navigation #}
+    <aside class="w-64 shrink-0 hidden lg:block">
+        <nav class="sticky top-4 flex flex-col gap-6">
+            <div>
+                <a href="{{ path('showcase_index') }}" class="flex items-center gap-2 font-semibold text-lg mb-4">
+                    <twig:ux:icon name="lucide:component" class="size-5" />
+                    Components
+                </a>
+            </div>
+
+            <twig:Twigcn:Tabs :storageKey="'showcase-nav-tab'">
+                <twig:Twigcn:TabsList class="w-full">
+                    <twig:Twigcn:TabsTrigger value="grouped" :active="true">Grouped</twig:Twigcn:TabsTrigger>
+                    <twig:Twigcn:TabsTrigger value="alphabetical">A-Z</twig:Twigcn:TabsTrigger>
+                </twig:Twigcn:TabsList>
+
+                <twig:Twigcn:TabsContent value="grouped" :active="true">
+                    <div class="flex flex-col gap-6 mt-4">
+                        {% for category, items in components %}
+                            <div>
+                                <h3 class="font-semibold text-sm text-muted-foreground uppercase tracking-wide mb-2">
+                                    {{ category|capitalize }}
+                                </h3>
+                                <ul class="flex flex-col gap-1">
+                                    {% for slug, name in items %}
+                                        <li>
+                                            <a href="{{ path('showcase_component', {slug: slug}) }}"
+                                               class="block px-3 py-1.5 rounded-md text-sm transition-colors
+                                                      {% if current|default('') == slug %}
+                                                          bg-accent text-accent-foreground font-medium
+                                                      {% else %}
+                                                          text-muted-foreground hover:text-foreground hover:bg-muted
+                                                      {% endif %}">
+                                                {{ name }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </twig:Twigcn:TabsContent>
+
+                <twig:Twigcn:TabsContent value="alphabetical">
+                    <ul class="flex flex-col gap-1 mt-4">
+                        {% for slug, name in componentsAlphabetical %}
+                            <li>
+                                <a href="{{ path('showcase_component', {slug: slug}) }}"
+                                   class="block px-3 py-1.5 rounded-md text-sm transition-colors
+                                          {% if current|default('') == slug %}
+                                              bg-accent text-accent-foreground font-medium
+                                          {% else %}
+                                              text-muted-foreground hover:text-foreground hover:bg-muted
+                                          {% endif %}">
+                                    {{ name }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </twig:Twigcn:TabsContent>
+            </twig:Twigcn:Tabs>
+        </nav>
+    </aside>
+
+    {# Main Content #}
+    <main class="flex-1 min-w-0">
+        {% block showcase_content %}{% endblock %}
+    </main>
+</div>
+{% endblock %}

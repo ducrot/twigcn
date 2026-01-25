@@ -1,0 +1,167 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Command - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Command</h1>
+        <p class="text-muted-foreground mt-2">Fast, composable, unstyled command menu for React.</p>
+    </header>
+
+    {# Basic Example #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Basic Command</h2>
+        </header>
+        <section>
+            <div class="max-w-md">
+                <twig:Twigcn:Command class="border rounded-lg shadow-md">
+                    <twig:Twigcn:CommandInput placeholder="Type a command or search..." />
+                    <twig:Twigcn:CommandList>
+                        <twig:Twigcn:CommandGroup heading="Suggestions">
+                            <twig:Twigcn:CommandItem value="calendar">
+                                <twig:ux:icon name="lucide:calendar" class="w-4 h-4 mr-2" />
+                                Calendar
+                            </twig:Twigcn:CommandItem>
+                            <twig:Twigcn:CommandItem value="search-emoji">
+                                <twig:ux:icon name="lucide:smile" class="w-4 h-4 mr-2" />
+                                Search Emoji
+                            </twig:Twigcn:CommandItem>
+                            <twig:Twigcn:CommandItem value="calculator">
+                                <twig:ux:icon name="lucide:calculator" class="w-4 h-4 mr-2" />
+                                Calculator
+                            </twig:Twigcn:CommandItem>
+                        </twig:Twigcn:CommandGroup>
+                        <twig:Twigcn:CommandSeparator />
+                        <twig:Twigcn:CommandGroup heading="Settings">
+                            <twig:Twigcn:CommandItem value="profile">
+                                <twig:ux:icon name="lucide:user" class="w-4 h-4 mr-2" />
+                                Profile
+                                <twig:Twigcn:CommandShortcut>
+                                    <twig:Twigcn:Kbd>&#8984;</twig:Twigcn:Kbd><twig:Twigcn:Kbd>P</twig:Twigcn:Kbd>
+                                </twig:Twigcn:CommandShortcut>
+                            </twig:Twigcn:CommandItem>
+                            <twig:Twigcn:CommandItem value="billing">
+                                <twig:ux:icon name="lucide:credit-card" class="w-4 h-4 mr-2" />
+                                Billing
+                                <twig:Twigcn:CommandShortcut>
+                                    <twig:Twigcn:Kbd>&#8984;</twig:Twigcn:Kbd><twig:Twigcn:Kbd>B</twig:Twigcn:Kbd>
+                                </twig:Twigcn:CommandShortcut>
+                            </twig:Twigcn:CommandItem>
+                            <twig:Twigcn:CommandItem value="settings">
+                                <twig:ux:icon name="lucide:settings" class="w-4 h-4 mr-2" />
+                                Settings
+                                <twig:Twigcn:CommandShortcut>
+                                    <twig:Twigcn:Kbd>&#8984;</twig:Twigcn:Kbd><twig:Twigcn:Kbd>S</twig:Twigcn:Kbd>
+                                </twig:Twigcn:CommandShortcut>
+                            </twig:Twigcn:CommandItem>
+                        </twig:Twigcn:CommandGroup>
+                    </twig:Twigcn:CommandList>
+                </twig:Twigcn:Command>
+            </div>
+        </section>
+    </section>
+
+    {# With Dialog #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">In a Dialog</h2>
+            <p class="text-muted-foreground text-sm">Command palette is often used inside a dialog, triggered by a keyboard shortcut.</p>
+        </header>
+        <section class="flex items-center gap-4">
+            <twig:Twigcn:Button variant="outline" onclick="document.getElementById('command-dialog').showModal()">
+                <twig:ux:icon name="lucide:search" class="w-4 h-4 mr-2" />
+                Search...
+                <twig:Twigcn:Kbd class="ml-4">&#8984;K</twig:Twigcn:Kbd>
+            </twig:Twigcn:Button>
+
+            <twig:Twigcn:Dialog id="command-dialog">
+                <twig:Twigcn:Command class="border-0">
+                    <twig:Twigcn:CommandInput placeholder="Type a command or search..." />
+                    <twig:Twigcn:CommandList>
+                        <twig:Twigcn:CommandGroup heading="Links">
+                            <twig:Twigcn:CommandItem value="home">
+                                <twig:ux:icon name="lucide:home" class="w-4 h-4 mr-2" />
+                                Home
+                            </twig:Twigcn:CommandItem>
+                            <twig:Twigcn:CommandItem value="docs">
+                                <twig:ux:icon name="lucide:file-text" class="w-4 h-4 mr-2" />
+                                Documentation
+                            </twig:Twigcn:CommandItem>
+                            <twig:Twigcn:CommandItem value="components">
+                                <twig:ux:icon name="lucide:layout" class="w-4 h-4 mr-2" />
+                                Components
+                            </twig:Twigcn:CommandItem>
+                        </twig:Twigcn:CommandGroup>
+                        <twig:Twigcn:CommandSeparator />
+                        <twig:Twigcn:CommandGroup heading="Theme">
+                            <twig:Twigcn:CommandItem value="light">
+                                <twig:ux:icon name="lucide:sun" class="w-4 h-4 mr-2" />
+                                Light
+                            </twig:Twigcn:CommandItem>
+                            <twig:Twigcn:CommandItem value="dark">
+                                <twig:ux:icon name="lucide:moon" class="w-4 h-4 mr-2" />
+                                Dark
+                            </twig:Twigcn:CommandItem>
+                            <twig:Twigcn:CommandItem value="system">
+                                <twig:ux:icon name="lucide:laptop" class="w-4 h-4 mr-2" />
+                                System
+                            </twig:Twigcn:CommandItem>
+                        </twig:Twigcn:CommandGroup>
+                    </twig:Twigcn:CommandList>
+                </twig:Twigcn:Command>
+            </twig:Twigcn:Dialog>
+        </section>
+    </section>
+
+    {# With Disabled Items #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Disabled Items</h2>
+        </header>
+        <section>
+            <div class="max-w-md">
+                <twig:Twigcn:Command class="border rounded-lg shadow-md">
+                    <twig:Twigcn:CommandInput placeholder="Search actions..." />
+                    <twig:Twigcn:CommandList>
+                        <twig:Twigcn:CommandGroup heading="Actions">
+                            <twig:Twigcn:CommandItem value="copy">
+                                <twig:ux:icon name="lucide:copy" class="w-4 h-4 mr-2" />
+                                Copy
+                            </twig:Twigcn:CommandItem>
+                            <twig:Twigcn:CommandItem value="paste" :disabled="true">
+                                <twig:ux:icon name="lucide:clipboard" class="w-4 h-4 mr-2" />
+                                Paste (disabled)
+                            </twig:Twigcn:CommandItem>
+                            <twig:Twigcn:CommandItem value="cut">
+                                <twig:ux:icon name="lucide:scissors" class="w-4 h-4 mr-2" />
+                                Cut
+                            </twig:Twigcn:CommandItem>
+                        </twig:Twigcn:CommandGroup>
+                    </twig:Twigcn:CommandList>
+                </twig:Twigcn:Command>
+            </div>
+        </section>
+    </section>
+
+    {# Usage Example #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Command&gt;
+    &lt;twig:CommandInput placeholder="Search..." /&gt;
+    &lt;twig:CommandList&gt;
+        &lt;twig:CommandGroup heading="Group"&gt;
+            &lt;twig:CommandItem value="item"&gt;
+                Item
+            &lt;/twig:CommandItem&gt;
+        &lt;/twig:CommandGroup&gt;
+    &lt;/twig:CommandList&gt;
+&lt;/twig:Command&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

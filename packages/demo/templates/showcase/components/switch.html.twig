@@ -1,0 +1,124 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Switch - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Switch</h1>
+        <p class="text-muted-foreground mt-2">
+            A control that allows the user to toggle between on and off.
+        </p>
+    </header>
+
+    {# Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section class="flex items-center gap-4">
+            <twig:Twigcn:Switch id="airplane-mode" />
+            <twig:Twigcn:Label for="airplane-mode">Airplane Mode</twig:Twigcn:Label>
+        </section>
+    </section>
+
+    {# States #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">States</h2>
+        </header>
+        <section class="flex flex-col gap-4">
+            <div class="flex items-center gap-4">
+                <twig:Twigcn:Switch id="switch-default" />
+                <twig:Twigcn:Label for="switch-default">Default</twig:Twigcn:Label>
+            </div>
+            <div class="flex items-center gap-4">
+                <twig:Twigcn:Switch id="switch-checked" :checked="true" />
+                <twig:Twigcn:Label for="switch-checked">Checked</twig:Twigcn:Label>
+            </div>
+            <div class="flex items-center gap-4">
+                <twig:Twigcn:Switch id="switch-disabled" :disabled="true" />
+                <twig:Twigcn:Label for="switch-disabled">Disabled</twig:Twigcn:Label>
+            </div>
+            <div class="flex items-center gap-4">
+                <twig:Twigcn:Switch id="switch-disabled-checked" :disabled="true" :checked="true" />
+                <twig:Twigcn:Label for="switch-disabled-checked">Disabled & Checked</twig:Twigcn:Label>
+            </div>
+        </section>
+    </section>
+
+    {# Settings Example #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Settings Example</h2>
+        </header>
+        <section class="flex flex-col gap-6 max-w-md">
+            <div class="flex items-center justify-between gap-4">
+                <div class="grid gap-1">
+                    <twig:Twigcn:Label for="notifications">Notifications</twig:Twigcn:Label>
+                    <p class="text-muted-foreground text-sm">
+                        Receive push notifications
+                    </p>
+                </div>
+                <twig:Twigcn:Switch id="notifications" :checked="true" />
+            </div>
+            <div class="flex items-center justify-between gap-4">
+                <div class="grid gap-1">
+                    <twig:Twigcn:Label for="marketing">Marketing emails</twig:Twigcn:Label>
+                    <p class="text-muted-foreground text-sm">
+                        Receive emails about new products
+                    </p>
+                </div>
+                <twig:Twigcn:Switch id="marketing" />
+            </div>
+            <div class="flex items-center justify-between gap-4">
+                <div class="grid gap-1">
+                    <twig:Twigcn:Label for="security">Security alerts</twig:Twigcn:Label>
+                    <p class="text-muted-foreground text-sm">
+                        Get notified about security issues
+                    </p>
+                </div>
+                <twig:Twigcn:Switch id="security" :checked="true" />
+            </div>
+        </section>
+    </section>
+
+    {# Form Example #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Form Example</h2>
+        </header>
+        <section class="flex flex-col gap-4 max-w-md">
+            <div class="flex items-center gap-4">
+                <twig:Twigcn:Switch id="dark-mode" name="settings[dark_mode]" />
+                <twig:Twigcn:Label for="dark-mode">Dark mode</twig:Twigcn:Label>
+            </div>
+            <div class="flex items-center gap-4">
+                <twig:Twigcn:Switch id="auto-save" name="settings[auto_save]" :checked="true" />
+                <twig:Twigcn:Label for="auto-save">Auto save</twig:Twigcn:Label>
+            </div>
+            <twig:Twigcn:Button type="submit" class="w-fit">Save settings</twig:Twigcn:Button>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Switch id="mode" /&gt;
+&lt;twig:Label for="mode"&gt;Enable feature&lt;/twig:Label&gt;
+
+{# With checked state #}
+&lt;twig:Switch id="enabled" :checked="true" /&gt;
+
+{# Disabled #}
+&lt;twig:Switch id="disabled" :disabled="true" /&gt;
+
+{# With name for forms #}
+&lt;twig:Switch id="setting" name="settings[feature]" /&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Empty - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Empty</h1>
+        <p class="text-muted-foreground mt-2">
+            Displays an empty state with icon, title, description, and optional action.
+        </p>
+    </header>
+
+    {# Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section>
+            <twig:Twigcn:Empty
+                icon="lucide:inbox"
+                title="No messages"
+                description="You don't have any messages yet."
+            />
+        </section>
+    </section>
+
+    {# With Action #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Action</h2>
+        </header>
+        <section>
+            <twig:Twigcn:Empty
+                icon="lucide:file-text"
+                title="No documents"
+                description="Get started by creating a new document."
+            >
+                <twig:Twigcn:Button class="mt-4">
+                    <twig:ux:icon name="lucide:plus" />
+                    New Document
+                </twig:Twigcn:Button>
+            </twig:Twigcn:Empty>
+        </section>
+    </section>
+
+    {# Search Results #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Search Results</h2>
+        </header>
+        <section>
+            <twig:Twigcn:Empty
+                icon="lucide:search"
+                title="No results found"
+                description="Try adjusting your search or filter to find what you're looking for."
+            >
+                <twig:Twigcn:Button variant="outline" class="mt-4">Clear filters</twig:Twigcn:Button>
+            </twig:Twigcn:Empty>
+        </section>
+    </section>
+
+    {# Error State #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Error State</h2>
+        </header>
+        <section>
+            <twig:Twigcn:Empty
+                icon="lucide:alert-circle"
+                title="Something went wrong"
+                description="We couldn't load the data. Please try again."
+            >
+                <twig:Twigcn:Button variant="outline" class="mt-4">
+                    <twig:ux:icon name="lucide:refresh-cw" />
+                    Retry
+                </twig:Twigcn:Button>
+            </twig:Twigcn:Empty>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Empty
+    icon="lucide:inbox"
+    title="No messages"
+    description="You don't have any messages yet."
+/&gt;
+
+{# With action button #}
+&lt;twig:Empty
+    icon="lucide:file-text"
+    title="No documents"
+    description="Get started by creating a new document."
+&gt;
+    &lt;twig:Button class="mt-4"&gt;
+        &lt;twig:ux:icon name="lucide:plus" /&gt;
+        New Document
+    &lt;/twig:Button&gt;
+&lt;/twig:Empty&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

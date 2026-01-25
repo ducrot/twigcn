@@ -1,0 +1,107 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Badge - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Badge</h1>
+        <p class="text-muted-foreground mt-2">
+            Displays a badge or a component that looks like a badge.
+        </p>
+    </header>
+
+    {# Variants #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Variants</h2>
+        </header>
+        <section class="flex flex-wrap gap-4">
+            <twig:Twigcn:Badge>Primary</twig:Twigcn:Badge>
+            <twig:Twigcn:Badge variant="secondary">Secondary</twig:Twigcn:Badge>
+            <twig:Twigcn:Badge variant="destructive">Destructive</twig:Twigcn:Badge>
+            <twig:Twigcn:Badge variant="outline">Outline</twig:Twigcn:Badge>
+        </section>
+    </section>
+
+    {# With Icons #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Icons</h2>
+        </header>
+        <section class="flex flex-wrap gap-4">
+            <twig:Twigcn:Badge>
+                <twig:ux:icon name="lucide:check" />
+                Success
+            </twig:Twigcn:Badge>
+            <twig:Twigcn:Badge variant="secondary">
+                <twig:ux:icon name="lucide:clock" />
+                Pending
+            </twig:Twigcn:Badge>
+            <twig:Twigcn:Badge variant="destructive">
+                <twig:ux:icon name="lucide:x" />
+                Error
+            </twig:Twigcn:Badge>
+            <twig:Twigcn:Badge variant="outline">
+                <twig:ux:icon name="lucide:info" />
+                Info
+            </twig:Twigcn:Badge>
+        </section>
+    </section>
+
+    {# Status Badges #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Status Examples</h2>
+        </header>
+        <section class="flex flex-wrap gap-4">
+            <twig:Twigcn:Badge variant="outline">Draft</twig:Twigcn:Badge>
+            <twig:Twigcn:Badge variant="secondary">In Review</twig:Twigcn:Badge>
+            <twig:Twigcn:Badge>Published</twig:Twigcn:Badge>
+            <twig:Twigcn:Badge variant="destructive">Rejected</twig:Twigcn:Badge>
+        </section>
+    </section>
+
+    {# In Context #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">In Context</h2>
+        </header>
+        <section class="flex flex-col gap-4 max-w-md">
+            <div class="flex items-center justify-between p-4 border rounded-lg">
+                <div class="flex items-center gap-4">
+                    <twig:ux:icon name="lucide:inbox" class="size-5 text-muted-foreground" />
+                    <span class="font-medium">Inbox</span>
+                </div>
+                <twig:Twigcn:Badge>12</twig:Twigcn:Badge>
+            </div>
+            <div class="flex items-center justify-between p-4 border rounded-lg">
+                <div class="flex items-center gap-4">
+                    <twig:ux:icon name="lucide:file-text" class="size-5 text-muted-foreground" />
+                    <span class="font-medium">Documents</span>
+                </div>
+                <twig:Twigcn:Badge variant="secondary">8</twig:Twigcn:Badge>
+            </div>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Badge&gt;Primary&lt;/twig:Badge&gt;
+&lt;twig:Badge variant="secondary"&gt;Secondary&lt;/twig:Badge&gt;
+&lt;twig:Badge variant="destructive"&gt;Destructive&lt;/twig:Badge&gt;
+&lt;twig:Badge variant="outline"&gt;Outline&lt;/twig:Badge&gt;
+
+{# With icon #}
+&lt;twig:Badge&gt;
+    &lt;twig:ux:icon name="lucide:check" /&gt;
+    Success
+&lt;/twig:Badge&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}

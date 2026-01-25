@@ -1,0 +1,63 @@
+{% set items %}{% block content %}{% endblock %}{% endset %}
+<div
+    data-controller="custom-select"
+    data-custom-select-placeholder-value="{{ placeholder }}"
+    data-custom-select-multiple-value="{{ multiple ? 'true' : 'false' }}"
+    data-custom-select-searchable-value="{{ searchable ? 'true' : 'false' }}"
+    class="select {{ class }}"
+    {{ attributes }}
+>
+    <input
+        type="hidden"
+        {% if name %}name="{{ name }}"{% endif %}
+        {% if id %}id="{{ id }}"{% endif %}
+        {% if value %}value="{{ value }}"{% endif %}
+        data-custom-select-target="input"
+    />
+    <twig:Twigcn:Popover>
+        <twig:Twigcn:PopoverTrigger>
+            <button
+                type="button"
+                class="btn-outline"
+                aria-haspopup="listbox"
+                {% if disabled %}disabled{% endif %}
+                {% if invalid %}aria-invalid="true"{% endif %}
+                data-custom-select-target="trigger"
+            >
+                <span class="truncate text-muted-foreground" data-custom-select-target="label">{{ placeholder }}</span>
+                {% if searchable %}
+                    <twig:ux:icon name="lucide:chevrons-up-down" class="w-4 h-4 ml-2 shrink-0 opacity-50" />
+                {% else %}
+                    <twig:ux:icon name="lucide:chevron-down" class="w-4 h-4 ml-2 shrink-0 opacity-50" />
+                {% endif %}
+            </button>
+        </twig:Twigcn:PopoverTrigger>
+        <twig:Twigcn:PopoverContent class="p-1">
+            {% if searchable %}
+            <header>
+                <twig:ux:icon name="lucide:search" class="w-4 h-4 shrink-0 opacity-50" />
+                <input
+                    type="text"
+                    placeholder="{{ searchPlaceholder }}"
+                    autocomplete="off"
+                    autocorrect="off"
+                    spellcheck="false"
+                    role="combobox"
+                    aria-autocomplete="list"
+                    data-custom-select-target="search"
+                    data-action="input->custom-select#filter keydown->custom-select#handleSearchKeydown"
+                />
+            </header>
+            {% endif %}
+            <div
+                role="listbox"
+                aria-orientation="vertical"
+                {% if multiple %}aria-multiselectable="true"{% endif %}
+                {% if listboxClass %}class="{{ listboxClass }}"{% endif %}
+                data-custom-select-target="listbox"
+            >
+                {{ items|raw }}
+            </div>
+        </twig:Twigcn:PopoverContent>
+    </twig:Twigcn:Popover>
+</div>

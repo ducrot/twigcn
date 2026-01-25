@@ -1,0 +1,11 @@
+<div
+    data-popover
+    data-popover-target="content"
+    data-align="{{ align }}"
+    data-side="{{ side }}"
+    aria-hidden="true"
+    {% if class %}class="{{ class }}"{% endif %}
+    {{ attributes }}
+>
+    {% block content %}{% endblock %}
+</div>

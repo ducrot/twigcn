@@ -1,0 +1,10 @@
+<header class="{{ class }}">
+    <twig:ux:icon name="lucide:search" />
+    <input
+        type="text"
+        data-command-target="input"
+        data-action="input->command#filter"
+        placeholder="{{ placeholder }}"
+        {{ attributes }}
+    />
+</header>

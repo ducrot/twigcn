@@ -1,0 +1,8 @@
+<div
+    class="{{ this.fieldClasses }}"
+    {% if orientation == 'horizontal' %}data-orientation="horizontal"{% endif %}
+    {% if invalid %}data-invalid="true"{% endif %}
+    {{ attributes }}
+>
+    {% block content %}{% endblock %}
+</div>

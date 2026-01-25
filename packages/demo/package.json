@@ -1,0 +1,21 @@
+{
+    "name": "@ducrot/twigcn-demo",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@ducrot/twigcn-ui": "*",
+        "@hotwired/stimulus": "^3.2.2",
+        "basecoat-css": "^0.2.0"
+    },
+    "devDependencies": {
+        "@tailwindcss/vite": "^4.1.0",
+        "tailwindcss": "^4.1.0",
+        "typescript": "^5.7.3",
+        "vite": "^6.0.11"
+    }
+}

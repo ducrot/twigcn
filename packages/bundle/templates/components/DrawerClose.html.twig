@@ -1,0 +1,6 @@
+{% set close_content %}{% block content %}{% endblock %}{% endset %}
+<form method="dialog">
+    <button type="submit" class="{{ class }}" {{ attributes }}>
+        {{- close_content -}}
+    </button>
+</form>

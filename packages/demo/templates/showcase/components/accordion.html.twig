@@ -1,0 +1,74 @@
+{% extends 'showcase/base.html.twig' %}
+
+{% block title %}Accordion - Component Showcase{% endblock %}
+
+{% block showcase_content %}
+<div class="flex flex-col gap-8">
+    <header>
+        <h1 class="text-3xl font-bold tracking-tight">Accordion</h1>
+        <p class="text-muted-foreground mt-2">
+            A vertically stacked set of interactive headings that reveal content.
+        </p>
+    </header>
+
+    {# Default #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Default</h2>
+        </header>
+        <section class="max-w-lg">
+            <twig:Twigcn:Accordion>
+                <twig:Twigcn:AccordionItem title="Is it accessible?" :open="true">
+                    Yes. It adheres to the WAI-ARIA design pattern using the native HTML details element.
+                </twig:Twigcn:AccordionItem>
+                <twig:Twigcn:AccordionItem title="Is it styled?">
+                    Yes. It comes with default styles that match the other components' aesthetic.
+                </twig:Twigcn:AccordionItem>
+                <twig:Twigcn:AccordionItem title="Is it animated?">
+                    Yes. It uses CSS transitions for smooth open/close animations.
+                </twig:Twigcn:AccordionItem>
+            </twig:Twigcn:Accordion>
+        </section>
+    </section>
+
+    {# FAQ Example #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">FAQ Example</h2>
+        </header>
+        <section class="max-w-lg">
+            <twig:Twigcn:Accordion>
+                <twig:Twigcn:AccordionItem title="How do I create an account?">
+                    Click the "Sign Up" button in the top right corner and follow the registration process. You'll need to provide your email address and create a password.
+                </twig:Twigcn:AccordionItem>
+                <twig:Twigcn:AccordionItem title="Can I change my subscription plan?">
+                    Yes, you can upgrade or downgrade your plan at any time from your account settings. Changes will take effect at the start of your next billing cycle.
+                </twig:Twigcn:AccordionItem>
+                <twig:Twigcn:AccordionItem title="What payment methods do you accept?">
+                    We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and bank transfers for annual plans.
+                </twig:Twigcn:AccordionItem>
+                <twig:Twigcn:AccordionItem title="How do I contact support?">
+                    You can reach our support team via email at support@example.com or through the live chat feature available in your dashboard.
+                </twig:Twigcn:AccordionItem>
+            </twig:Twigcn:Accordion>
+        </section>
+    </section>
+
+    {# Usage #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">Usage</h2>
+        </header>
+        <section class="prose prose-sm max-w-none">
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Accordion&gt;
+    &lt;twig:AccordionItem title="Section 1" :open="true"&gt;
+        Content for section 1
+    &lt;/twig:AccordionItem&gt;
+    &lt;twig:AccordionItem title="Section 2"&gt;
+        Content for section 2
+    &lt;/twig:AccordionItem&gt;
+&lt;/twig:Accordion&gt;</code></pre>
+        </section>
+    </section>
+</div>
+{% endblock %}
