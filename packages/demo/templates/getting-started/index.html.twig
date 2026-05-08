@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Getting Started - twigcn/ui{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl">
+    <h1 class="text-3xl font-bold tracking-tight">Getting started</h1>
+
+    <p class="text-muted-foreground mt-4 text-lg">
+        This kit provides ready-to-use and fully-customizable UI Twig components based on
+        <a href="https://ui.shadcn.com/" target="_blank" rel="noopener noreferrer" class="font-medium underline underline-offset-4 hover:text-foreground">Shadcn UI</a>
+        components design.
+    </p>
+
+    <p class="text-muted-foreground mt-4">
+        Please note that not every Shadcn UI component is available in this kit, but we are working on it!
+    </p>
+
+    <h2 class="text-2xl font-semibold tracking-tight mt-10">Requirements</h2>
+
+    <p class="text-muted-foreground mt-4">
+        This kit requires TailwindCSS to work:
+    </p>
+
+    <ul class="mt-4 ml-6 list-disc space-y-2 text-muted-foreground">
+        <li>
+            If you use <strong>Symfony AssetMapper</strong>, you can install TailwindCSS with the
+            <a href="https://symfony.com/bundles/TailwindBundle/current/index.html" target="_blank" rel="noopener noreferrer" class="font-medium underline underline-offset-4 hover:text-foreground">TailwindBundle</a>,
+        </li>
+        <li>
+            If you use <strong>Webpack Encore</strong>, you can follow the
+            <a href="https://tailwindcss.com/docs/installation/framework-guides/symfony" target="_blank" rel="noopener noreferrer" class="font-medium underline underline-offset-4 hover:text-foreground">TailwindCSS installation guide for Symfony</a>,
+        </li>
+        <li>
+            If you use <strong>Symfony with ViteBundle</strong>, you can follow the
+            <a href="https://symfony-vite.pentatrion.com/guide/installation.html" target="_blank" rel="noopener noreferrer" class="font-medium underline underline-offset-4 hover:text-foreground">Symfony & Vite installation instructions</a>.
+        </li>
+    </ul>
+</div>
+{% endblock %}
