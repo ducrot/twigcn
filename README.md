@@ -75,6 +75,7 @@ This is a monorepo using npm workspaces and Composer path repositories.
 # Clone the repository
 git clone https://github.com/ducrot/twigcn-bundle.git
 cd twigcn-bundle
+ddev start
 
 # Install npm dependencies
 ddev npm ci
@@ -83,9 +84,9 @@ ddev npm ci
 ddev npm run build
 
 # Start the demo app with DDEV
-ddev start
 ddev composer install
 ddev npm run dev
+
 ```
 
 ### Demo App
