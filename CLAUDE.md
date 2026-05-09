@@ -25,7 +25,7 @@ ddev npm run typecheck              # Run TypeScript type checking
 
 # Demo app
 ddev start                          # Start DDEV environment
-# Visit https://twigcn.ddev.site/showcase
+# Visit https://twigcn.ddev.site/
 ```
 
 ## Architecture
@@ -33,14 +33,14 @@ ddev start                          # Start DDEV environment
 ### Component System
 - PHP component classes: `packages/bundle/src/Twig/Components/`
 - Twig templates: `packages/bundle/templates/components/`
-- Uses `<twig:ComponentName>` syntax via Symfony UX TwigComponent
+- Uses `<twig:Twigcn:ComponentName>` syntax via Symfony UX TwigComponent
 
-### Stimulus Controllers (13 total)
+### Stimulus Controllers
 Located in `packages/ui/src/controllers/`:
 accordion, carousel, combobox, command, custom-select, dialog, drawer, popover, slider, tabs, theme, toaster, tooltip
 
 ### Styling
-- Tailwind CSS 4.0+ with Basecoat CSS design system
+- Tailwind CSS 4.0+ with shadcn CSS design system
 - CSS custom properties for theming (--primary, --background, etc.)
 - Dark mode via `.dark` class on `<html>`
 

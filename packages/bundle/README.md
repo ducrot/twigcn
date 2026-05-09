@@ -22,7 +22,7 @@ The bundle registers automatically via Symfony Flex.
 ### Step 2: Install the NPM Package
 
 ```bash
-npm install @ducrot/twigcn-ui basecoat-css
+npm install @ducrot/twigcn-ui
 ```
 
 ### Step 3: Configure Your CSS
@@ -31,7 +31,6 @@ Update your main CSS file (e.g., `assets/styles/app.css`):
 
 ```css
 @import "tailwindcss";
-@import "basecoat-css";
 @import "@ducrot/twigcn-ui/styles";
 
 /* IMPORTANT: Scan bundle templates for Tailwind classes */

@@ -5,7 +5,7 @@ Stimulus controllers and CSS styles for [TwigcnBundle](https://github.com/ducrot
 ## Installation
 
 ```bash
-npm install @ducrot/twigcn-ui basecoat-css
+npm install @ducrot/twigcn-ui
 ```
 
 ## Usage
@@ -14,7 +14,6 @@ npm install @ducrot/twigcn-ui basecoat-css
 
 ```css
 @import "tailwindcss";
-@import "basecoat-css";
 @import "@ducrot/twigcn-ui/styles";
 
 /* Scan bundle templates for Tailwind classes */

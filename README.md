@@ -27,14 +27,13 @@ composer require ducrot/twigcn-bundle
 ### 2. Install the NPM Package
 
 ```bash
-npm install @ducrot/twigcn-ui basecoat-css
+npm install @ducrot/twigcn-ui
 ```
 
 ### 3. Configure Your CSS
 
 ```css
 @import "tailwindcss";
-@import "basecoat-css";
 @import "@ducrot/twigcn-ui/styles";
 
 /* Scan bundle templates for Tailwind classes */

@@ -42,6 +42,5 @@ Thumbs.db
 *.log
 
 # AI
-/docs/parity-screenshots/
 /.claude/scheduled_tasks.lock
 /.playwright-cli/
