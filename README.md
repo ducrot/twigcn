@@ -52,16 +52,29 @@ registerControllers(app);
 
 ### 5. Use Components
 
-```twig
-<twig:Button variant="primary">Click me</twig:Button>
+Components from a bundle are namespaced under `Twigcn:` in Twig:
 
-<twig:Dialog id="my-dialog">
-    <twig:Button data-action="click->dialog#open">Open</twig:Button>
-    <template>
+```twig
+<twig:Twigcn:Button variant="primary">Click me</twig:Twigcn:Button>
+
+<twig:Twigcn:Button onclick="document.getElementById('my-dialog').showModal()">
+    Open Dialog
+</twig:Twigcn:Button>
+
+<twig:Twigcn:Dialog id="my-dialog">
+    <header>
         <h2>Dialog Title</h2>
         <p>Dialog content here.</p>
-    </template>
-</twig:Dialog>
+    </header>
+    <footer>
+        <twig:Twigcn:Button variant="outline" onclick="document.getElementById('my-dialog').close()">
+            Cancel
+        </twig:Twigcn:Button>
+        <twig:Twigcn:Button onclick="document.getElementById('my-dialog').close()">
+            Confirm
+        </twig:Twigcn:Button>
+    </footer>
+</twig:Twigcn:Dialog>
 ```
 
 ## Development
@@ -77,7 +90,7 @@ cd twigcn-bundle
 ddev start
 
 # Install npm dependencies
-ddev npm ci
+ddev npm install
 
 # Build the UI package
 ddev npm run build
@@ -85,7 +98,6 @@ ddev npm run build
 # Start the demo app with DDEV
 ddev composer install
 ddev npm run dev
-
 ```
 
 ### Demo App
@@ -95,16 +107,16 @@ Visit `https://twigcn.ddev.site/showcase` to see all components in action.
 ## Components
 
 ### Form
-Button, Checkbox, Choice Card, Combobox, Field, Input, Input Group, Label, Radio Group, Select, Switch, Textarea
+Button, ButtonGroup, Checkbox, ChoiceCard, Combobox, CustomSelect, Field, Form, Input, InputGroup, Label, Radio, RadioGroup, Select, Slider, Switch, Textarea
 
 ### Layout
-Accordion, Breadcrumb, Button Group, Card, Pagination, Sidebar, Table, Tabs
+Accordion, Breadcrumb, Card, Pagination, Sidebar, Table, Tabs
 
 ### Overlay
-Alert Dialog, Command, Dialog, Drawer, Dropdown Menu, Popover, Tooltip
+Command, Dialog, Drawer, DropdownMenu, Popover, Tooltip
 
 ### Feedback
-Alert, Avatar, Badge, Carousel, Empty, Item, Kbd, Progress, Skeleton, Spinner, Theme Switcher, Toast
+Alert, Avatar, Badge, Carousel, Empty, Item, Kbd, Progress, Skeleton, Spinner, ThemeSwitcher, Toast / Toaster
 
 ## License
 
