@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Twigcn\Bundle\Twig\Components;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
+use Twigcn\Bundle\Util\Cn;
 
 #[AsTwigComponent]
 final class Field
@@ -15,12 +16,6 @@ final class Field
 
     public function getFieldClasses(): string
     {
-        $classes = ['field'];
-
-        if ($this->class !== '') {
-            $classes[] = $this->class;
-        }
-
-        return implode(' ', $classes);
+        return Cn::merge('field', $this->class);
     }
 }

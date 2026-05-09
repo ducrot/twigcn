@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Twigcn\Bundle\Twig\Components;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
+use Twigcn\Bundle\Util\Cn;
 
 #[AsTwigComponent]
 final class SidebarMenuButton
@@ -15,16 +16,10 @@ final class SidebarMenuButton
 
     public function getButtonClasses(): string
     {
-        $classes = ['sidebar-menu-button'];
-
-        if ($this->active) {
-            $classes[] = 'active';
-        }
-
-        if ($this->class !== '') {
-            $classes[] = $this->class;
-        }
-
-        return implode(' ', $classes);
+        return Cn::merge(
+            'sidebar-menu-button',
+            $this->active ? 'active' : null,
+            $this->class,
+        );
     }
 }

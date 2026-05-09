@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Twigcn\Bundle\Twig\Components;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
+use Twigcn\Bundle\Util\Cn;
 
 #[AsTwigComponent]
 final class Badge
@@ -14,19 +15,14 @@ final class Badge
 
     public function getBadgeClasses(): string
     {
-        $classes = [];
-
-        $classes[] = match ($this->variant) {
-            'secondary' => 'badge-secondary',
-            'destructive' => 'badge-destructive',
-            'outline' => 'badge-outline',
-            default => 'badge',
-        };
-
-        if ($this->class !== '') {
-            $classes[] = $this->class;
-        }
-
-        return implode(' ', $classes);
+        return Cn::merge(
+            match ($this->variant) {
+                'secondary' => 'badge-secondary',
+                'destructive' => 'badge-destructive',
+                'outline' => 'badge-outline',
+                default => 'badge',
+            },
+            $this->class,
+        );
     }
 }

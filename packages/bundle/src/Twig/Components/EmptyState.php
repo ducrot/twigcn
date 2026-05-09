@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Twigcn\Bundle\Twig\Components;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
+use Twigcn\Bundle\Util\Cn;
 
 // "Empty" is a reserved word in PHP, so the class is named EmptyState and the
 // Twig name is set explicitly. The "Twigcn:" prefix must be repeated here: the
@@ -20,12 +21,9 @@ final class EmptyState
 
     public function getEmptyClasses(): string
     {
-        $classes = ['flex flex-col items-center justify-center py-12 text-center'];
-
-        if ($this->class !== '') {
-            $classes[] = $this->class;
-        }
-
-        return implode(' ', $classes);
+        return Cn::merge(
+            'flex flex-col items-center justify-center py-12 text-center',
+            $this->class,
+        );
     }
 }

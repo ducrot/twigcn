@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Twigcn\Bundle\Twig\Components;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
+use Twigcn\Bundle\Util\Cn;
 
 #[AsTwigComponent]
 final class Drawer
@@ -16,16 +17,10 @@ final class Drawer
 
     public function getDrawerClasses(): string
     {
-        $classes = ['drawer'];
-
-        if ($this->side !== '') {
-            $classes[] = 'drawer-' . $this->side;
-        }
-
-        if ($this->class !== '') {
-            $classes[] = $this->class;
-        }
-
-        return implode(' ', $classes);
+        return Cn::merge(
+            'drawer',
+            $this->side !== '' ? 'drawer-' . $this->side : null,
+            $this->class,
+        );
     }
 }

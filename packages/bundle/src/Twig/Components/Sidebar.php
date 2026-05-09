@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Twigcn\Bundle\Twig\Components;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
+use Twigcn\Bundle\Util\Cn;
 
 #[AsTwigComponent]
 final class Sidebar
@@ -15,20 +16,11 @@ final class Sidebar
 
     public function getSidebarClasses(): string
     {
-        $classes = ['sidebar'];
-
-        if ($this->side !== 'left') {
-            $classes[] = 'sidebar-' . $this->side;
-        }
-
-        if ($this->collapsible) {
-            $classes[] = 'sidebar-collapsible';
-        }
-
-        if ($this->class !== '') {
-            $classes[] = $this->class;
-        }
-
-        return implode(' ', $classes);
+        return Cn::merge(
+            'sidebar',
+            $this->side !== 'left' ? 'sidebar-' . $this->side : null,
+            $this->collapsible ? 'sidebar-collapsible' : null,
+            $this->class,
+        );
     }
 }

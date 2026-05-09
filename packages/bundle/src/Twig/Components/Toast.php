@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Twigcn\Bundle\Twig\Components;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
+use Twigcn\Bundle\Util\Cn;
 
 #[AsTwigComponent]
 final class Toast
@@ -14,8 +15,10 @@ final class Toast
 
     public function getToastClasses(): string
     {
-        $variantClass = $this->variant !== 'default' ? 'toast-' . $this->variant : null;
-
-        return implode(' ', array_filter(['toast', $variantClass, $this->class ?: null]));
+        return Cn::merge(
+            'toast',
+            $this->variant !== 'default' ? 'toast-' . $this->variant : null,
+            $this->class,
+        );
     }
 }

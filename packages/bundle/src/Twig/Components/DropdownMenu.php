@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Twigcn\Bundle\Twig\Components;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
+use Twigcn\Bundle\Util\Cn;
 
 #[AsTwigComponent]
 final class DropdownMenu
@@ -13,12 +14,6 @@ final class DropdownMenu
 
     public function getDropdownClasses(): string
     {
-        $classes = ['dropdown-menu'];
-
-        if ($this->class !== '') {
-            $classes[] = $this->class;
-        }
-
-        return implode(' ', $classes);
+        return Cn::merge('dropdown-menu', $this->class);
     }
 }

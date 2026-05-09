@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Twigcn\Bundle\Twig\Components;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
+use Twigcn\Bundle\Util\Cn;
 
 #[AsTwigComponent]
 final class Progress
@@ -15,13 +16,10 @@ final class Progress
 
     public function getProgressClasses(): string
     {
-        $classes = ['relative h-2 w-full overflow-hidden rounded-full bg-muted'];
-
-        if ($this->class !== '') {
-            $classes[] = $this->class;
-        }
-
-        return implode(' ', $classes);
+        return Cn::merge(
+            'relative h-2 w-full overflow-hidden rounded-full bg-muted',
+            $this->class,
+        );
     }
 
     public function getPercentage(): int

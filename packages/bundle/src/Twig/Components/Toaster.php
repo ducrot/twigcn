@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Twigcn\Bundle\Twig\Components;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
+use Twigcn\Bundle\Util\Cn;
 
 #[AsTwigComponent]
 final class Toaster
@@ -14,7 +15,7 @@ final class Toaster
 
     public function getToasterClasses(): string
     {
-        return implode(' ', array_filter(['toaster', $this->class ?: null]));
+        return Cn::merge('toaster', $this->class);
     }
 
     public function getDataAlign(): string

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Twigcn\Bundle\Twig\Components;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
+use Twigcn\Bundle\Util\Cn;
 
 #[AsTwigComponent]
 final class Pagination
@@ -13,12 +14,6 @@ final class Pagination
 
     public function getPaginationClasses(): string
     {
-        $classes = ['mx-auto flex w-full justify-center'];
-
-        if ($this->class !== '') {
-            $classes[] = $this->class;
-        }
-
-        return implode(' ', $classes);
+        return Cn::merge('mx-auto flex w-full justify-center', $this->class);
     }
 }

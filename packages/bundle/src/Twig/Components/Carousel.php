@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Twigcn\Bundle\Twig\Components;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
+use Twigcn\Bundle\Util\Cn;
 
 #[AsTwigComponent]
 final class Carousel
@@ -14,16 +15,10 @@ final class Carousel
 
     public function getCarouselClasses(): string
     {
-        $classes = ['carousel'];
-
-        if ($this->orientation === 'vertical') {
-            $classes[] = 'carousel-vertical';
-        }
-
-        if ($this->class !== '') {
-            $classes[] = $this->class;
-        }
-
-        return implode(' ', $classes);
+        return Cn::merge(
+            'carousel',
+            $this->orientation === 'vertical' ? 'carousel-vertical' : null,
+            $this->class,
+        );
     }
 }
