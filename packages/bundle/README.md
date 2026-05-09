@@ -61,6 +61,7 @@ Create or update `assets/controllers.json`:
             "custom-select": { "enabled": true },
             "dialog": { "enabled": true },
             "drawer": { "enabled": true },
+            "drawer-trigger": { "enabled": true },
             "popover": { "enabled": true },
             "slider": { "enabled": true },
             "tabs": { "enabled": true },
@@ -85,117 +86,150 @@ registerControllers(app);
 
 ## Usage
 
-Use components directly in your Twig templates:
+Components are namespaced under `Twigcn:` in Twig (Symfony UX TwigComponent prefixes third-party bundle components with their bundle namespace):
 
 ```twig
 {# Button #}
-<twig:Button variant="primary" size="lg">Click me</twig:Button>
+<twig:Twigcn:Button variant="primary" size="lg">Click me</twig:Twigcn:Button>
 
 {# Button as link #}
-<twig:Button as="a" href="/dashboard" variant="outline">
+<twig:Twigcn:Button as="a" href="/dashboard" variant="outline">
     Go to Dashboard
-</twig:Button>
+</twig:Twigcn:Button>
 
-{# Dialog #}
-<twig:Dialog id="confirm-dialog">
-    <twig:Button data-action="click->dialog#open">
-        Open Dialog
-    </twig:Button>
-    <template>
+{# Dialog (uses the native HTML <dialog> element) #}
+<twig:Twigcn:Button onclick="document.getElementById('confirm-dialog').showModal()">
+    Open Dialog
+</twig:Twigcn:Button>
+
+<twig:Twigcn:Dialog id="confirm-dialog">
+    <header>
         <h2 class="text-lg font-semibold">Confirm Action</h2>
         <p class="text-muted-foreground">Are you sure you want to proceed?</p>
-        <div class="flex gap-2 mt-4">
-            <twig:Button variant="outline" data-action="click->dialog#close">
-                Cancel
-            </twig:Button>
-            <twig:Button variant="destructive">Confirm</twig:Button>
-        </div>
-    </template>
-</twig:Dialog>
+    </header>
+    <footer>
+        <twig:Twigcn:Button variant="outline" onclick="document.getElementById('confirm-dialog').close()">
+            Cancel
+        </twig:Twigcn:Button>
+        <twig:Twigcn:Button variant="destructive" onclick="document.getElementById('confirm-dialog').close()">
+            Confirm
+        </twig:Twigcn:Button>
+    </footer>
+</twig:Twigcn:Dialog>
+
+{# Drawer (open via the dedicated DrawerTrigger) #}
+<twig:Twigcn:DrawerTrigger for="settings-drawer" class="btn-outline">
+    Open Settings
+</twig:Twigcn:DrawerTrigger>
+
+<twig:Twigcn:Drawer id="settings-drawer" side="right">
+    <twig:Twigcn:DrawerContent>
+        <twig:Twigcn:DrawerHeader>
+            <h3 class="text-lg font-semibold">Settings</h3>
+        </twig:Twigcn:DrawerHeader>
+        <div class="p-4">Drawer content goes here.</div>
+        <twig:Twigcn:DrawerFooter>
+            <twig:Twigcn:DrawerClose class="btn-outline">Close</twig:Twigcn:DrawerClose>
+        </twig:Twigcn:DrawerFooter>
+    </twig:Twigcn:DrawerContent>
+</twig:Twigcn:Drawer>
 
 {# Tabs #}
-<twig:Tabs defaultValue="account">
-    <twig:TabsList>
-        <twig:TabsTrigger value="account">Account</twig:TabsTrigger>
-        <twig:TabsTrigger value="password">Password</twig:TabsTrigger>
-    </twig:TabsList>
-    <twig:TabsContent value="account">
+<twig:Twigcn:Tabs defaultValue="account">
+    <twig:Twigcn:TabsList>
+        <twig:Twigcn:TabsTrigger value="account">Account</twig:Twigcn:TabsTrigger>
+        <twig:Twigcn:TabsTrigger value="password">Password</twig:Twigcn:TabsTrigger>
+    </twig:Twigcn:TabsList>
+    <twig:Twigcn:TabsContent value="account">
         <p>Manage your account settings here.</p>
-    </twig:TabsContent>
-    <twig:TabsContent value="password">
+    </twig:Twigcn:TabsContent>
+    <twig:Twigcn:TabsContent value="password">
         <p>Change your password here.</p>
-    </twig:TabsContent>
-</twig:Tabs>
+    </twig:Twigcn:TabsContent>
+</twig:Twigcn:Tabs>
 
 {# Accordion #}
-<twig:Accordion type="single" collapsible>
-    <twig:AccordionItem value="item-1" title="Is it accessible?">
+<twig:Twigcn:Accordion type="single" collapsible>
+    <twig:Twigcn:AccordionItem value="item-1" title="Is it accessible?">
         Yes. It adheres to the WAI-ARIA design pattern.
-    </twig:AccordionItem>
-    <twig:AccordionItem value="item-2" title="Is it styled?">
+    </twig:Twigcn:AccordionItem>
+    <twig:Twigcn:AccordionItem value="item-2" title="Is it styled?">
         Yes. It comes with default styles using Tailwind CSS.
-    </twig:AccordionItem>
-</twig:Accordion>
+    </twig:Twigcn:AccordionItem>
+</twig:Twigcn:Accordion>
 
 {# Form elements #}
-<twig:Field>
-    <twig:Label for="email">Email</twig:Label>
-    <twig:Input type="email" id="email" placeholder="you@example.com" />
-</twig:Field>
+<twig:Twigcn:Field>
+    <twig:Twigcn:Label for="email">Email</twig:Twigcn:Label>
+    <twig:Twigcn:Input type="email" id="email" placeholder="you@example.com" />
+</twig:Twigcn:Field>
 
 {# Alerts #}
-<twig:Alert variant="destructive">
+<twig:Twigcn:Alert variant="destructive">
     <strong>Error!</strong> Something went wrong.
-</twig:Alert>
+</twig:Twigcn:Alert>
 ```
 
 ## Available Components
 
-### Layout
-- `Card` - Container with border and shadow
-- `Sidebar` - Collapsible sidebar navigation
-- `Tabs` - Tabbed content panels
-
-### Forms
+### Form
 - `Button` - Clickable button with variants
-- `Input` - Text input field
-- `Textarea` - Multi-line text input
+- `ButtonGroup` - Group of related buttons
 - `Checkbox` - Checkbox input
-- `Radio` / `RadioGroup` - Radio buttons
-- `Switch` - Toggle switch
-- `Select` - Native select dropdown
+- `ChoiceCard` - Selectable card-style option
+- `Combobox` - Autocomplete input with suggestions
 - `CustomSelect` - Enhanced select with search
-- `Combobox` - Autocomplete input
-- `Slider` - Range slider
-- `Label` - Form label
 - `Field` - Form field wrapper
+- `Form` - Form container
+- `Input` - Text input field
+- `InputGroup` - Input with prefix/suffix slots
+- `Label` - Form label
+- `Radio` / `RadioGroup` - Radio buttons
+- `Select` - Native select dropdown
+- `Slider` - Range slider
+- `Switch` - Toggle switch
+- `Textarea` - Multi-line text input
+
+### Layout
+- `Accordion` / `AccordionItem` - Collapsible sections
+- `Breadcrumb` / `BreadcrumbItem` / `BreadcrumbSeparator` - Breadcrumb navigation
+- `Card` - Container with border and shadow
+- `Pagination` / `PaginationItem` - Page navigation
+- `Sidebar` - Collapsible sidebar navigation (with `SidebarHeader`, `SidebarContent`, `SidebarFooter`, `SidebarGroup`, `SidebarMenu`, `SidebarMenuItem`, `SidebarMenuButton`)
+- `Table` - Data table
+- `Tabs` / `TabsList` / `TabsTrigger` / `TabsContent` - Tabbed content panels
+
+### Overlay
+- `Command` - Command palette (with `CommandInput`, `CommandList`, `CommandGroup`, `CommandItem`, `CommandShortcut`, `CommandSeparator`, `CommandEmpty`)
+- `Dialog` - Modal dialog (use `:closeOnBackdrop="false"` for alert-dialog behavior)
+- `Drawer` - Slide-out panel (with `DrawerTrigger`, `DrawerContent`, `DrawerHeader`, `DrawerFooter`, `DrawerClose`)
+- `DropdownMenu` / `DropdownMenuTrigger` / `DropdownMenuContent` / `DropdownMenuItem` - Dropdown menu
+- `Popover` / `PopoverTrigger` / `PopoverContent` - Floating content on trigger
+- `Tooltip` - Hover tooltip
 
 ### Feedback
 - `Alert` - Alert messages
+- `Avatar` - User avatar
 - `Badge` - Status badges
+- `Carousel` - Image/content carousel (with `CarouselContent`, `CarouselItem`, `CarouselNext`, `CarouselPrevious`)
+- `Empty` - Empty-state placeholder
+- `Item` - Generic content item
+- `Kbd` - Keyboard key display
 - `Progress` - Progress bar
 - `Skeleton` - Loading placeholder
 - `Spinner` - Loading spinner
-- `Toast` / `Toaster` - Toast notifications
+- `ThemeSwitcher` - Dark/light mode toggle
+- `Toast` / `Toaster` (with `ToastTitle`, `ToastDescription`, `ToastClose`) - Toast notifications
 
-### Overlays
-- `Dialog` - Modal dialog
-- `Drawer` - Slide-out panel
-- `Popover` - Floating content
-- `Tooltip` - Hover tooltip
-- `DropdownMenu` - Dropdown menu
+### Naming Notes
 
-### Navigation
-- `Breadcrumb` - Breadcrumb navigation
-- `Pagination` - Page navigation
-- `Command` - Command palette
+A few PHP class names differ from their Twig component tag because the tag name is reserved or already taken in PHP:
 
-### Display
-- `Accordion` - Collapsible sections
-- `Avatar` - User avatar
-- `Carousel` - Image carousel
-- `Table` - Data table
-- `Kbd` - Keyboard key display
+| Twig tag | PHP class |
+|----------|-----------|
+| `<twig:Twigcn:Empty>` | `EmptyState` |
+| `<twig:Twigcn:Switch>` | `SwitchComponent` |
+| `<twig:Twigcn:Field>` | `FieldForm` |
 
 ## Theming
 
@@ -237,7 +271,7 @@ Components use CSS custom properties for theming. Override these in your CSS:
 Toggle dark mode by adding/removing the `dark` class on the `<html>` element:
 
 ```twig
-<twig:ThemeSwitcher />
+<twig:Twigcn:ThemeSwitcher />
 ```
 
 Or manually:
