@@ -6,6 +6,7 @@ import CommandController from './controllers/command_controller';
 import CustomSelectController from './controllers/custom_select_controller';
 import DialogController from './controllers/dialog_controller';
 import DrawerController from './controllers/drawer_controller';
+import DrawerTriggerController from './controllers/drawer_trigger_controller';
 import PopoverController from './controllers/popover_controller';
 import SliderController from './controllers/slider_controller';
 import TabsController from './controllers/tabs_controller';
@@ -21,6 +22,7 @@ export {
     CustomSelectController,
     DialogController,
     DrawerController,
+    DrawerTriggerController,
     PopoverController,
     SliderController,
     TabsController,
@@ -40,6 +42,7 @@ export function registerControllers(app: Application): void {
     app.register('custom-select', CustomSelectController);
     app.register('dialog', DialogController);
     app.register('drawer', DrawerController);
+    app.register('drawer-trigger', DrawerTriggerController);
     app.register('popover', PopoverController);
     app.register('slider', SliderController);
     app.register('tabs', TabsController);
