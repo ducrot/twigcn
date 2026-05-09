@@ -5,6 +5,7 @@ export { default as CommandController } from './command_controller';
 export { default as CustomSelectController } from './custom_select_controller';
 export { default as DialogController } from './dialog_controller';
 export { default as DrawerController } from './drawer_controller';
+export { default as DrawerTriggerController } from './drawer_trigger_controller';
 export { default as PopoverController } from './popover_controller';
 export { default as SliderController } from './slider_controller';
 export { default as TabsController } from './tabs_controller';
