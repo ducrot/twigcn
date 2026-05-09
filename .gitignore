@@ -31,6 +31,8 @@ Thumbs.db
 # PHP
 /packages/demo/vendor/
 /packages/bundle/vendor/
+/packages/bundle/composer.lock
+/packages/bundle/.phpunit.cache/
 
 # Logs
 *.log
