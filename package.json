@@ -9,7 +9,10 @@
         "dev": "npm run dev --workspace=packages/demo",
         "build": "npm run build --workspace=packages/ui",
         "build:demo": "npm run build --workspace=packages/demo",
-        "typecheck": "npm run typecheck --workspace=packages/ui"
+        "typecheck": "npm run typecheck --workspace=packages/ui",
+        "test": "npm run test --workspace=packages/ui",
+        "test:watch": "npm run test:watch --workspace=packages/ui",
+        "test:coverage": "npm run test:coverage --workspace=packages/ui"
     },
     "devDependencies": {
         "typescript": "^5.7.3"

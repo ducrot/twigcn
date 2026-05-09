@@ -8,6 +8,9 @@
 /packages/demo/public/build/
 /packages/demo/var/
 
+# Test outputs
+/packages/ui/coverage/
+
 # IDE
 .idea/
 .vscode/
@@ -36,3 +39,8 @@ Thumbs.db
 
 # Logs
 *.log
+
+# AI
+/docs/parity-screenshots/
+/.claude/scheduled_tasks.lock
+/.playwright-cli/
