@@ -2,6 +2,7 @@
 @import "basecoat-css";
 @import "@ducrot/twigcn-ui/src/styles/index.css";
 
-/* Scan bundle templates for Tailwind classes */
+/* Scan bundle templates and PHP component classes for Tailwind classes */
 @source "../vendor/ducrot/twigcn-bundle/templates";
+@source "../vendor/ducrot/twigcn-bundle/src";
 @source "../templates";
