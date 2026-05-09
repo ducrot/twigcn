@@ -52,7 +52,9 @@ Update `assets/controllers.json`:
     "controllers": {
         "@ducrot/twigcn-ui": {
             "tabs": { "enabled": true },
-            "dialog": { "enabled": true }
+            "dialog": { "enabled": true },
+            "drawer": { "enabled": true },
+            "drawer-trigger": { "enabled": true }
         }
     }
 }
@@ -69,6 +71,7 @@ Update `assets/controllers.json`:
 | `custom-select` | Enhanced select dropdown |
 | `dialog` | Modal dialog with backdrop |
 | `drawer` | Slide-out panel (left/right/top/bottom) |
+| `drawer-trigger` | Click target that opens an associated drawer via its `for` attribute |
 | `popover` | Floating content on trigger |
 | `slider` | Range slider input |
 | `tabs` | Tabbed content panels |
@@ -78,7 +81,7 @@ Update `assets/controllers.json`:
 
 ## Tailwind Preset
 
-For Tailwind 3.x compatibility, use the included preset:
+The bundle is built for Tailwind 4 with `@import "@ducrot/twigcn-ui/styles"`. For legacy Tailwind 3.x projects, an optional preset is shipped:
 
 ```javascript
 // tailwind.config.js
