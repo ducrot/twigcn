@@ -1,10 +1,11 @@
+{% set switcher_classes = this.switcherClasses %}
 {% if variant == 'dropdown' %}
 <twig:Twigcn:DropdownMenu>
     <twig:Twigcn:DropdownMenuTrigger>
         <button
             type="button"
             data-controller="theme"
-            class="{{ this.switcherClasses }}"
+            class="{{ switcher_classes }}"
             {{ attributes }}
         >
             <twig:ux:icon name="lucide:sun" class="w-5 h-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
@@ -32,7 +33,7 @@
     type="button"
     data-controller="theme"
     data-action="click->theme#toggle"
-    class="{{ this.switcherClasses }}"
+    class="{{ switcher_classes }}"
     aria-label="Toggle theme"
     {{ attributes }}
 >
