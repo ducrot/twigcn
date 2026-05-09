@@ -7,6 +7,7 @@
 !/packages/ui/dist/controllers.json
 /packages/demo/public/build/
 /packages/demo/var/
+/_site/
 
 # Test outputs
 /packages/ui/coverage/

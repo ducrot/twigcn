@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/showcase')]
 final class ShowcaseController extends AbstractController
 {
-    private const array COMPONENTS = [
+    public const array COMPONENTS = [
         'form' => [
             'button' => 'Button',
             'checkbox' => 'Checkbox',
