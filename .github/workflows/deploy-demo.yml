@@ -35,6 +35,9 @@ jobs:
 
       - name: Install Composer dependencies (demo)
         working-directory: packages/demo
+        env:
+          APP_ENV: prod
+          APP_DEBUG: '0'
         run: composer install --no-dev --optimize-autoloader --no-progress
 
       - name: Build static site
