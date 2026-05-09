@@ -40,13 +40,20 @@ jobs:
           APP_DEBUG: '0'
         run: composer install --no-dev --optimize-autoloader --no-progress
 
-      - name: Build static site
+      - name: Compile prod env
+        working-directory: packages/demo
         env:
           APP_ENV: prod
           APP_DEBUG: '0'
         run: |
           export APP_SECRET="$(openssl rand -hex 32)"
-          bash scripts/build-static.sh
+          composer dump-env prod
+
+      - name: Build static site
+        env:
+          APP_ENV: prod
+          APP_DEBUG: '0'
+        run: bash scripts/build-static.sh
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
