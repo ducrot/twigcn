@@ -1,6 +1,6 @@
 # @ducrot/twigcn-ui
 
-Stimulus controllers and CSS styles for [TwigcnBundle](https://github.com/ducrot/twigcn-bundle).
+Stimulus controllers and CSS styles for [TwigcnBundle](https://github.com/ducrot/twigcn).
 
 ## Installation
 

@@ -85,8 +85,8 @@ This is a monorepo using npm workspaces and Composer path repositories.
 
 ```bash
 # Clone the repository
-git clone https://github.com/ducrot/twigcn-bundle.git
-cd twigcn-bundle
+git clone https://github.com/ducrot/twigcn.git
+cd twigcn
 ddev start
 
 # Install npm dependencies

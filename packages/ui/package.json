@@ -10,12 +10,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/ducrot/twigcn-bundle.git",
+        "url": "git+https://github.com/ducrot/twigcn.git",
         "directory": "packages/ui"
     },
-    "homepage": "https://github.com/ducrot/twigcn-bundle#readme",
+    "homepage": "https://github.com/ducrot/twigcn#readme",
     "bugs": {
-        "url": "https://github.com/ducrot/twigcn-bundle/issues"
+        "url": "https://github.com/ducrot/twigcn/issues"
     },
     "keywords": [
         "stimulus",
