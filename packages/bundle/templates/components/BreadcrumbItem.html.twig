@@ -1,11 +1,11 @@
 <li class="inline-flex items-center gap-1.5">
     {% set item_content %}{% block content %}{% endblock %}{% endset %}
     {% if href and not current %}
-        <a href="{{ href }}" class="inline-flex items-center gap-1.5 transition-colors hover:text-foreground {{ class }}" {{ attributes }}>
+        <a href="{{ href }}" class="{{ this.itemClasses }}" {{ attributes }}>
             {{- item_content -}}
         </a>
     {% else %}
-        <span {% if current %}aria-current="page"{% endif %} class="inline-flex items-center gap-1.5 font-normal text-foreground {{ class }}" {{ attributes }}>
+        <span {% if current %}aria-current="page"{% endif %} class="{{ this.itemClasses }}" {{ attributes }}>
             {{- item_content -}}
         </span>
     {% endif %}

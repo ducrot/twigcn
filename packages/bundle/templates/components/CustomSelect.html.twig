@@ -4,7 +4,7 @@
     data-custom-select-placeholder-value="{{ placeholder }}"
     data-custom-select-multiple-value="{{ multiple ? 'true' : 'false' }}"
     data-custom-select-searchable-value="{{ searchable ? 'true' : 'false' }}"
-    class="select {{ class }}"
+    class="{{ this.selectClasses }}"
     {{ attributes }}
 >
     <input

@@ -15,6 +15,10 @@ final class ThemeSwitcher
 
     public function getSwitcherClasses(): string
     {
-        return Cn::merge('theme-switcher', $this->class);
+        $variantClasses = $this->variant === 'dropdown'
+            ? 'btn btn-outline btn-icon'
+            : 'btn btn-ghost btn-icon';
+
+        return Cn::merge($variantClasses, $this->class);
     }
 }

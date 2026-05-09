@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Twigcn\Bundle\Twig\Components;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
+use Twigcn\Bundle\Util\Cn;
 
 #[AsTwigComponent]
 final class CustomSelect
@@ -20,4 +21,9 @@ final class CustomSelect
     public string $searchPlaceholder = 'Search...';
     public string $class = '';
     public string $listboxClass = '';
+
+    public function getSelectClasses(): string
+    {
+        return Cn::merge('select', $this->class);
+    }
 }

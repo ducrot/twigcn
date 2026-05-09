@@ -4,7 +4,7 @@
         <button
             type="button"
             data-controller="theme"
-            class="btn btn-outline btn-icon {{ class }}"
+            class="{{ this.switcherClasses }}"
             {{ attributes }}
         >
             <twig:ux:icon name="lucide:sun" class="w-5 h-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
@@ -32,7 +32,7 @@
     type="button"
     data-controller="theme"
     data-action="click->theme#toggle"
-    class="btn btn-ghost btn-icon {{ class }}"
+    class="{{ this.switcherClasses }}"
     aria-label="Toggle theme"
     {{ attributes }}
 >
