@@ -28,6 +28,9 @@ same version. A single tag `vX.Y.Z` releases both packages.
 
 ### Security
 
+- Added `SECURITY.md` documenting the vulnerability-reporting process via
+  GitHub Security Advisories.
+
 ## [1.0.0] - 2026-05-10
 
 ### Added
