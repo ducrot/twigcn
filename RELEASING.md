@@ -24,10 +24,11 @@ These steps are required once per repository / account.
 
 ### Packagist
 
-1. Submit the bundle once at <https://packagist.org/packages/submit> using
-   `https://github.com/ducrot/twigcn-bundle` as the repository URL.
-2. Install the *Packagist* GitHub App on `ducrot/twigcn-bundle` so new tags are
-   picked up automatically.
+Submit the bundle once at <https://packagist.org/packages/submit> using
+`https://github.com/ducrot/twigcn-bundle` as the repository URL. While
+logged in via GitHub OAuth, Packagist installs a webhook on the subsplit
+repository automatically; the package page should then show *This package
+is auto-updated*. No further hook or GitHub App is required.
 
 ### npm
 
