@@ -22,6 +22,28 @@ same version. A single tag `vX.Y.Z` releases both packages.
 
 ### Security
 
+## [1.1.1] - 2026-05-10
+
+### Changed
+
+- Composer distribution for `ducrot/twigcn-bundle`: ship `LICENSE`
+  inside `packages/bundle/` so the MIT text reaches Composer consumers
+  (the root LICENSE was not included in the subtree split), add
+  `.gitattributes` with `export-ignore` for `tests/`, `phpunit.dist.xml`,
+  `phpstan.neon` and `.phpunit.cache` to slim down the dist tarball,
+  and bump the `extra.branch-alias` mapping from `1.0-dev` to `1.x-dev`
+  now that 1.1.0 has shipped so `^1.0` dev consumers resolve correctly.
+- Bundle README documents the Tailwind 4 CLI build step, the AssetMapper
+  `importmap:require @ducrot/twigcn-ui` step, and a StimulusBundle-aware
+  Manual Registration variant that hooks into the existing
+  `Stimulus.Application` instead of starting a second one. Added a
+  self-contained "Alternative: Vite via pentatrion/vite-bundle" section
+  mirroring the demo app for the recommended Tailwind + TypeScript +
+  Stimulus + HMR setup. UI README picks up the same Tailwind build hint
+  and StimulusBundle controller variant. Root README drops its Quick
+  Start in favour of pointing at the bundle README and the demo app as
+  the working reference.
+
 ## [1.1.0] - 2026-05-10
 
 ### Added
@@ -120,7 +142,8 @@ same version. A single tag `vX.Y.Z` releases both packages.
 - Tailwind CSS 4 design system with dark-mode support via `.dark` on
   `<html>`.
 
-[Unreleased]: https://github.com/ducrot/twigcn/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/ducrot/twigcn/compare/v1.1.1...HEAD
+[1.1.1]: https://github.com/ducrot/twigcn/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/ducrot/twigcn/compare/v1.0.2...v1.1.0
 [1.0.2]: https://github.com/ducrot/twigcn/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/ducrot/twigcn/compare/v1.0.0...v1.0.1
