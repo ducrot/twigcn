@@ -1,0 +1,57 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:recommended",
+        ":dependencyDashboard",
+        ":dependencyDashboardApproval"
+    ],
+    "timezone": "Europe/Berlin",
+    "schedule": ["before 6am on monday"],
+    "prConcurrentLimit": 5,
+    "prHourlyLimit": 2,
+    "enabledManagers": ["npm", "github-actions"],
+    "rangeStrategy": "replace",
+    "packageRules": [
+        {
+            "groupName": "tailwind",
+            "matchPackageNames": ["tailwindcss", "@tailwindcss/**"]
+        },
+        {
+            "groupName": "stimulus",
+            "matchPackageNames": [
+                "@hotwired/stimulus",
+                "@hotwired/stimulus-webpack-helpers"
+            ]
+        },
+        {
+            "groupName": "vite & build tooling",
+            "matchPackageNames": [
+                "vite",
+                "@vitejs/**",
+                "vite-plugin-dts",
+                "vite-plugin-symfony",
+                "typescript"
+            ]
+        },
+        {
+            "groupName": "test tooling",
+            "matchDepTypes": ["devDependencies"],
+            "matchPackageNames": [
+                "vitest",
+                "@vitest/**",
+                "@testing-library/**",
+                "happy-dom"
+            ]
+        },
+        {
+            "matchManagers": ["github-actions"],
+            "groupName": "github actions",
+            "pinDigests": true
+        },
+        {
+            "matchPackageNames": ["@hotwired/stimulus", "tailwindcss"],
+            "matchDepTypes": ["peerDependencies"],
+            "enabled": false
+        }
+    ]
+}

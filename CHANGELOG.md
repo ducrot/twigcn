@@ -20,6 +20,9 @@ same version. A single tag `vX.Y.Z` releases both packages.
 - GitHub PR template and Issue templates (bug report, feature request),
   plus a `config.yml` that routes security reports to GitHub Security
   Advisories and questions to Discussions instead of the bug tracker.
+- Renovate configuration (`renovate.json`) covering npm and GitHub
+  Actions in dependency-dashboard-approval mode; Composer is
+  intentionally excluded.
 
 ### Changed
 
