@@ -12,6 +12,20 @@ same version. A single tag `vX.Y.Z` releases both packages.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [1.0.1] - 2026-05-10
+
+### Added
+
 - `CONTRIBUTING.md` covering the local DDEV setup, common commands, the
   workflow for adding a new component, the PR checklist, and where to
   report bugs versus security issues.
@@ -23,6 +37,8 @@ same version. A single tag `vX.Y.Z` releases both packages.
 - Renovate configuration (`renovate.json`) covering npm and GitHub
   Actions in dependency-dashboard-approval mode; Composer is
   intentionally excluded.
+- Status badges (CI, latest release, Packagist version, npm version) on
+  the bundle and ui package READMEs.
 
 ### Changed
 
@@ -39,12 +55,6 @@ same version. A single tag `vX.Y.Z` releases both packages.
   (`nodejs_version`) and the `tests` and `deploy-demo` workflows now
   match `release.yml` and the new `.nvmrc`.
 - `RELEASING.md`: removed the outdated Packagist GitHub App step.
-
-### Deprecated
-
-### Removed
-
-### Fixed
 
 ### Security
 
@@ -76,5 +86,6 @@ same version. A single tag `vX.Y.Z` releases both packages.
 - Tailwind CSS 4 design system with dark-mode support via `.dark` on
   `<html>`.
 
-[Unreleased]: https://github.com/ducrot/twigcn/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/ducrot/twigcn/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/ducrot/twigcn/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/ducrot/twigcn/releases/tag/v1.0.0
