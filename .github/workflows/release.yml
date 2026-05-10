@@ -4,6 +4,13 @@ on:
   push:
     tags: ['v*']
 
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   split-bundle:
     name: Split bundle to ducrot/twigcn-bundle
