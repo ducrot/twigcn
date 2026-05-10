@@ -12,6 +12,15 @@ same version. A single tag `vX.Y.Z` releases both packages.
 
 ### Added
 
+- `CONTRIBUTING.md` covering the local DDEV setup, common commands, the
+  workflow for adding a new component, the PR checklist, and where to
+  report bugs versus security issues.
+- `CODE_OF_CONDUCT.md` adopting the Contributor Covenant 2.1 by
+  reference, with reports routed to the maintainer mailbox.
+- GitHub PR template and Issue templates (bug report, feature request),
+  plus a `config.yml` that routes security reports to GitHub Security
+  Advisories and questions to Discussions instead of the bug tracker.
+
 ### Changed
 
 - Clarified the role of each README across the three audiences (monorepo,
@@ -19,6 +28,14 @@ same version. A single tag `vX.Y.Z` releases both packages.
   `ducrot/twigcn` monorepo for issues and pull requests; the root README
   explains the monorepo layout and defers component documentation to the
   bundle README.
+- Raised the documented consumer Node.js minimum from 20 to 22 (current
+  Active LTS) across the root README, the bundle README, and `CLAUDE.md`.
+  No `engines` field is enforced — older Node versions may still work
+  but are no longer the supported baseline.
+- Unified the Node.js version across the dev toolchain to 24: DDEV
+  (`nodejs_version`) and the `tests` and `deploy-demo` workflows now
+  match `release.yml` and the new `.nvmrc`.
+- `RELEASING.md`: removed the outdated Packagist GitHub App step.
 
 ### Deprecated
 
@@ -30,6 +47,12 @@ same version. A single tag `vX.Y.Z` releases both packages.
 
 - Added `SECURITY.md` documenting the vulnerability-reporting process via
   GitHub Security Advisories.
+- Hardened CI workflows: top-level `permissions: { contents: read }` on
+  `release.yml`, `tests.yml`, and `deploy-demo.yml`, with `id-token:
+  write` opted in only by the `publish-ui` job that needs it for npm
+  Trusted Publishing.
+- Added concurrency control to `release.yml` so a duplicate tag push or
+  manual re-run cannot race the active release.
 
 ## [1.0.0] - 2026-05-10
 
