@@ -8,6 +8,8 @@ import DialogController from './controllers/dialog_controller';
 import DrawerController from './controllers/drawer_controller';
 import DrawerTriggerController from './controllers/drawer_trigger_controller';
 import PopoverController from './controllers/popover_controller';
+import SidebarController from './controllers/sidebar_controller';
+import SidebarTriggerController from './controllers/sidebar_trigger_controller';
 import SliderController from './controllers/slider_controller';
 import TabsController from './controllers/tabs_controller';
 import ThemeController from './controllers/theme_controller';
@@ -24,6 +26,8 @@ export {
     DrawerController,
     DrawerTriggerController,
     PopoverController,
+    SidebarController,
+    SidebarTriggerController,
     SliderController,
     TabsController,
     ThemeController,
@@ -44,6 +48,8 @@ export function registerControllers(app: Application): void {
     app.register('drawer', DrawerController);
     app.register('drawer-trigger', DrawerTriggerController);
     app.register('popover', PopoverController);
+    app.register('sidebar', SidebarController);
+    app.register('sidebar-trigger', SidebarTriggerController);
     app.register('slider', SliderController);
     app.register('tabs', TabsController);
     app.register('theme', ThemeController);

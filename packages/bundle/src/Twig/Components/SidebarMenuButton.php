@@ -12,14 +12,11 @@ final class SidebarMenuButton
 {
     public string $href = '';
     public bool $active = false;
+    public string $size = 'default';
     public string $class = '';
 
     public function getButtonClasses(): string
     {
-        return Cn::merge(
-            'sidebar-menu-button',
-            $this->active ? 'active' : null,
-            $this->class,
-        );
+        return Cn::merge('sidebar-menu-button', $this->class);
     }
 }

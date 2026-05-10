@@ -16,53 +16,53 @@
         </header>
         <section>
             <div class="border rounded-lg overflow-hidden h-[400px] flex">
-                <twig:Twigcn:Sidebar class="w-64 border-r bg-background">
-                    <twig:Twigcn:SidebarHeader class="p-4 border-b">
-                        <h3 class="font-semibold">Application</h3>
+                <twig:Twigcn:Sidebar variant="inline">
+                    <twig:Twigcn:SidebarHeader>
+                        <span class="font-semibold">Application</span>
                     </twig:Twigcn:SidebarHeader>
-                    <twig:Twigcn:SidebarContent class="p-2">
+                    <twig:Twigcn:SidebarContent>
                         <twig:Twigcn:SidebarGroup>
-                            <twig:Twigcn:SidebarGroupLabel class="px-2 py-1 text-xs text-muted-foreground">Menu</twig:Twigcn:SidebarGroupLabel>
+                            <twig:Twigcn:SidebarGroupLabel>Menu</twig:Twigcn:SidebarGroupLabel>
                             <twig:Twigcn:SidebarGroupContent>
                                 <twig:Twigcn:SidebarMenu>
                                     <twig:Twigcn:SidebarMenuItem>
                                         <twig:Twigcn:SidebarMenuButton href="#" :active="true">
-                                            <twig:ux:icon name="lucide:home" class="w-4 h-4 mr-2" />
-                                            Home
+                                            <twig:ux:icon name="lucide:home" />
+                                            <span>Home</span>
                                         </twig:Twigcn:SidebarMenuButton>
                                     </twig:Twigcn:SidebarMenuItem>
                                     <twig:Twigcn:SidebarMenuItem>
                                         <twig:Twigcn:SidebarMenuButton href="#">
-                                            <twig:ux:icon name="lucide:inbox" class="w-4 h-4 mr-2" />
-                                            Inbox
+                                            <twig:ux:icon name="lucide:inbox" />
+                                            <span>Inbox</span>
                                         </twig:Twigcn:SidebarMenuButton>
                                     </twig:Twigcn:SidebarMenuItem>
                                     <twig:Twigcn:SidebarMenuItem>
                                         <twig:Twigcn:SidebarMenuButton href="#">
-                                            <twig:ux:icon name="lucide:calendar" class="w-4 h-4 mr-2" />
-                                            Calendar
+                                            <twig:ux:icon name="lucide:calendar" />
+                                            <span>Calendar</span>
                                         </twig:Twigcn:SidebarMenuButton>
                                     </twig:Twigcn:SidebarMenuItem>
                                     <twig:Twigcn:SidebarMenuItem>
                                         <twig:Twigcn:SidebarMenuButton href="#">
-                                            <twig:ux:icon name="lucide:search" class="w-4 h-4 mr-2" />
-                                            Search
+                                            <twig:ux:icon name="lucide:search" />
+                                            <span>Search</span>
                                         </twig:Twigcn:SidebarMenuButton>
                                     </twig:Twigcn:SidebarMenuItem>
                                 </twig:Twigcn:SidebarMenu>
                             </twig:Twigcn:SidebarGroupContent>
                         </twig:Twigcn:SidebarGroup>
                     </twig:Twigcn:SidebarContent>
-                    <twig:Twigcn:SidebarFooter class="p-4 border-t mt-auto">
+                    <twig:Twigcn:SidebarFooter>
                         <div class="flex items-center gap-2 text-sm">
                             <twig:Twigcn:Avatar src="https://github.com/shadcn.png" alt="User" size="sm" />
                             <span>John Doe</span>
                         </div>
                     </twig:Twigcn:SidebarFooter>
                 </twig:Twigcn:Sidebar>
-                <div class="flex-1 p-4">
+                <twig:Twigcn:SidebarInset class="p-4">
                     <p class="text-muted-foreground">Main content area</p>
-                </div>
+                </twig:Twigcn:SidebarInset>
             </div>
         </section>
     </section>
@@ -74,34 +74,34 @@
         </header>
         <section>
             <div class="border rounded-lg overflow-hidden h-[500px] flex">
-                <twig:Twigcn:Sidebar class="w-64 border-r bg-background">
-                    <twig:Twigcn:SidebarHeader class="p-4 border-b">
+                <twig:Twigcn:Sidebar variant="inline">
+                    <twig:Twigcn:SidebarHeader>
                         <div class="flex items-center gap-2">
-                            <twig:ux:icon name="lucide:package" class="w-6 h-6" />
+                            <twig:ux:icon name="lucide:package" class="size-6" />
                             <span class="font-semibold">Acme Inc</span>
                         </div>
                     </twig:Twigcn:SidebarHeader>
-                    <twig:Twigcn:SidebarContent class="p-2">
+                    <twig:Twigcn:SidebarContent>
                         <twig:Twigcn:SidebarGroup>
-                            <twig:Twigcn:SidebarGroupLabel class="px-2 py-1 text-xs text-muted-foreground">Platform</twig:Twigcn:SidebarGroupLabel>
+                            <twig:Twigcn:SidebarGroupLabel>Platform</twig:Twigcn:SidebarGroupLabel>
                             <twig:Twigcn:SidebarGroupContent>
                                 <twig:Twigcn:SidebarMenu>
                                     <twig:Twigcn:SidebarMenuItem>
                                         <twig:Twigcn:SidebarMenuButton href="#">
-                                            <twig:ux:icon name="lucide:layout-dashboard" class="w-4 h-4 mr-2" />
-                                            Dashboard
+                                            <twig:ux:icon name="lucide:layout-dashboard" />
+                                            <span>Dashboard</span>
                                         </twig:Twigcn:SidebarMenuButton>
                                     </twig:Twigcn:SidebarMenuItem>
                                     <twig:Twigcn:SidebarMenuItem>
                                         <twig:Twigcn:SidebarMenuButton href="#">
-                                            <twig:ux:icon name="lucide:bar-chart-3" class="w-4 h-4 mr-2" />
-                                            Analytics
+                                            <twig:ux:icon name="lucide:bar-chart-3" />
+                                            <span>Analytics</span>
                                         </twig:Twigcn:SidebarMenuButton>
                                     </twig:Twigcn:SidebarMenuItem>
                                     <twig:Twigcn:SidebarMenuItem>
                                         <twig:Twigcn:SidebarMenuButton href="#">
-                                            <twig:ux:icon name="lucide:file-text" class="w-4 h-4 mr-2" />
-                                            Reports
+                                            <twig:ux:icon name="lucide:file-text" />
+                                            <span>Reports</span>
                                         </twig:Twigcn:SidebarMenuButton>
                                     </twig:Twigcn:SidebarMenuItem>
                                 </twig:Twigcn:SidebarMenu>
@@ -109,25 +109,25 @@
                         </twig:Twigcn:SidebarGroup>
 
                         <twig:Twigcn:SidebarGroup>
-                            <twig:Twigcn:SidebarGroupLabel class="px-2 py-1 text-xs text-muted-foreground">Projects</twig:Twigcn:SidebarGroupLabel>
+                            <twig:Twigcn:SidebarGroupLabel>Projects</twig:Twigcn:SidebarGroupLabel>
                             <twig:Twigcn:SidebarGroupContent>
                                 <twig:Twigcn:SidebarMenu>
                                     <twig:Twigcn:SidebarMenuItem>
                                         <twig:Twigcn:SidebarMenuButton href="#">
-                                            <twig:ux:icon name="lucide:folder" class="w-4 h-4 mr-2" />
-                                            Project Alpha
+                                            <twig:ux:icon name="lucide:folder" />
+                                            <span>Project Alpha</span>
                                         </twig:Twigcn:SidebarMenuButton>
                                     </twig:Twigcn:SidebarMenuItem>
                                     <twig:Twigcn:SidebarMenuItem>
                                         <twig:Twigcn:SidebarMenuButton href="#">
-                                            <twig:ux:icon name="lucide:folder" class="w-4 h-4 mr-2" />
-                                            Project Beta
+                                            <twig:ux:icon name="lucide:folder" />
+                                            <span>Project Beta</span>
                                         </twig:Twigcn:SidebarMenuButton>
                                     </twig:Twigcn:SidebarMenuItem>
                                     <twig:Twigcn:SidebarMenuItem>
                                         <twig:Twigcn:SidebarMenuButton href="#">
-                                            <twig:ux:icon name="lucide:folder" class="w-4 h-4 mr-2" />
-                                            Project Gamma
+                                            <twig:ux:icon name="lucide:folder" />
+                                            <span>Project Gamma</span>
                                         </twig:Twigcn:SidebarMenuButton>
                                     </twig:Twigcn:SidebarMenuItem>
                                 </twig:Twigcn:SidebarMenu>
@@ -135,25 +135,25 @@
                         </twig:Twigcn:SidebarGroup>
 
                         <twig:Twigcn:SidebarGroup>
-                            <twig:Twigcn:SidebarGroupLabel class="px-2 py-1 text-xs text-muted-foreground">Settings</twig:Twigcn:SidebarGroupLabel>
+                            <twig:Twigcn:SidebarGroupLabel>Settings</twig:Twigcn:SidebarGroupLabel>
                             <twig:Twigcn:SidebarGroupContent>
                                 <twig:Twigcn:SidebarMenu>
                                     <twig:Twigcn:SidebarMenuItem>
                                         <twig:Twigcn:SidebarMenuButton href="#">
-                                            <twig:ux:icon name="lucide:settings" class="w-4 h-4 mr-2" />
-                                            General
+                                            <twig:ux:icon name="lucide:settings" />
+                                            <span>General</span>
                                         </twig:Twigcn:SidebarMenuButton>
                                     </twig:Twigcn:SidebarMenuItem>
                                     <twig:Twigcn:SidebarMenuItem>
                                         <twig:Twigcn:SidebarMenuButton href="#">
-                                            <twig:ux:icon name="lucide:users" class="w-4 h-4 mr-2" />
-                                            Team
+                                            <twig:ux:icon name="lucide:users" />
+                                            <span>Team</span>
                                         </twig:Twigcn:SidebarMenuButton>
                                     </twig:Twigcn:SidebarMenuItem>
                                     <twig:Twigcn:SidebarMenuItem>
                                         <twig:Twigcn:SidebarMenuButton href="#">
-                                            <twig:ux:icon name="lucide:credit-card" class="w-4 h-4 mr-2" />
-                                            Billing
+                                            <twig:ux:icon name="lucide:credit-card" />
+                                            <span>Billing</span>
                                         </twig:Twigcn:SidebarMenuButton>
                                     </twig:Twigcn:SidebarMenuItem>
                                 </twig:Twigcn:SidebarMenu>
@@ -161,9 +161,54 @@
                         </twig:Twigcn:SidebarGroup>
                     </twig:Twigcn:SidebarContent>
                 </twig:Twigcn:Sidebar>
-                <div class="flex-1 p-4">
+                <twig:Twigcn:SidebarInset class="p-4">
                     <p class="text-muted-foreground">Main content area</p>
-                </div>
+                </twig:Twigcn:SidebarInset>
+            </div>
+        </section>
+    </section>
+
+    {# With Trigger & Collapsible #}
+    <section class="card">
+        <header>
+            <h2 class="text-lg font-semibold">With Trigger & Collapsible</h2>
+            <p class="text-sm text-muted-foreground mt-1">Click the trigger or press <kbd class="kbd">⌘ B</kbd> / <kbd class="kbd">Ctrl B</kbd> to toggle.</p>
+        </header>
+        <section>
+            <div class="border rounded-lg overflow-hidden h-[400px] flex">
+                <twig:Twigcn:Sidebar id="trigger-demo-sidebar" variant="inline" collapsible="offcanvas">
+                    <twig:Twigcn:SidebarHeader>
+                        <span class="font-semibold">My App</span>
+                    </twig:Twigcn:SidebarHeader>
+                    <twig:Twigcn:SidebarContent>
+                        <twig:Twigcn:SidebarGroup>
+                            <twig:Twigcn:SidebarGroupLabel>Navigation</twig:Twigcn:SidebarGroupLabel>
+                            <twig:Twigcn:SidebarGroupContent>
+                                <twig:Twigcn:SidebarMenu>
+                                    <twig:Twigcn:SidebarMenuItem>
+                                        <twig:Twigcn:SidebarMenuButton href="#" :active="true">
+                                            <twig:ux:icon name="lucide:home" />
+                                            <span>Home</span>
+                                        </twig:Twigcn:SidebarMenuButton>
+                                    </twig:Twigcn:SidebarMenuItem>
+                                    <twig:Twigcn:SidebarMenuItem>
+                                        <twig:Twigcn:SidebarMenuButton href="#">
+                                            <twig:ux:icon name="lucide:bell" />
+                                            <span>Notifications</span>
+                                        </twig:Twigcn:SidebarMenuButton>
+                                    </twig:Twigcn:SidebarMenuItem>
+                                </twig:Twigcn:SidebarMenu>
+                            </twig:Twigcn:SidebarGroupContent>
+                        </twig:Twigcn:SidebarGroup>
+                    </twig:Twigcn:SidebarContent>
+                </twig:Twigcn:Sidebar>
+                <twig:Twigcn:SidebarInset class="p-4">
+                    <div class="flex items-center gap-3 border-b pb-3 mb-3">
+                        <twig:Twigcn:SidebarTrigger for="#trigger-demo-sidebar" />
+                        <span class="text-sm text-muted-foreground">Toggle sidebar</span>
+                    </div>
+                    <p class="text-muted-foreground">Main content area</p>
+                </twig:Twigcn:SidebarInset>
             </div>
         </section>
     </section>
@@ -174,7 +219,7 @@
             <h2 class="text-lg font-semibold">Usage</h2>
         </header>
         <section class="prose prose-sm max-w-none">
-            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Sidebar&gt;
+            <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>&lt;twig:Sidebar variant="inline" collapsible="offcanvas"&gt;
     &lt;twig:SidebarHeader&gt;...&lt;/twig:SidebarHeader&gt;
     &lt;twig:SidebarContent&gt;
         &lt;twig:SidebarGroup&gt;
@@ -182,7 +227,7 @@
             &lt;twig:SidebarGroupContent&gt;
                 &lt;twig:SidebarMenu&gt;
                     &lt;twig:SidebarMenuItem&gt;
-                        &lt;twig:SidebarMenuButton href="..."&gt;
+                        &lt;twig:SidebarMenuButton href="..." :active="true"&gt;
                             ...
                         &lt;/twig:SidebarMenuButton&gt;
                     &lt;/twig:SidebarMenuItem&gt;
@@ -191,7 +236,11 @@
         &lt;/twig:SidebarGroup&gt;
     &lt;/twig:SidebarContent&gt;
     &lt;twig:SidebarFooter&gt;...&lt;/twig:SidebarFooter&gt;
-&lt;/twig:Sidebar&gt;</code></pre>
+&lt;/twig:Sidebar&gt;
+&lt;twig:SidebarInset&gt;
+    &lt;twig:SidebarTrigger /&gt;
+    Main content
+&lt;/twig:SidebarInset&gt;</code></pre>
         </section>
     </section>
 </div>

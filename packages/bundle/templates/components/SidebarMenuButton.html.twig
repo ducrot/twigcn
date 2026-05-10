@@ -1,10 +1,12 @@
+{% set tag = href ? 'a' : 'button' %}
 {% set button_content %}{% block content %}{% endblock %}{% endset %}
-{% if href %}
-<a href="{{ href }}" class="{{ this.buttonClasses }}" {{ attributes }}>
+<{{ tag }}
+    {% if href %}href="{{ href }}"{% else %}type="button"{% endif %}
+    data-slot="sidebar-menu-button"
+    data-size="{{ size }}"
+    {% if active %}data-active="true" aria-current="page"{% endif %}
+    class="{{ this.buttonClasses }}"
+    {{ attributes }}
+>
     {{- button_content -}}
-</a>
-{% else %}
-<button type="button" class="{{ this.buttonClasses }}" {{ attributes }}>
-    {{- button_content -}}
-</button>
-{% endif %}
+</{{ tag }}>

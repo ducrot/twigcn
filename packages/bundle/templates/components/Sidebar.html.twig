@@ -1,8 +1,16 @@
 <aside
     data-controller="sidebar"
-    data-sidebar-collapsible-value="{{ collapsible ? 'true' : 'false' }}"
+    data-sidebar-collapsible-value="{{ collapsible }}"
+    data-slot="sidebar"
+    data-side="{{ side }}"
+    data-variant="{{ variant }}"
+    data-collapsible="{{ collapsible }}"
+    data-state="{{ this.initialState }}"
+    aria-hidden="{{ this.initialState == 'collapsed' ? 'true' : 'false' }}"
     class="{{ this.sidebarClasses }}"
     {{ attributes }}
 >
-    {% block content %}{% endblock %}
+    <nav>
+        {% block content %}{% endblock %}
+    </nav>
 </aside>

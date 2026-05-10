@@ -1,0 +1,15 @@
+<button
+    type="button"
+    data-controller="sidebar-trigger"
+    data-sidebar-trigger-sidebar-outlet="{{ for }}"
+    data-action="click->sidebar-trigger#toggle"
+    data-slot="sidebar-trigger"
+    aria-label="Toggle Sidebar"
+    class="{{ this.triggerClasses }}"
+    {{ attributes }}
+>
+    {% block content %}
+        <twig:ux:icon name="lucide:panel-left" class="size-4" />
+        <span class="sr-only">Toggle Sidebar</span>
+    {% endblock %}
+</button>

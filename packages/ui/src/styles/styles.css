@@ -1036,7 +1036,7 @@
         > [role=group] {
           @apply relative flex w-full min-w-0 flex-col p-2;
         }
-        h3 {
+        [data-slot=sidebar-group-label] {
           @apply text-sidebar-foreground/70 ring-sidebar-ring flex h-8 shrink-0 items-center rounded-md px-2 text-xs font-medium outline-hidden transition-[margin,opacity] duration-200 ease-linear focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0;
         }
         ul {
@@ -1092,6 +1092,43 @@
         }
       }
     }
+
+    /* Inline variant for embedded showcases / demos: no fixed positioning */
+    &[data-variant=inline] {
+      @apply relative h-full w-(--sidebar-width) shrink-0;
+      &:not([data-sidebar-initialized]) {
+        @apply max-md:hidden;
+      }
+      &:not([aria-hidden]),
+      &[aria-hidden=false] {
+        @apply max-md:bg-transparent max-md:relative max-md:inset-auto max-md:z-auto;
+      }
+      nav {
+        @apply relative inset-auto translate-x-0 w-full h-full;
+      }
+      & + * {
+        @apply ml-0 mr-0;
+      }
+      &[data-state=collapsed][data-collapsible=offcanvas] {
+        @apply w-0;
+        nav { @apply hidden; }
+      }
+    }
+  }
+
+  /* Sidebar Trigger */
+  .sidebar-trigger {
+    @apply inline-flex items-center justify-center size-7 rounded-md text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 focus-visible:ring-sidebar-ring outline-none transition-colors;
+  }
+
+  /* Sidebar Inset (main content next to sidebar) */
+  .sidebar-inset {
+    @apply relative flex min-h-0 flex-1 flex-col bg-background;
+  }
+
+  /* Sidebar Separator */
+  .sidebar-separator {
+    @apply border-sidebar-border mx-2 w-auto border-t-0 border-b;
   }
 }
 
