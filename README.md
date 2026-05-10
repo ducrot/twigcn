@@ -23,7 +23,7 @@ pull requests belong here**, in `ducrot/twigcn`.
 
 - PHP 8.2+
 - Symfony 7.0+
-- Node.js 20+
+- Node.js 22+
 - Tailwind CSS 4.0+
 
 ## Quick Start

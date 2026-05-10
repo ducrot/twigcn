@@ -6,7 +6,7 @@ webserver_type: nginx-fpm
 database:
   type: mariadb
   version: "10.11"
-nodejs_version: "22"
+nodejs_version: "24"
 composer_root: packages/demo
 omit_containers: [db]
 

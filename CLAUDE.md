@@ -62,5 +62,5 @@ Components use Symfony UX TwigComponent with `#[AsTwigComponent]` attribute. Tem
 
 ## Requirements
 - PHP 8.2+, Symfony 7.0+
-- Node.js 20+, Tailwind CSS 4.0+
+- Node.js 22+, Tailwind CSS 4.0+
 - DDEV for local development environment

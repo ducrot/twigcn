@@ -12,7 +12,7 @@ Beautiful, accessible UI components for Symfony & Twig. Inspired by shadcn/ui, b
 
 - PHP 8.2+
 - Symfony 7.0+
-- Node.js 20+ (for asset compilation)
+- Node.js 22+ (for asset compilation)
 - Tailwind CSS 4.0+
 
 ## Installation
