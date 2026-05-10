@@ -1,6 +1,16 @@
 # @ducrot/twigcn-ui
 
-Stimulus controllers and CSS styles for [TwigcnBundle](https://github.com/ducrot/twigcn).
+Stimulus controllers and CSS styles for **TwigcnBundle**.
+
+> **Designed as a companion** to the Symfony bundle
+> [`ducrot/twigcn-bundle`](https://packagist.org/packages/ducrot/twigcn-bundle).
+> The styles are tuned to the bundle's Twig templates and the controllers
+> target the data attributes those templates emit — using this package
+> without the bundle requires writing your own Twig markup that mirrors
+> those conventions.
+>
+> Source code, issues and pull requests live in the monorepo
+> [`ducrot/twigcn`](https://github.com/ducrot/twigcn).
 
 ## Installation
 

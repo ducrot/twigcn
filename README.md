@@ -2,12 +2,22 @@
 
 UI components for Symfony & Twig, inspired by [shadcn/ui](https://ui.shadcn.com/) and [Basecoat](https://basecoat.dev/).
 
+This repository is the development hub. It is a monorepo containing the
+Symfony bundle, its JS/CSS companion package, and a demo app. The two
+distributable packages are published from here to their respective
+registries.
+
 ## Packages
 
-| Package | Description |
-|---------|-------------|
-| [`ducrot/twigcn-bundle`](packages/bundle) | Symfony bundle with Twig components |
-| [`@ducrot/twigcn-ui`](packages/ui) | NPM package with Stimulus controllers & styles |
+| Package | Source | Install from |
+|---------|--------|--------------|
+| [`ducrot/twigcn-bundle`](packages/bundle) | `packages/bundle` | [Packagist](https://packagist.org/packages/ducrot/twigcn-bundle) |
+| [`@ducrot/twigcn-ui`](packages/ui) | `packages/ui` | [npm](https://www.npmjs.com/package/@ducrot/twigcn-ui) |
+
+`packages/bundle` is mirrored to the read-only repository
+[`ducrot/twigcn-bundle`](https://github.com/ducrot/twigcn-bundle) on every
+release tag — that mirror is what Packagist ships from. **All issues and
+pull requests belong here**, in `ducrot/twigcn`.
 
 ## Requirements
 
@@ -106,17 +116,19 @@ Visit `https://twigcn.ddev.site/showcase` to see all components in action.
 
 ## Components
 
-### Form
-Button, ButtonGroup, Checkbox, ChoiceCard, Combobox, CustomSelect, Field, Form, Input, InputGroup, Label, Radio, RadioGroup, Select, Slider, Switch, Textarea
+The authoritative component reference (form, layout, overlay, feedback —
+including sub-components and PHP/Twig naming notes) lives in the bundle
+README: [packages/bundle/README.md](packages/bundle/README.md#available-components).
 
-### Layout
-Accordion, Breadcrumb, Card, Pagination, Sidebar, Table, Tabs
+## Contributing
 
-### Overlay
-Command, Dialog, Drawer, DropdownMenu, Popover, Tooltip
+Issues, feature requests and pull requests belong in this repository:
+<https://github.com/ducrot/twigcn/issues>. The subsplit
+[`ducrot/twigcn-bundle`](https://github.com/ducrot/twigcn-bundle) is
+read-only and its Issues/PRs are intentionally disabled.
 
-### Feedback
-Alert, Avatar, Badge, Carousel, Empty, Item, Kbd, Progress, Skeleton, Spinner, ThemeSwitcher, Toast / Toaster
+Releases are documented in [CHANGELOG.md](CHANGELOG.md); the release
+process itself is described in [RELEASING.md](RELEASING.md).
 
 ## License
 

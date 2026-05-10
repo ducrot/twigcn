@@ -1,5 +1,11 @@
 # TwigcnBundle
 
+> **Read-only mirror.** This repository is a subtree split of
+> [`ducrot/twigcn`](https://github.com/ducrot/twigcn) and exists so
+> Composer/Packagist can ship the bundle. Issues and pull requests are
+> intentionally disabled here — please open them in the
+> [main repository](https://github.com/ducrot/twigcn/issues).
+
 Beautiful, accessible UI components for Symfony & Twig. Inspired by shadcn/ui, built for Symfony.
 
 ## Requirements
@@ -279,6 +285,13 @@ Or manually:
 ```javascript
 document.documentElement.classList.toggle('dark');
 ```
+
+## Contributing & Issues
+
+Development happens in [`ducrot/twigcn`](https://github.com/ducrot/twigcn).
+Open issues at <https://github.com/ducrot/twigcn/issues> and pull requests
+against the same repo. Release notes are tracked in the monorepo's
+[CHANGELOG](https://github.com/ducrot/twigcn/blob/main/CHANGELOG.md).
 
 ## License
 

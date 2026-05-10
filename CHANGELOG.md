@@ -14,6 +14,12 @@ same version. A single tag `vX.Y.Z` releases both packages.
 
 ### Changed
 
+- Clarified the role of each README across the three audiences (monorepo,
+  Packagist, npm). The bundle and ui READMEs now point back to the
+  `ducrot/twigcn` monorepo for issues and pull requests; the root README
+  explains the monorepo layout and defers component documentation to the
+  bundle README.
+
 ### Deprecated
 
 ### Removed
