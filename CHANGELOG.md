@@ -14,6 +14,14 @@ same version. A single tag `vX.Y.Z` releases both packages.
 
 ### Changed
 
+- Bumped `vitest` and `@vitest/coverage-v8` from `^3` to `^4` (4.1.5).
+  Replaced the `@testing-library/jest-dom/vitest` import in
+  `packages/ui/tests/setup.ts` with an explicit `expect.extend` over
+  `@testing-library/jest-dom/matchers`, so vitest no longer needs to
+  resolve from the hoisted `node_modules/@testing-library/jest-dom/`
+  location — under v4's restructured dep tree npm nests vitest in
+  `packages/ui/node_modules/`.
+
 ### Deprecated
 
 ### Removed

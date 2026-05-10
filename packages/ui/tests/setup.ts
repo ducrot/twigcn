@@ -1,6 +1,8 @@
-import '@testing-library/jest-dom/vitest';
-import { afterEach } from 'vitest';
+import { afterEach, expect } from 'vitest';
+import * as matchers from '@testing-library/jest-dom/matchers';
 import { stopAllStimulus } from './helpers';
+
+expect.extend(matchers);
 
 if (!window.matchMedia) {
     window.matchMedia = (query: string): MediaQueryList =>
