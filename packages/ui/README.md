@@ -1,5 +1,10 @@
 # @ducrot/twigcn-ui
 
+[![CI](https://img.shields.io/github/actions/workflow/status/ducrot/twigcn/tests.yml?branch=main&label=CI&logo=github)](https://github.com/ducrot/twigcn/actions/workflows/tests.yml)
+[![npm](https://img.shields.io/npm/v/@ducrot/twigcn-ui.svg?label=npm)](https://www.npmjs.com/package/@ducrot/twigcn-ui)
+[![Node](https://img.shields.io/node/v/@ducrot/twigcn-ui.svg)](package.json)
+[![License](https://img.shields.io/npm/l/@ducrot/twigcn-ui.svg)](LICENSE)
+
 Stimulus controllers and CSS styles for **TwigcnBundle**.
 
 > **Designed as a companion** to the Symfony bundle

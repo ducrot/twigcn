@@ -1,5 +1,12 @@
 # TwigcnBundle
 
+[![CI](https://img.shields.io/github/actions/workflow/status/ducrot/twigcn/tests.yml?branch=main&label=CI&logo=github)](https://github.com/ducrot/twigcn/actions/workflows/tests.yml)
+[![Packagist](https://img.shields.io/packagist/v/ducrot/twigcn-bundle.svg?label=packagist)](https://packagist.org/packages/ducrot/twigcn-bundle)
+[![npm](https://img.shields.io/npm/v/@ducrot/twigcn-ui.svg?label=npm)](https://www.npmjs.com/package/@ducrot/twigcn-ui)
+[![PHP](https://img.shields.io/packagist/php-v/ducrot/twigcn-bundle.svg)](composer.json)
+[![Node](https://img.shields.io/node/v/@ducrot/twigcn-ui.svg)](packages/ui/package.json)
+[![License](https://img.shields.io/github/license/ducrot/twigcn.svg)](LICENSE)
+
 UI components for Symfony & Twig, inspired by [shadcn/ui](https://ui.shadcn.com/) and [Basecoat](https://basecoat.dev/).
 
 This repository is the development hub. It is a monorepo containing the

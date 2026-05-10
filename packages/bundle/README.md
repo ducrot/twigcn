@@ -1,5 +1,10 @@
 # TwigcnBundle
 
+[![CI](https://img.shields.io/github/actions/workflow/status/ducrot/twigcn/tests.yml?branch=main&label=CI&logo=github)](https://github.com/ducrot/twigcn/actions/workflows/tests.yml)
+[![Packagist](https://img.shields.io/packagist/v/ducrot/twigcn-bundle.svg?label=packagist)](https://packagist.org/packages/ducrot/twigcn-bundle)
+[![PHP](https://img.shields.io/packagist/php-v/ducrot/twigcn-bundle.svg)](composer.json)
+[![License](https://img.shields.io/packagist/l/ducrot/twigcn-bundle.svg)](LICENSE)
+
 > **Read-only mirror.** This repository is a subtree split of
 > [`ducrot/twigcn`](https://github.com/ducrot/twigcn) and exists so
 > Composer/Packagist can ship the bundle. Issues and pull requests are
