@@ -33,66 +33,14 @@ pull requests belong here**, in `ducrot/twigcn`.
 - Node.js 22+
 - Tailwind CSS 4.0+
 
-## Quick Start
+## Getting Started
 
-### 1. Install the PHP Bundle
+Installation, asset-pipeline options (AssetMapper + Tailwind CLI, or Vite
+via `pentatrion/vite-bundle`), Stimulus registration, theming and the full
+component reference live in the [bundle README](packages/bundle/README.md).
 
-```bash
-composer require ducrot/twigcn-bundle
-```
-
-### 2. Install the NPM Package
-
-```bash
-npm install @ducrot/twigcn-ui
-```
-
-### 3. Configure Your CSS
-
-```css
-@import "tailwindcss";
-@import "@ducrot/twigcn-ui/styles";
-
-/* Scan bundle templates for Tailwind classes */
-@source "../vendor/ducrot/twigcn-bundle/templates";
-```
-
-### 4. Register Stimulus Controllers
-
-```typescript
-import { Application } from '@hotwired/stimulus';
-import { registerControllers } from '@ducrot/twigcn-ui';
-
-const app = Application.start();
-registerControllers(app);
-```
-
-### 5. Use Components
-
-Components from a bundle are namespaced under `Twigcn:` in Twig:
-
-```twig
-<twig:Twigcn:Button variant="primary">Click me</twig:Twigcn:Button>
-
-<twig:Twigcn:Button onclick="document.getElementById('my-dialog').showModal()">
-    Open Dialog
-</twig:Twigcn:Button>
-
-<twig:Twigcn:Dialog id="my-dialog">
-    <header>
-        <h2>Dialog Title</h2>
-        <p>Dialog content here.</p>
-    </header>
-    <footer>
-        <twig:Twigcn:Button variant="outline" onclick="document.getElementById('my-dialog').close()">
-            Cancel
-        </twig:Twigcn:Button>
-        <twig:Twigcn:Button onclick="document.getElementById('my-dialog').close()">
-            Confirm
-        </twig:Twigcn:Button>
-    </footer>
-</twig:Twigcn:Dialog>
-```
+The [demo app](packages/demo) under `packages/demo` is a working reference
+of the Vite-based setup.
 
 ## Development
 
@@ -120,12 +68,6 @@ ddev npm run dev
 ### Demo App
 
 Visit `https://twigcn.ddev.site/showcase` to see all components in action.
-
-## Components
-
-The authoritative component reference (form, layout, overlay, feedback —
-including sub-components and PHP/Twig naming notes) lives in the bundle
-README: [packages/bundle/README.md](packages/bundle/README.md#available-components).
 
 ## Contributing
 

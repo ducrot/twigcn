@@ -27,17 +27,43 @@ npm install @ducrot/twigcn-ui
 
 ### Styles
 
+Tailwind 4 entry point (typically `tailwind.css` at the project root, kept
+outside of `assets/` so AssetMapper does not serve the source file):
+
 ```css
 @import "tailwindcss";
 @import "@ducrot/twigcn-ui/styles";
 
 /* Scan bundle templates for Tailwind classes */
 @source "../vendor/ducrot/twigcn-bundle/templates";
+
+/* Scan your own templates */
+@source "./templates/**/*.html.twig";
+```
+
+Compile to the stylesheet your asset pipeline serves — neither AssetMapper
+nor classic Symfony serves Tailwind directives unprocessed:
+
+```bash
+npx @tailwindcss/cli -i tailwind.css -o assets/styles/app.css --watch
 ```
 
 ### Controllers
 
 **Option A: Register All Controllers**
+
+For Symfony projects that use StimulusBundle (the default in the `webapp`
+recipe):
+
+```javascript
+import { startStimulusApp } from '@symfony/stimulus-bundle';
+import { registerControllers } from '@ducrot/twigcn-ui';
+
+const app = startStimulusApp();
+registerControllers(app);
+```
+
+For custom Stimulus setups without StimulusBundle:
 
 ```typescript
 import { Application } from '@hotwired/stimulus';

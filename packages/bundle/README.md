@@ -36,9 +36,21 @@ The bundle registers automatically via Symfony Flex.
 npm install @ducrot/twigcn-ui
 ```
 
+If your project uses **AssetMapper** (the Symfony 7.x `webapp` default), also
+expose the package to the importmap so it can be imported from JavaScript:
+
+```bash
+php bin/console importmap:require @ducrot/twigcn-ui
+```
+
+Webpack Encore projects pick up `node_modules` automatically and do not need
+this step.
+
 ### Step 3: Configure Your CSS
 
-Update your main CSS file (e.g., `assets/styles/app.css`):
+Tailwind processes a source file into a static stylesheet. Keep the source
+out of `assets/` (so AssetMapper does not also serve it raw) — for example
+`tailwind.css` at the project root:
 
 ```css
 @import "tailwindcss";
@@ -47,6 +59,9 @@ Update your main CSS file (e.g., `assets/styles/app.css`):
 /* IMPORTANT: Scan bundle templates for Tailwind classes */
 @source "../vendor/ducrot/twigcn-bundle/templates";
 
+/* Scan your own templates */
+@source "./templates/**/*.html.twig";
+
 /* Optional: Override theme variables */
 :root {
     --primary: #6b5fc3;
@@ -54,6 +69,16 @@ Update your main CSS file (e.g., `assets/styles/app.css`):
     --radius: 0.5rem;
 }
 ```
+
+Then build with the Tailwind CLI (Symfony does not bundle CSS itself):
+
+```bash
+npx @tailwindcss/cli -i tailwind.css -o assets/styles/app.css --watch
+```
+
+The compiled output at `assets/styles/app.css` is what AssetMapper or Encore
+serves. Re-run the build whenever templates or styles change (or use
+`--watch` during development).
 
 ### Step 4: Register Stimulus Controllers
 
@@ -86,14 +111,115 @@ Create or update `assets/controllers.json`:
 
 **Option B: Manual Registration**
 
+In a Symfony project that uses StimulusBundle (the default in the `webapp`
+recipe), register the controllers on the existing Stimulus application from
+`assets/bootstrap.js` (or `assets/stimulus_bootstrap.js`) — do not start a
+second one:
+
+```javascript
+import { startStimulusApp } from '@symfony/stimulus-bundle';
+import { registerControllers } from '@ducrot/twigcn-ui';
+
+const app = startStimulusApp();
+registerControllers(app);
+```
+
+For non-Symfony or fully custom Stimulus setups (e.g. Webpack Encore without
+StimulusBundle):
+
 ```typescript
-// assets/bootstrap.ts
 import { Application } from '@hotwired/stimulus';
 import { registerControllers } from '@ducrot/twigcn-ui';
 
 const app = Application.start();
 registerControllers(app);
 ```
+
+### Alternative: Vite via `pentatrion/vite-bundle`
+
+For projects that prefer a real bundler (recommended for Tailwind + TypeScript
++ Stimulus), use [`pentatrion/vite-bundle`][p-vite] together with
+[`vite-plugin-symfony`][vp-symfony] and `@tailwindcss/vite`. This is the setup
+the [demo app](../demo) in this repository uses. Vite replaces both the
+Tailwind CLI build (Tailwind 4 runs as a Vite plugin) and the StimulusBundle
+controller registration (`vite-plugin-symfony` provides its own Stimulus
+integration).
+
+[p-vite]: https://github.com/lhapaipai/vite-bundle
+[vp-symfony]: https://github.com/lhapaipai/vite-plugin-symfony
+
+Install (replaces Steps 2–4 above):
+
+```bash
+composer require pentatrion/vite-bundle ducrot/twigcn-bundle
+npm install @ducrot/twigcn-ui
+npm install --save-dev vite vite-plugin-symfony @tailwindcss/vite tailwindcss
+```
+
+`vite.config.ts`:
+
+```ts
+import { defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
+import symfonyPlugin from 'vite-plugin-symfony';
+import { resolve } from 'path';
+
+export default defineConfig({
+    plugins: [
+        symfonyPlugin({ stimulus: true }),
+        tailwindcss(),
+    ],
+    publicDir: false,
+    build: {
+        manifest: true,
+        outDir: 'public/build',
+        rollupOptions: {
+            input: { app: resolve(__dirname, 'assets/app.ts') },
+        },
+    },
+});
+```
+
+`assets/app.ts`:
+
+```ts
+import './app.css';
+
+import { Application } from '@hotwired/stimulus';
+import { registerControllers } from '@ducrot/twigcn-ui';
+
+const app = Application.start();
+registerControllers(app);
+```
+
+`assets/app.css`:
+
+```css
+@import "tailwindcss";
+@import "@ducrot/twigcn-ui/styles";
+
+/* Scan bundle templates *and* PHP component classes for Tailwind classes —
+ * variant strings live in PHP, so the @source must include `src` too. */
+@source "../vendor/ducrot/twigcn-bundle/templates";
+@source "../vendor/ducrot/twigcn-bundle/src";
+@source "../templates";
+```
+
+In your base Twig template:
+
+```twig
+{% block stylesheets %}
+    {{ vite_entry_link_tags('app') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ vite_entry_script_tags('app') }}
+{% endblock %}
+```
+
+Then `npm run dev` for HMR or `npm run build` for production. The bundle's
+[`config/packages/pentatrion_vite.yaml`](../demo/config/packages/pentatrion_vite.yaml)
+in the demo shows the minimal Symfony-side configuration.
 
 ## Usage
 
