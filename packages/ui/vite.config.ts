@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
-import dts from 'vite-plugin-dts';
+import dts from 'unplugin-dts/vite';
 
 export default defineConfig({
     build: {
@@ -42,6 +42,8 @@ export default defineConfig({
         dts({
             include: ['src/**/*.ts'],
             outDir: 'dist',
+            entryRoot: 'src',
+            tsconfigPath: './tsconfig.json',
         }),
     ],
 });
