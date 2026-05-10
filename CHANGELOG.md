@@ -14,14 +14,6 @@ same version. A single tag `vX.Y.Z` releases both packages.
 
 ### Changed
 
-- Bumped `vitest` and `@vitest/coverage-v8` from `^3` to `^4` (4.1.5).
-  Replaced the `@testing-library/jest-dom/vitest` import in
-  `packages/ui/tests/setup.ts` with an explicit `expect.extend` over
-  `@testing-library/jest-dom/matchers`, so vitest no longer needs to
-  resolve from the hoisted `node_modules/@testing-library/jest-dom/`
-  location — under v4's restructured dep tree npm nests vitest in
-  `packages/ui/node_modules/`.
-
 ### Deprecated
 
 ### Removed
@@ -29,6 +21,25 @@ same version. A single tag `vX.Y.Z` releases both packages.
 ### Fixed
 
 ### Security
+
+## [1.0.2] - 2026-05-10
+
+### Changed
+
+- Bumped `vitest` and `@vitest/coverage-v8` from `^3` to `^4` (4.1.5).
+  Replaced the `@testing-library/jest-dom/vitest` import in
+  `packages/ui/tests/setup.ts` with an explicit `expect.extend` over
+  `@testing-library/jest-dom/matchers`, so vitest no longer needs to
+  resolve from the hoisted `node_modules/@testing-library/jest-dom/`
+  location — under v4's restructured dep tree npm nests vitest in
+  `packages/ui/node_modules/`.
+- Bumped `typescript` from `^5.7.3` to `^6.0.0` in the root and `ui`
+  workspaces.
+- Bumped `vite` from `^6.0.11` to `^8.0.0`.
+- Migrated `.d.ts` generation from `vite-plugin-dts` to `unplugin-dts`.
+  `vite-plugin-dts` 5.0 became a thin wrapper around `unplugin-dts`, and
+  upstream recommends using the latter directly. `entryRoot` and
+  `tsconfigPath` are now passed explicitly to keep `dist/` paths stable.
 
 ## [1.0.1] - 2026-05-10
 
@@ -94,6 +105,7 @@ same version. A single tag `vX.Y.Z` releases both packages.
 - Tailwind CSS 4 design system with dark-mode support via `.dark` on
   `<html>`.
 
-[Unreleased]: https://github.com/ducrot/twigcn/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/ducrot/twigcn/compare/v1.0.2...HEAD
+[1.0.2]: https://github.com/ducrot/twigcn/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/ducrot/twigcn/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/ducrot/twigcn/releases/tag/v1.0.0
