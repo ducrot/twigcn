@@ -1,0 +1,60 @@
+name: Feature request
+description: Suggest a new component, prop, controller behaviour, or other improvement.
+title: "[Feature] "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting an improvement! Please describe the use case
+        first — what are you trying to achieve? — before proposing the
+        implementation. That helps us evaluate alternatives.
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      description: What does the request affect?
+      multiple: true
+      options:
+        - "New Twig component"
+        - "Existing Twig component (new prop, behaviour)"
+        - "New Stimulus controller"
+        - "Existing Stimulus controller"
+        - "Styling / design tokens"
+        - "Build / tooling / CI"
+        - "Documentation"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+      description: Describe the user-facing need, not the implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Optional. If you have a concrete API or design in mind, describe it.
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Optional. Other approaches you considered and why they didn't fit.
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: |
+        Links to similar implementations in shadcn/ui, Basecoat, or other
+        component libraries are very helpful.
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Confirmation
+      options:
+        - label: I searched existing issues and confirmed this is not a duplicate.
+          required: true
+        - label: I agree to follow the project's [Code of Conduct](https://github.com/ducrot/twigcn/blob/main/CODE_OF_CONDUCT.md).
+          required: true

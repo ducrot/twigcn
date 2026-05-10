@@ -1,0 +1,88 @@
+name: Bug report
+description: Something is not working as documented.
+title: "[Bug] "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug report. Please fill in as much
+        of the form as you can — incomplete reports may be closed and asked
+        to re-open with more detail.
+
+        For security issues, do not use this form — see
+        [SECURITY.md](https://github.com/ducrot/twigcn/blob/main/SECURITY.md).
+  - type: dropdown
+    id: package
+    attributes:
+      label: Affected package
+      description: Which package does the bug affect?
+      multiple: true
+      options:
+        - "ducrot/twigcn-bundle (Composer)"
+        - "@ducrot/twigcn-ui (npm)"
+        - "Demo app (packages/demo)"
+        - "Documentation"
+        - "CI / release pipeline"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Which version of the affected package(s) are you using?
+      placeholder: "e.g. 1.0.0"
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Relevant environment details.
+      placeholder: |
+        - PHP version: 8.3.x
+        - Symfony version: 7.x
+        - Node.js version: 24.x
+        - Browser (if relevant): Chrome 132
+        - OS: macOS 15
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: A clear and concise description of the bug.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: A minimal reproduction. A linked repository or gist is best.
+      placeholder: |
+        1. Render `<twig:Twigcn:Dialog />` with …
+        2. Click on …
+        3. Observe …
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / stack traces / browser console
+      description: Paste any relevant error output. Will be rendered as code.
+      render: shell
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Confirmation
+      options:
+        - label: I searched existing issues and confirmed this is not a duplicate.
+          required: true
+        - label: I agree to follow the project's [Code of Conduct](https://github.com/ducrot/twigcn/blob/main/CODE_OF_CONDUCT.md).
+          required: true
