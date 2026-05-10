@@ -22,6 +22,21 @@ same version. A single tag `vX.Y.Z` releases both packages.
 
 ### Security
 
+## [1.1.0] - 2026-05-10
+
+### Added
+
+- Sidebar overhaul: new `SidebarTrigger`, `SidebarInset`, and
+  `SidebarSeparator` subcomponents plus `sidebar` and `sidebar_trigger`
+  Stimulus controllers (toggle, Cmd/Ctrl+B shortcut, cookie-persisted
+  collapsed state read server-side so there is no FOUC). Sidebar
+  templates rewritten to semantic HTML with `data-slot` hooks so the
+  shipped CSS actually matches; `SidebarMenuButton` now emits
+  `aria-current="page"` / `data-active` and chooses `<a>` versus
+  `<button>` automatically. Fixes the broken Basic and Multiple Groups
+  showcase demos.
+- GitHub repository link in the demo app header.
+
 ## [1.0.2] - 2026-05-10
 
 ### Changed
@@ -105,7 +120,8 @@ same version. A single tag `vX.Y.Z` releases both packages.
 - Tailwind CSS 4 design system with dark-mode support via `.dark` on
   `<html>`.
 
-[Unreleased]: https://github.com/ducrot/twigcn/compare/v1.0.2...HEAD
+[Unreleased]: https://github.com/ducrot/twigcn/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/ducrot/twigcn/compare/v1.0.2...v1.1.0
 [1.0.2]: https://github.com/ducrot/twigcn/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/ducrot/twigcn/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/ducrot/twigcn/releases/tag/v1.0.0
