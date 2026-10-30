@@ -12,6 +12,11 @@ same version. A single tag `vX.Y.Z` releases both packages.
 
 ### Added
 
+- `packages/demo/Dockerfile` builds the static demo site with
+  `scripts/build-static.sh` (PHP and Node versions as in
+  `.ddev/config.yaml`) and serves it with unprivileged nginx on port
+  8080, so the demo can be self-hosted from the repository.
+
 ### Changed
 
 ### Deprecated
